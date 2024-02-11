@@ -19,11 +19,11 @@
                 ];
               };
             };
-            root = {
+            system = {
               size = "100%";
               content = {
                 type = "luks";
-                name = "crypted";
+                name = "system";
                 # disable settings.keyFile if you want to use interactive password entry
                 settings.allowDiscards = true;
                 passwordFile = "/tmp/secret.key"; # Interactive
