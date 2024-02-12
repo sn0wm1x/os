@@ -1,8 +1,8 @@
 # kwaa/nixos [WIP]
 
 ```bash
+# https://github.com/nix-community/disko/blob/master/docs/quickstart.md#step-4-copy-the-disk-configuration-to-your-machine
 cd /tmp
-
 curl https://raw.githubusercontent.com/kwaa/nixos/main/disko-config.nix -o /tmp/disko-config.nix
 openssl rand -base64 18 > /tmp/secret.key # generate random password
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko-config.nix
