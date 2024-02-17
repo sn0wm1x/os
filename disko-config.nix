@@ -28,12 +28,10 @@
                 settings.bypassWorkqueues = true;
                 settings.crypttabExtraOpts = [ "fido2-device=auto" "token-timeout=10" ];
                 # disable settings.keyFile if you want to use interactive password entry
-                passwordFile = "/tmp/secret.key"; # Interactive
-                # settings = {
-                #   allowDiscards = true;
-                #   keyFile = "/tmp/secret.key";
-                # };
+                # settings.keyFile = "/tmp/secret.key";
                 # additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
+                # systemd-cryptenroll --recovery-key
+                passwordFile = "/tmp/secret.key"; # Interactive
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
