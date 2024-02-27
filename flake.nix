@@ -1,5 +1,5 @@
 {
-  description = "藍's Nix Config (github:kwaa/nixos)";
+  description = "github.com/kwaa/nixos";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -7,7 +7,7 @@
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     
     # https://github.com/NixOS/nixos-hardware#using-nix-flakes-support
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     # https://github.com/nix-community/disko/blob/master/docs/HowTo.md#installing-nixos-module
     disko.url = "github:nix-community/disko";
@@ -33,7 +33,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.kwa = import ./home.nix;
+          home-manager.users.kwa = import ./users/kwa.nix;
         }
       ];
     };
