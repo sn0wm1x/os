@@ -55,6 +55,12 @@
   services.pipewire.alsa.support32Bit = true;
   services.pipewire.pulse.enable = true;
 
+  # gnome
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   users.mutableUsers = false;
   users.users = {
     root.initialPassword = "correcthorsebatterystaple";
