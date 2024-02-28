@@ -29,7 +29,7 @@
       modules = [
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
-        ./configuration.nix
+        ./hosts/bluestar/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

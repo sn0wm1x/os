@@ -31,8 +31,8 @@
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 2
-                  until mount -n -t vfat -o ro /dev/disk/by-id/${USBID} /key 2>&1 1>/dev/null; do
-                    echo 'Could not find /dev/disk/by-id/${USBID}, retrying...'
+                  until mount -n -t vfat -o ro /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1 /key 2>&1 1>/dev/null; do
+                    echo 'Could not find /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1, retrying...'
                     sleep 2
                   done
                 '';
