@@ -3,6 +3,9 @@
     ./hardware-configuration.nix
   ];
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -23,9 +26,7 @@
     };
   };
 
-  # Enable flakes and new 'nix' command
   nix.settings.experimental-features = "nix-command flakes";
-  # Deduplicate and optimize nix store
   nix.settings.auto-optimise-store = true;
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
@@ -41,11 +42,15 @@
     })
     config.nix.registry;
 
-  # FIXME: Add the rest of your current configuration
-
   networking.hostName = "bluestar";
 
-  boot.loader.systemd-boot.enable = true;
+  # https://nixos.wiki/wiki/PipeWire
+  sound.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
+  services.pipewire.alsa.support32Bit = true;
+  services.pipewire.pulse.enable = true;
 
   users.mutableUsers = false;
   users.users = {
@@ -62,9 +67,7 @@
   };
 
   services.openssh.enable = true;
-  # Forbid root login through SSH.
   services.openssh.settings.PermitRootLogin = "no";
-  # Use keys only. Remove if you want to SSH using password (not recommended)
   services.openssh.settings.PasswordAuthentication = false;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
