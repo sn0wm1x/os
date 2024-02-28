@@ -23,7 +23,7 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 
 ```bash
 cd /etc
-git clone https://github.com/kwaa/nixos.git
+sudo nix --experimental-features "nix-command flakes" run nixpkgs#git -- clone https://github.com/kwaa/nixos.git
 cd nixos
 NIX_CONFIG="experimental-features = nix-command flakes" sudo nixos-install --flake .#bluestar --no-root-passwd
 sudo chmod -v 755 /mnt/etc/nixos
