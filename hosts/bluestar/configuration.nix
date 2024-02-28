@@ -43,6 +43,9 @@
     config.nix.registry;
 
   networking.hostName = "bluestar";
+  networking.networkManager.enable = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
 
   # https://nixos.wiki/wiki/PipeWire
   sound.enable = false;
