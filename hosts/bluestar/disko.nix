@@ -69,7 +69,7 @@
       "/home/kwa" = {
         fsType = "tmpfs";
         mountOptions = [ "defaults" "size=2G" "mode=777" "noatime" ];
-      }
+      };
     };
   };
   fileSystems."/persist".neededForBoot = true;
