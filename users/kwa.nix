@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.impermanence.nixosModules.home-manager.impermanence];
+  imports = [];
   nixpkgs = {};
 
   programs.home-manager.enable = true;
