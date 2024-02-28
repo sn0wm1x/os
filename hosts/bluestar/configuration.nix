@@ -48,7 +48,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # https://nixos.wiki/wiki/PipeWire
-  sound.enable = false;
+  sound.enable = lib.mkForce false;
   security.rtkit.enable = true;
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
