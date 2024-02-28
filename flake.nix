@@ -25,10 +25,11 @@
     # nixos-rebuild switch --flake .#bluestar
     nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
+        ./configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
