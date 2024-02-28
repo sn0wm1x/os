@@ -43,7 +43,7 @@
     config.nix.registry;
 
   networking.hostName = "bluestar";
-  networking.networkManager.enable = true;
+  networking.networkmanager.enable = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
 
