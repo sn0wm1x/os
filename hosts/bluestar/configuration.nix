@@ -47,7 +47,7 @@
 
   i18n.defaultLocale = "zh_CN.UTF-8";
   fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     sarasa-gothic
     source-code-pro
