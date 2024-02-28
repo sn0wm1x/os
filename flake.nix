@@ -30,6 +30,8 @@
         disko.nixosModules.disko
         impermanence.nixosModules.impermanence
         ./hosts/bluestar/configuration.nix
+        ./hosts/bluestar/disko.nix
+        ./hosts/bluestar/impermanence.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
