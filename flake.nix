@@ -21,7 +21,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, disko, impermanence, home-manager, ... }: {
     # nixos-rebuild switch --flake .#bluestar
     nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
