@@ -45,7 +45,18 @@
   networking.hostName = "bluestar";
   networking.networkmanager.enable = true;
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "zh_CN.UTF-8";
+  fonts.fontDir.enable = true;
+  fonts.fonts = with pkgs; [
+    noto-fonts
+    sarasa-gothic
+    source-code-pro
+  ];
+
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [
+    fcitx5-chinese-addons
+  ];
 
   # https://nixos.wiki/wiki/PipeWire
   sound.enable = lib.mkForce false;
