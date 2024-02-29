@@ -32,7 +32,7 @@
                 # https://github.com/reo101/rix101/blob/a6efd4146bbe0c7fb44343225b9dbf9585472597/machines/nixos/x86_64-linux/jeeves/disko.nix#L94-L107
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
-                  sleep 2
+                  sleep 5
                   until mount -n -t vfat -o ro /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1 /key 2>&1 1>/dev/null; do
                     echo 'Could not find /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1, retrying...'
                     sleep 2
