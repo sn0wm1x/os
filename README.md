@@ -34,3 +34,15 @@ reboot
 
 - https://github.com/nix-community/disko/blob/master/docs/quickstart.md
 - https://github.com/Misterio77/nix-starter-configs/tree/main/minimal
+
+## Platforms
+
+### NixOS
+
+- [x] NixOS
+- [ ] [Mobile NixOS](https://github.com/NixOS/mobile-nixos) (maybe)
+- [ ] [NixOS on WSL2](https://github.com/nix-community/NixOS-WSL) (maybe)
+
+### Nix
+
+- [ ] [Nix on Droid](https://github.com/nix-community/nix-on-droid) (maybe)
