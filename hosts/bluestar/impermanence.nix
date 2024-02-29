@@ -16,4 +16,5 @@
       "/etc/machine-id"
     ];
   };
+  programs.fuse.userAllowOther = true;
 }
