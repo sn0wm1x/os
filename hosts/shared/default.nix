@@ -1,5 +1,6 @@
 { lib, pkgs, ... }: {
   imports = [
+    ./fonts.nix
     ./gpg.nix
     ./locale.nix
     ./nix.nix
