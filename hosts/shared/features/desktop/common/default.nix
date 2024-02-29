@@ -2,7 +2,7 @@
   imports = [
     ./fcitx5.nix
     ./pipewire.nix
-    ./vscode.nix
+    # ./vscode.nix
   ];
 
   environment.systemPackages = with pkgs; [
