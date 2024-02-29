@@ -21,10 +21,6 @@
       "Pictures"
       "Documents"
       "Videos"
-      ".gnupg"
-      ".ssh"
-      ".nixops"
-      ".local"
     ];
     allowOther = true;
   };
