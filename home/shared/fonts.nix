@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   # https://nixos.wiki/wiki/Fonts
   # fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [

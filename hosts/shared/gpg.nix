@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   # https://nixos.wiki/wiki/Yubikey
   services.udev.packages = with pkgs; [ yubikey-personalization ];
 
