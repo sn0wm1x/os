@@ -19,6 +19,9 @@
     # https://nix-community.github.io/home-manager/#ch-nix-flakes
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    # https://github.com/hercules-ci/flake-parts#migrate
+    # flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs = inputs@{ nixpkgs, disko, impermanence, home-manager, ... }: {
@@ -27,11 +30,7 @@
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
       modules = [
-        disko.nixosModules.disko
-        impermanence.nixosModules.impermanence
-        ./hosts/bluestar/configuration.nix
-        ./hosts/bluestar/disko.nix
-        ./hosts/bluestar/impermanence.nix
+        ./hosts/bluestar
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

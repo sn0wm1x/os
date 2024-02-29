@@ -1,5 +1,7 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
+    ./disko.nix
+    ./impermanence.nix
     ./hardware-configuration.nix
   ];
 
