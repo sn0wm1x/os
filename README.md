@@ -32,6 +32,12 @@ sudo chmod -v 755 /mnt/etc/nixos
 reboot
 ```
 
+###### Rebuild
+
+```bash
+sudo nixos-rebuild switch --flake .#bluestar
+```
+
 ## Useful links
 
 - https://github.com/nix-community/disko/blob/master/docs/quickstart.md
