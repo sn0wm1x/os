@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   imports = [
     ./fcitx5.nix
-    ./github-desktop.nix
     ./pipewire.nix
     ./vscode.nix
   ];
