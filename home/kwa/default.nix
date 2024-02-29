@@ -28,5 +28,4 @@
     ];
     allowOther = true;
   };
-  programs.fuse.userAllowOther = true;
 }
