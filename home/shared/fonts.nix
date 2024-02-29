@@ -33,5 +33,5 @@
       "Noto Color Emoji"
       "Noto Emoji"
     ];
-  }
+  };
 }
