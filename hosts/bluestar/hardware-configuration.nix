@@ -1,5 +1,4 @@
 { config, inputs, lib, ... }: {
-  # imports = [ (modulesPath = "/installer/scan/not-detected.nix") ];
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
     common-gpu-intel

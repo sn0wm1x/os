@@ -24,7 +24,7 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ nixpkgs, disko, impermanence, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, impermanence, home-manager, ... }: {
     # nixos-rebuild switch --flake .#bluestar
     nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -35,7 +35,8 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.kwa = import ./users/kwa.nix;
+          home-manager.sharedModules = [impermanence.nixosModules.home-manager.impermanence];
+          home-manager.users.kwa = import ./home/kwa;
         }
       ];
     };
