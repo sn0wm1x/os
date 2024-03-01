@@ -8,5 +8,6 @@
   environment.systemPackages = with pkgs; [
     github-desktop
     telegram-desktop
+    google-chrome
   ];
 }
