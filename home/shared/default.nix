@@ -1,7 +1,5 @@
-{ outputs, inputs, lib, config, pkgs, ... }: {
-  imports = [
-    # ./fonts.nix
-  ];
+{ lib, pkgs, ... }: {
+  imports = [];
 
   programs.home-manager.enable = true;
 
