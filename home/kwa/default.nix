@@ -1,11 +1,5 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
 {
-  inputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ../shared
     ../shared/features/cli
@@ -21,6 +15,7 @@
       "Pictures"
       "Documents"
       "Videos"
+      ".nixos"
     ];
     allowOther = true;
   };
