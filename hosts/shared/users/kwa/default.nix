@@ -4,8 +4,7 @@
     # FIXME: update password
     initialPassword = "correcthorsebatterystaple";
     isNormalUser = true;
-    # TODO: enable this
-    # shell = pkgs.nushell;
+    shell = pkgs.nushell;
     extraGroups = [
       "wheel"
       "video"
