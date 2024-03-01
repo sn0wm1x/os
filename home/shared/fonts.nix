@@ -27,7 +27,7 @@
       "Noto Emoji"
     ];
     monospace= [
-      "Monaspace Neon"
+      "MonaspiceNe Nerd Font Mono"
       "Noto Sans Mono"
       "Noto Sans Mono CJK SC"
       "Noto Color Emoji"
