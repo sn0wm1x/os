@@ -3,6 +3,7 @@
   imports = [
     ./btop.nix
     ./git.nix
+    ./nushell.nix
   ];
   # home.packages = with pkgs; [
     # eza # Better ls
