@@ -1,4 +1,4 @@
-{ config, inputs, lib, ... }: {
+{ config, inputs, lib, pkgs, ... }: {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
     common-gpu-intel
@@ -9,6 +9,7 @@
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ "uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1" ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   # boot.extraModprobeConfig = "options kvm_intel nested=1";
   boot.extraModulePackages = [ ];
 
