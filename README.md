@@ -13,6 +13,10 @@
   - GNOME 45+, PaperWM
   - niri (TODO)
 - Nushell + Starship + carapace
+- VR (TODO)
+  - ALVR
+  - Immersed
+- Gaming (TODO)
 
 <!-- ## Usage
 
