@@ -3,6 +3,7 @@
   imports = [
     ../shared
     ../shared/features/cli
+    ../shared/features/desktop
   ];
 
   home.username = "kwa";

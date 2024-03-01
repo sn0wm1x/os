@@ -9,10 +9,16 @@
     gnome.dconf-editor
     gnome.gnome-shell-extensions
     gnome.gnome-tweaks
-    gnomeExtensions.gsconnect
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.paperwm
+    # 功能
     gnomeExtensions.vitals
+    gnomeExtensions.gsconnect
+    #
+    gnomeExtensions.paperwm
     gnomeExtensions.dash-to-dock
+    # 外观
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.just-perfection
+    gnomeExtensions.rounded-window-corners
+    gnomeExtensions.gnome-40-ui-improvements
   ];
 }
