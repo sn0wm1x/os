@@ -9,7 +9,7 @@
 - Disko + Impermanence
   - 基于 USB 密钥文件的 LUKS2 全盘加密
   - Btrfs, 强制 zstd:1 压缩，文件去重
-- Wayland 桌面
+- Wayland GTK 桌面
   - GNOME 45+, PaperWM
   - niri (TODO)
 - Nushell + Starship + carapace
