@@ -15,7 +15,9 @@
     #
     gnomeExtensions.paperwm
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.quick-settings-tweaker
     # 外观
+    gnomeExtensions.user-themes
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
     gnomeExtensions.rounded-window-corners
