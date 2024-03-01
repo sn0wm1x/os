@@ -28,14 +28,18 @@ cd /etc
 sudo nix --experimental-features "nix-command flakes" run nixpkgs#git -- clone https://github.com/kwaa/nixos.git
 cd nixos
 NIX_CONFIG="experimental-features = nix-command flakes" sudo nixos-install --flake .#bluestar --no-root-passwd
-sudo chmod -v 755 /mnt/etc/nixos
+# sudo chmod -v 755 /mnt/etc/nixos
 reboot
 ```
 
-###### Rebuild
+###### Move & Rebuild
 
 ```bash
+# https://nixos.wiki/wiki/NixOS_configuration_editors#Editing_as_normal_user
+cd ~
+git clone https://github.com/kwaa/nixos.git .nixos
 sudo nixos-rebuild switch --flake .#bluestar
+sudo ln -s ~/.nixos/ /etc/nixos
 ```
 
 ## Useful links
