@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
   imports = [
     ../shared
     ../shared/features/desktop/common
@@ -9,6 +9,7 @@
   ];
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "bluestar";
