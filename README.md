@@ -1,8 +1,20 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# kwaa/nixos [WIP]
+# kwaa/nixos
 
-## Usage
+我的 Nix 配置，仅供参考。
+
+## 特征
+
+- Disko + Impermanence
+  - 基于 USB 密钥文件的 LUKS2 全盘加密
+  - Btrfs, 强制 zstd:1 压缩，文件去重
+- Wayland 桌面
+  - GNOME 45+, PaperWM
+  - niri (TODO)
+- Nushell + Starship + carapace
+
+<!-- ## Usage
 
 ###### Setup Cryptkey
 
@@ -45,7 +57,7 @@ sudo ln -s ~/.nixos/ /etc/nixos
 ## Useful links
 
 - https://github.com/nix-community/disko/blob/master/docs/quickstart.md
-- https://github.com/Misterio77/nix-starter-configs/tree/main/minimal
+- https://github.com/Misterio77/nix-starter-configs/tree/main/minimal -->
 
 ## Platforms
 
