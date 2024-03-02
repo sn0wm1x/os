@@ -67,7 +67,8 @@ sudo ln -s ~/.nixos/ /etc/nixos
 
 ### NixOS
 
-- [x] NixOS
+- [x] NixOS x86_64
+- [ ] NixOS aarch64 (maybe)
 - [ ] [Mobile NixOS](https://github.com/NixOS/mobile-nixos) (maybe)
 - [ ] [NixOS on WSL2](https://github.com/nix-community/NixOS-WSL) (maybe)
 
