@@ -10,8 +10,21 @@
   boot.initrd.kernelModules = [ "uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelPackages = pkgs.linuxPackages_6_1;
-  # boot.extraModprobeConfig = "options kvm_intel nested=1";
-  boot.extraModulePackages = [ ];
+  # boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+  # https://nixos.wiki/wiki/Intel_Graphics
+  # Intel Corporation DG2 [Arc A770] [8086:56a0]
+  # boot.kernelParams = [ "i915.force_probe=56a0" ];
+
+  # https://nixos.wiki/wiki/Accelerated_Video_Playback
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    intel-media-driver
+    intel-vaapi-driver
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
