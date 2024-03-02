@@ -11,6 +11,7 @@
     gnome.gnome-tweaks
     # 功能
     gnomeExtensions.vitals
+    gnomeExtensions.kimpanel
     gnomeExtensions.gsconnect
     #
     gnomeExtensions.paperwm
