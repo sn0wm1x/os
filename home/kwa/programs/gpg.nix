@@ -8,4 +8,7 @@
     };
     trust = 5;
   }];
+
+  # https://support.yubico.com/hc/en-us/articles/4819584884124-Resolving-GPG-s-CCID-conflicts
+  programs.gpg.scdaemonSettings.disable-ccid = true;
 }
