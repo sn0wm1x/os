@@ -4,6 +4,7 @@
     ../shared
     ../shared/features/cli
     ../shared/features/desktop
+    ./programs
   ];
 
   home.username = "kwa";
