@@ -6,6 +6,8 @@
 
 ## 特征
 
+- Flakes
+  - flake-parts (TODO)
 - Disko + Impermanence
   - 基于 USB 密钥文件的 LUKS2 全盘加密
   - Btrfs, 强制 zstd:1 压缩，文件去重
@@ -15,8 +17,10 @@
 - Nushell + Starship + carapace
 - VR (TODO)
   - ALVR
-  - Immersed
+  - Immersed (with wlr-randr?)
 - Gaming (TODO)
+  - fufexan/nix-gaming
+  - Juvian-NixOS
 
 <!-- ## Usage
 
