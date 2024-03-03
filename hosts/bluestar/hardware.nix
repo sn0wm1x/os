@@ -16,15 +16,17 @@
   # Intel Corporation DG2 [Arc A770] [8086:56a0]
   # boot.kernelParams = [ "i915.force_probe=56a0" ];
 
-  # services.xserver.videoDrivers = [ "intel" ];
+  services.xserver.videoDrivers = [ "intel" ];
 
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
   hardware.opengl.extraPackages = with pkgs; [
     intel-compute-runtime
     intel-media-driver
     intel-vaapi-driver
+    vaapiIntel
     vaapiVdpau
     libvdpau-va-gl
   ];
