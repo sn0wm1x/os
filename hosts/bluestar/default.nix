@@ -6,7 +6,7 @@
     ../shared/users/kwa
     ./disko.nix
     ./impermanence.nix
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
