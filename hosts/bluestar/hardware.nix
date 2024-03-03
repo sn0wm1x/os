@@ -15,7 +15,12 @@
 
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation DG2 [Arc A770] [8086:56a0]
-  boot.kernelParams = [ "i915.force_probe=56a0" ];
+  boot.kernelParams = [
+    # disable GuC, enable HuC
+    # https://wiki.archlinux.org/title/intel_graphics#Enable_GuC_/_HuC_firmware_loading
+    "i915.enable_guc=2"
+    "i915.force_probe=56a0"
+  ];
 
   services.xserver.videoDrivers = [ "intel" ];
 
