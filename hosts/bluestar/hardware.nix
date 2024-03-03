@@ -19,7 +19,7 @@
   boot.kernelParams = [
     # disable GuC, enable HuC
     # https://wiki.archlinux.org/title/intel_graphics#Enable_GuC_/_HuC_firmware_loading
-    "i915.enable_guc=2"
+    # "i915.enable_guc=2"
     # force use A770
     # "i915.force_probe=56a0"
   ];
