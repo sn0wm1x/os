@@ -2,7 +2,6 @@
   imports = [];
 
   programs.home-manager.enable = true;
-
   programs.vscode.enable = true;
   programs.vscode.extensions = with pkgs.vscode-extensions; [
     # bbenoist.nix
@@ -15,6 +14,8 @@
     "nix.serverPath" = "${lib.getExe pkgs.nil}";
     "nix.serverSettings"."nil"."formatting"."command" = [ "${lib.getExe pkgs.alejandra}" ];
   };
+
+  xdg.configFile."user-dirs.locale".text = lib.mkForce "en_US";
 
   systemd.user.startServices = "sd-switch";
 
