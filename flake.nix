@@ -22,6 +22,8 @@
 
     # https://github.com/hercules-ci/flake-parts#migrate
     # flake-parts.url = "github:hercules-ci/flake-parts";
+
+    devenv.url = "github:cachix/devenv";
   };
 
   outputs = inputs@{ nixpkgs, impermanence, home-manager, ... }: {
