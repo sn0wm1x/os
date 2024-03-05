@@ -2,7 +2,6 @@
 {
   imports = [
     ./btop.nix
-    ./devenv.nix
     ./direnv.nix
     ./git.nix
     ./nushell.nix
