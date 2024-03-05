@@ -16,7 +16,8 @@
    # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
-      domain = "@wheel";
+      # domain = "@wheel";
+      domain = "*";
       item = "nofile";
       type = "soft";
       value = "524288";
