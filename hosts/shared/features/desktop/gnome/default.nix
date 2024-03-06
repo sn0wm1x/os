@@ -18,6 +18,7 @@
     gnomeExtensions.dash-to-dock
     gnomeExtensions.quick-settings-tweaker
     # 外观
+    gradience
     gnomeExtensions.user-themes
     gnomeExtensions.blur-my-shell
     gnomeExtensions.just-perfection
