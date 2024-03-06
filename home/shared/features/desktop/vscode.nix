@@ -8,7 +8,7 @@
     jnoortheen.nix-ide
   ];
   programs.vscode.userSettings = {
-    workbench.colorTheme = "Catppuccin Frappe";
+    workbench.colorTheme = "Catppuccin Frappé";
     workbench.iconTheme = "catppuccin-frappe";
 
     "nix.enableLanguageServer" = true;
