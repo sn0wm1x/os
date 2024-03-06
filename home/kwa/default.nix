@@ -1,5 +1,5 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
-{
+{ lib, ... }: {
   imports = [
     ../shared
     ../shared/features/cli
@@ -19,6 +19,6 @@
       "Videos"
       ".nixos"
     ];
-    allowOther = true;
+    allowOther = lib.mkForce true;
   };
 }
