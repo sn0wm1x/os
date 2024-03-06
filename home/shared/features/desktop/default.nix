@@ -1,7 +1,7 @@
 {
   imports = [
     ./blackbox-terminal
-    ./catppuccin-gtk.nix
+    ./catppuccin-cursors.nix
     ./github-desktop.nix
     ./google-chrome.nix
     ./telegram-desktop.nix
