@@ -13,12 +13,4 @@
     ];
   };
   time.timeZone = lib.mkDefault "Asia/Taipei";
-
-  environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-  };
-
-  # TODO: https://github.com/catppuccin/fcitx5
 }
