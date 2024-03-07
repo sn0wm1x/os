@@ -11,6 +11,8 @@
     # Languages
     # https://github.com/nix-community/vscode-nix-ide
     jnoortheen.nix-ide
+    # rust
+    rust-lang.rust-analyzer
   ];
   programs.vscode.userSettings = {
     "workbench.colorTheme" = "Catppuccin Frappé";
