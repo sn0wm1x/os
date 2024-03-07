@@ -1,16 +1,14 @@
 { lib, pkgs, ... }: {
   programs.vscode.enable = true;
   programs.vscode.extensions = with pkgs.vscode-extensions; [
-    ## Theme
+    # Theme
     catppuccin.catppuccin-vsc
     catppuccin.catppuccin-vsc-icons
-    ## Enhancement
-    ### git
+    # Enhancement
     eamodio.gitlens
-    ### misc
     editorconfig.editorconfig
     mkhl.direnv
-    ## Languages
+    # Languages
     jnoortheen.nix-ide # https://github.com/nix-community/vscode-nix-ide
   ];
   programs.vscode.userSettings = {
