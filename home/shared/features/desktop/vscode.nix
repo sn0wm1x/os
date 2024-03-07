@@ -9,7 +9,8 @@
     editorconfig.editorconfig
     mkhl.direnv
     # Languages
-    jnoortheen.nix-ide # https://github.com/nix-community/vscode-nix-ide
+    # https://github.com/nix-community/vscode-nix-ide
+    jnoortheen.nix-ide
   ];
   programs.vscode.userSettings = {
     "workbench.colorTheme" = "Catppuccin Frappé";
