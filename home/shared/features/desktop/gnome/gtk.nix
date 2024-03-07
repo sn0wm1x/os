@@ -1,9 +1,4 @@
 { pkgs, ... }: {
-  imports = [
-    ./cursor.nix
-    ./gradience.nix
-  ];
-
   gtk =
     let extraConfig = {
       gtk-application-prefer-dark-theme = 1;

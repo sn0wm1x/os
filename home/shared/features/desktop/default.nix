@@ -1,7 +1,7 @@
 {
   imports = [
     ./blackbox-terminal
-    ./gtk
+    ./gnome
     ./github-desktop.nix
     ./google-chrome.nix
     ./telegram-desktop.nix
