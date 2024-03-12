@@ -1,9 +1,10 @@
-{
+{ inputs, ... }: {
   imports = [
     ../shared
     ../shared/features/desktop/common
     ../shared/features/desktop/gnome
     ../shared/users/kwa
+    inputs.disko.nixosModules.disko
     ./disko.nix
     ./impermanence.nix
     ./hardware.nix
