@@ -8,4 +8,6 @@
     ./vscode.nix
     ./wezterm.nix
   ];
+
+  dconf.enable = true;
 }
