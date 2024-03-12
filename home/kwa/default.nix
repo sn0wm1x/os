@@ -4,6 +4,7 @@
     ../shared
     ../shared/features/cli
     ../shared/features/desktop
+    ../shared/features/develop
     ./programs
   ];
 
