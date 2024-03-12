@@ -13,4 +13,5 @@
     ];
   };
   time.timeZone = lib.mkDefault "Asia/Taipei";
+  time.hardwareClockInLocalTime = true;
 }
