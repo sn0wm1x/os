@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   # https://nixos.wiki/wiki/Fonts
-  # fonts.fontDir.enable = true;
+  fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     noto-fonts
     # noto-fonts-cjk
@@ -26,7 +26,7 @@
       "Noto Color Emoji"
       "Noto Emoji"
     ];
-    monospace= [
+    monospace = [
       "MonaspiceNe Nerd Font Mono"
       "Noto Sans Mono"
       "Noto Sans Mono CJK SC"
