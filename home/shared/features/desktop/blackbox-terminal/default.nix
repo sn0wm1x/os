@@ -11,7 +11,7 @@
   };
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
-      font = "MonospiceNe Nerd Font 12";
+      font = "MonospiceNe Nerd Font Mono 12";
       theme-bold-is-bright = true;
       theme-dark = "Catppuccin-Frappe";
       theme-light = "Catppuccin-Latte";
