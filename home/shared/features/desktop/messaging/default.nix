@@ -1,6 +1,7 @@
 {
   imports = [
-    ./fractal.nix
-    ./telegram-desktop.nix
+    ./discord.nix
+    ./matrix.nix
+    ./telegram.nix
   ];
 }
