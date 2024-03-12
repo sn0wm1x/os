@@ -3,4 +3,5 @@
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.direnv.enableNushellIntegration = true;
+  home.persistence."/persist/home/kwa".directories = [ ".local/share/direnv" ];
 }
