@@ -2,6 +2,7 @@
 { lib, ... }: {
   imports = [
     ../shared
+    ../shared/features/audio
     ../shared/features/cli
     ../shared/features/desktop
     ../shared/features/develop
