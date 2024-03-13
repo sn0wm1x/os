@@ -10,11 +10,6 @@
 
   zramSwap.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    just
-    thefuck
-  ];
-
    # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
