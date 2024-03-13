@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ lib, ... }: {
   imports = [
     ./btrfs.nix
     ./fonts.nix
@@ -10,11 +10,10 @@
 
   zramSwap.enable = true;
 
-   # Increase open file limit for sudoers
+  # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
-      # domain = "@wheel";
-      domain = "*";
+      domain = "@wheel";
       item = "nofile";
       type = "soft";
       value = "524288";
