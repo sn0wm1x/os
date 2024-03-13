@@ -8,6 +8,8 @@
     ./ssh.nix
   ];
 
+  zramSwap.enable = true;
+
   environment.systemPackages = with pkgs; [
     just
     thefuck
