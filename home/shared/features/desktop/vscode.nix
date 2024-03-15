@@ -6,6 +6,7 @@
     catppuccin.catppuccin-vsc-icons
     # Enhancement
     eamodio.gitlens
+    mhutchie.git-graph
     editorconfig.editorconfig
     mkhl.direnv
     # Languages
