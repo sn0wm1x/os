@@ -16,7 +16,6 @@
     distrobox
     # lazydocker
     podman-compose
-    podman-desktop
     podman-tui
     qemu
   ];
