@@ -6,6 +6,7 @@
     ./locale.nix
     ./nix.nix
     ./ssh.nix
+    ./virtualisation.nix
   ];
 
   zramSwap.enable = true;
