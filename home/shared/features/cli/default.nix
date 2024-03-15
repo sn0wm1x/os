@@ -4,6 +4,7 @@
     ./devbox.nix
     ./direnv.nix
     ./git.nix
+    ./helix.nix
     ./nushell.nix
   ];
   home.packages = with pkgs; [
