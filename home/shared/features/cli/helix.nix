@@ -24,7 +24,7 @@
       auto-format = true;
       formatter.command = lib.getExe pkgs.alejandra;
       formatter.args = [ "--quiet" ];
-      languages-server = lib.getExe pkgs.nil;
+      language-server = lib.getExe pkgs.nil;
     }];
   };
 }
