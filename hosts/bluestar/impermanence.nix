@@ -10,7 +10,6 @@
       "/var/lib/nixos"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
-      "/etc/nixos"
     ];
     files = [
       "/etc/machine-id"
