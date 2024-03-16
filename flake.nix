@@ -20,16 +20,11 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # https://github.com/nix-community/nix-index-database
-    # required by https://github.com/nix-community/comma
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
     # https://github.com/hercules-ci/flake-parts#migrate
     # flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ nixpkgs, nix-index-database, impermanence, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, impermanence, home-manager, ... }: {
     # nixos-rebuild switch --flake .#bluestar
     nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

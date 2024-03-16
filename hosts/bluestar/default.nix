@@ -1,7 +1,6 @@
 { inputs, ... }: {
   imports = [
     ../shared
-    ../shared/features/cli
     ../shared/features/desktop/common
     ../shared/features/desktop/gnome
     ../shared/users/kwa
