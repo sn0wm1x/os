@@ -4,16 +4,27 @@
     enable = true;
     settings = {
       theme = "catppuccin_frappe_transparent";
-      # https://github.com/catppuccin/helix#usage
-      editor.line-number = "relative";
-      editor.cursorline = true;
-      editor.color-modes = true;
-      editor.cursor-shape = {
-        insert = "bar";
-        normal = "block";
-        select = "underline";
+      editor = {
+        lsp.display-messages = true;
+        # https://github.com/catppuccin/helix#usage
+        line-number = "relative";
+        cursorline = true;
+        color-modes = true;
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+        indent-guides.render = true;
       };
-      editor.indent-guides.render = true;
+      keys.normal = {
+        space = {
+          space = "file_picker";
+          w = ":w";
+          q = ":q";
+        };
+        esc = [ "collapse_selection" "keep_primary_selection" ];
+      };
     };
     themes.catppuccin_frappe_transparent = {
       "inherits" = "catppuccin_frappe";
