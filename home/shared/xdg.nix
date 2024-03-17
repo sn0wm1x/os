@@ -1,4 +1,8 @@
-{ config, lib, ... }: {
+{
+  config,
+  lib,
+  ...
+}: {
   xdg.enable = true;
 
   # mime
@@ -13,7 +17,7 @@
   xdg.userDirs.videos = "${config.home.homeDirectory}/Videos";
   xdg.userDirs.pictures = "${config.home.homeDirectory}/Pictures";
   xdg.userDirs.desktop = "${config.home.homeDirectory}/Desktop";
-  xdg.userDirs.download = "${config.home.homeDirectory}/Download";
+  xdg.userDirs.download = "${config.home.homeDirectory}/Downloads";
   xdg.userDirs.templates = "${config.home.homeDirectory}/Templates";
   xdg.userDirs.documents = "${config.home.homeDirectory}/Documents";
 }
