@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs.gnomeExtensions; [
     # 功能
-    vitals
     kimpanel
     gsconnect
+    easyeffects-preset-selector
     #
     paperwm
     dash-to-dock
@@ -18,9 +18,9 @@
 
   dconf.settings."org/gnome/shell".disable-user-extensions = false;
   dconf.settings."org/gnome/shell".enabled-extensions = [
-    "Vitals@CoreCoding.com"
     "kimpanel@kde.org"
     "gsconnect@andyholmes.github.io"
+    "eepresetselector@ulville.github.io"
 
     "paperwm@paperwm.github.com"
     "dash-to-dock@micxgx.gmail.com"
@@ -30,6 +30,6 @@
     "blur-my-shell@aunetx"
     "just-perfection-desktop@just-perfection"
     # rounded-window-corners
-    "gnomeExtensions.gnome-40-ui-improvements@AXP.com"    
+    "gnomeExtensions.gnome-40-ui-improvements@AXP.com"
   ];
 }
