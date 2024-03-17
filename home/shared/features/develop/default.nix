@@ -1,5 +1,5 @@
 {
   imports = [
-    ./deno.nix
+    ./javascript.nix
   ];
 }
