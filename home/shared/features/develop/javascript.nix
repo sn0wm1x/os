@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     bun
     deno
@@ -16,12 +12,12 @@
     # npm = "corepack npm";
     # npx = "corepack npx";
   };
-  home.persistence."/persist${config.home.homeDirectory}".directories = [
-    # ".bun"
-    ".cache/deno"
-    # ".cache/node/corepack"
-    # ".npm"
-    # ".yarn"
-    ".local/share/pnpm"
-  ];
+  # home.persistence."/persist${config.home.homeDirectory}".directories = [
+  # ".bun"
+  # ".cache/deno"
+  # ".cache/node/corepack"
+  # ".npm"
+  # ".yarn"
+  # ".local/share/pnpm"
+  # ];
 }
