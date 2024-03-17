@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./cursor.nix
     ./extensions.nix
@@ -12,6 +12,6 @@
     font-hinting = "slight";
     font-name = "Noto Sans CJK SC 12";
     document-font-name = "Noto Sans CJK SC 12";
-    monospace-font-name = "MonospiceNe Nerd Font 10";
+    monospace-font-name = "MonaspiceNe Nerd Font 10";
   };
 }
