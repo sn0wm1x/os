@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       blackbox-terminal
@@ -11,7 +14,7 @@
   };
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
-      font = "MonospiceNe Nerd Font Mono 12";
+      font = "MonaspiceNe Nerd Font Mono 12";
       theme-bold-is-bright = true;
       theme-dark = "Catppuccin-Frappe";
       theme-light = "Catppuccin-Latte";
