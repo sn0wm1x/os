@@ -1,11 +1,11 @@
 {
-  description = "github:kwaa/nixos";
+  description = "github:sn0wm1x/nixos";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    
+
     # https://github.com/NixOS/nixos-hardware#using-nix-flakes-support
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
@@ -24,11 +24,16 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs@{ nixpkgs, impermanence, home-manager, ... }: {
+  outputs = inputs @ {
+    nixpkgs,
+    impermanence,
+    home-manager,
+    ...
+  }: {
     # nixos-rebuild switch --flake .#bluestar
     nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
         ./hosts/bluestar
         home-manager.nixosModules.home-manager

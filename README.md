@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# kwaa/nixos
+# sn0wm1x/nixos
 
 我的 Nix 配置，仅供参考。
 
