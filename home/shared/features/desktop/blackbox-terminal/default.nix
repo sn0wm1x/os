@@ -15,6 +15,7 @@
   dconf.settings = {
     "com/raggesilver/BlackBox" = {
       font = "MonaspiceNe Nerd Font Mono 12";
+      terminal-cell-width = 1.2;
       theme-bold-is-bright = true;
       theme-dark = "Catppuccin-Frappe";
       theme-light = "Catppuccin-Latte";
