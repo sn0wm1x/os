@@ -28,26 +28,9 @@
       # atomix # puzzle game
     ]);
 
-  environment.systemPackages =
-    (with pkgs.gnome; [
-      dconf-editor
-      gnome-shell-extensions
-      gnome-tweaks
-    ])
-    ++ (with pkgs.gnomeExtensions; [
-      # 功能
-      vitals
-      kimpanel
-      gsconnect
-      #
-      paperwm
-      dash-to-dock
-      quick-settings-tweaker
-      # 外观
-      user-themes
-      blur-my-shell
-      just-perfection
-      # rounded-window-corners
-      gnome-40-ui-improvements
-    ]);
+  environment.systemPackages = with pkgs.gnome; [
+    dconf-editor
+    gnome-shell-extensions
+    gnome-tweaks
+  ];
 }
