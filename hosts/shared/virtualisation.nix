@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # https://nixos.wiki/wiki/Podman
   virtualisation.podman.enable = true;
   virtualisation.podman.autoPrune.enable = true;
@@ -17,6 +17,7 @@
     # lazydocker
     podman-compose
     podman-tui
+    pods # https://github.com/marhkb/pods
     qemu
   ];
   environment.persistence."/persist".directories = [
