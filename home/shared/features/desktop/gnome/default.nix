@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./circle.nix
     ./cursor.nix
     ./extensions.nix
     ./gradience.nix
