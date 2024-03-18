@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   imports = [
     ./btrfs.nix
     ./fonts.nix
@@ -6,7 +6,6 @@
     ./locale.nix
     ./nix.nix
     ./ssh.nix
-    ./virtualisation.nix
   ];
 
   zramSwap.enable = true;

@@ -1,11 +1,12 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
-{ lib, ... }: {
+{lib, ...}: {
   imports = [
     ../shared
     ../shared/features/audio
     ../shared/features/cli
     ../shared/features/desktop
     ../shared/features/develop
+    ../shared/features/virtualisation
     ./programs
   ];
 

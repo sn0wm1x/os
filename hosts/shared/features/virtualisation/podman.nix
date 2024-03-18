@@ -10,16 +10,7 @@
 
   # TODO: https://carjorvaz.com/posts/rootless-podman-and-docker-compose-on-nixos/
   # TODO: https://nixos.wiki/wiki/Podman#Use_Podman_within_nix-shell
-  # TODO: systemd-nspawn
 
-  environment.systemPackages = with pkgs; [
-    distrobox
-    # lazydocker
-    podman-compose
-    podman-tui
-    pods # https://github.com/marhkb/pods
-    qemu
-  ];
   environment.persistence."/persist".directories = [
     "/var/lib/containers"
   ];
