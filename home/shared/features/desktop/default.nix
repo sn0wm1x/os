@@ -3,8 +3,8 @@
     ./blackbox-terminal
     ./gnome
     ./messaging
+    ./vscode
     ./google-chrome.nix
-    ./vscode.nix
   ];
 
   dconf.enable = true;
