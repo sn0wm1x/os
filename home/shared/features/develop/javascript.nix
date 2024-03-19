@@ -20,7 +20,7 @@
   # ".yarn"
   # ".local/share/pnpm"
   # ];
-  environment.variables = {
-    PNPM_HOME = "$HOME/.local/share/pnpm";
-  };
+  # environment.variables = {
+  #   PNPM_HOME = "$HOME/.local/share/pnpm";
+  # };
 }
