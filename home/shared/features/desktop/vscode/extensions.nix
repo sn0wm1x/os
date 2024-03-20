@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  programs.vscode.mutableExtensionsDir = true;
+  programs.vscode.mutableExtensionsDir = false;
   programs.vscode.extensions = with pkgs.vscode-extensions; [
     # Theme
     catppuccin.catppuccin-vsc

@@ -5,4 +5,5 @@
   ];
 
   programs.vscode.enable = true;
+  programs.vscode.enableUpdateCheck = false;
 }
