@@ -6,6 +6,7 @@
   cursorTheme = {
     name = "Catppuccin-Frappe-Blue-Cursors";
     package = pkgs.catppuccin-cursors.frappeBlue;
+    size = 32;
   };
   iconTheme = {
     name = "Papirus";
@@ -28,7 +29,6 @@ in {
   home.pointerCursor =
     cursorTheme
     // {
-      size = 32;
       gtk.enable = true;
     };
 }
