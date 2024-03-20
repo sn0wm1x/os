@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{lib, ...}: {
   i18n = {
     # defaultLocale = lib.mkDefault "en_US.UTF-8";
     defaultLocale = lib.mkDefault "zh_CN.UTF-8";
@@ -13,5 +13,5 @@
     ];
   };
   time.timeZone = lib.mkDefault "Asia/Taipei";
-  time.hardwareClockInLocalTime = true;
+  time.hardwareClockInLocalTime = lib.mkForce true;
 }
