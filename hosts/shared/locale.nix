@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  options,
+  ...
+}: {
   i18n = {
     # defaultLocale = lib.mkDefault "en_US.UTF-8";
     defaultLocale = lib.mkDefault "zh_CN.UTF-8";
@@ -13,6 +17,10 @@
     ];
   };
   time.timeZone = lib.mkDefault "Asia/Taipei";
+
+  # https://nixos.wiki/wiki/NTP
+  networking.timeServers = ["ntp.felixc.at"] ++ options.networking.timeServers.default;
+
   # time.hardwareClockInLocalTime = lib.mkForce true;
   # # https://www.linuxfromscratch.org/lfs/view/9.0-systemd-rc1/chapter07/clock.html
   # environment.etc.adjtime.text = ''
