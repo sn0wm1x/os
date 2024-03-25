@@ -54,10 +54,10 @@
                     mountpoint = "/nix";
                     mountOptions = ["compress-force=zstd:1" "noatime"];
                   };
-                  "/opt" = {
-                    mountpoint = "/opt";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
-                  };
+                  # "/opt" = {
+                  #   mountpoint = "/opt";
+                  #   mountOptions = ["compress-force=zstd:1" "noatime"];
+                  # };
                 };
               };
             };
