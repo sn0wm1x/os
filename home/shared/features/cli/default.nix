@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./btop.nix
-    ./devbox.nix
     ./direnv.nix
     ./git.nix
     ./helix.nix
