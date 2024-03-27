@@ -17,4 +17,8 @@
     rust-lang.rust-analyzer # rust
     denoland.vscode-deno # javascript (deno)
   ];
+
+  programs.vscode.userSettings = {
+    "deno.enable" = false;
+  };
 }
