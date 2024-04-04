@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    boxbuddy # https://github.com/Dvlv/BoxBuddyRS
     distrobox
     # lazydocker
     podman-compose
