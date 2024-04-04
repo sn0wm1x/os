@@ -25,6 +25,6 @@
   };
 
   home.persistence."/persist${config.home.homeDirectory}".directories = [
-    ".local/share/containers/storage"
+    ".local/share/containers"
   ];
 }
