@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     boxbuddy # https://github.com/Dvlv/BoxBuddyRS
     distrobox
@@ -10,4 +14,7 @@
   home.shellAliases = {
     docker-compose = "podman-compose";
   };
+  home.persistence."/persist${config.home.homeDirectory}".directories = [
+    ".local/share/containers/storage"
+  ];
 }
