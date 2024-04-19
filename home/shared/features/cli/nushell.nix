@@ -75,6 +75,9 @@
   programs.zoxide.enable = true;
   programs.zoxide.enableNushellIntegration = true;
 
+  # TODO: shellAliases "zj" = "zellij"
+  programs.zellij.enable = true;
+
   home.persistence."/persist/home/kwa".directories = [
     ".local/share/atuin"
     ".local/share/zoxide"
