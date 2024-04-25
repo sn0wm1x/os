@@ -36,7 +36,8 @@
     nvidiaBusId = "PCI:3:0:0";
   };
 
-  services.xserver.videoDrivers = ["intel"];
+  # services.xserver.videoDrivers = ["intel"];
+  services.xserver.videoDrivers = ["modesetting"];
 
   # Intel GPU Tools
   environment.systemPackages = with pkgs; [intel-gpu-tools];
