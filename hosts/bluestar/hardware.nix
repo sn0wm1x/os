@@ -20,10 +20,10 @@
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]
   # Intel Corporation DG2 [Arc A770] [8086:56a0]
-  boot.kernelParams = [
-    # force use UHD730
-    "i915.force_probe=4692"
-  ];
+  # boot.kernelParams = [
+  #   # force use UHD730
+  #   "i915.force_probe=4692"
+  # ];
 
   # Hybrid graphics
   # https://nixos.wiki/wiki/Nvidia#Laptop_Configuration:_Hybrid_Graphics_.28Nvidia_Optimus_PRIME.29
