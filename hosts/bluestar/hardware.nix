@@ -27,6 +27,15 @@
   # "i915.force_probe=56a0"
   # ];
 
+  # Hybrid graphics
+  # https://nixos.wiki/wiki/Nvidia#Laptop_Configuration:_Hybrid_Graphics_.28Nvidia_Optimus_PRIME.29
+  # nix run nixpkgs#lshw -- -c display
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:3:0:0";
+  };
+
   services.xserver.videoDrivers = ["intel"];
 
   # Intel GPU Tools
