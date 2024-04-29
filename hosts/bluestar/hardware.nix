@@ -20,10 +20,14 @@
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]
   # Intel Corporation DG2 [Arc A770] [8086:56a0]
-  # boot.kernelParams = [
-  #   # force use UHD730
-  #   "i915.force_probe=4692"
-  # ];
+  boot.kernelParams = [
+    # force use UHD730
+    # "i915.force_probe=4692"
+    # Workaround iGPU hangs
+    # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
+    # https://github.com/NixOS/nixos-hardware/blob/53db5e1070d07e750030bf65f1b9963df8f0c678/framework/13-inch/12th-gen-intel/default.nix#L15-L17
+    "i915.enable_psr=1"
+  ];
 
   # Hybrid graphics
   # https://nixos.wiki/wiki/Nvidia#Laptop_Configuration:_Hybrid_Graphics_.28Nvidia_Optimus_PRIME.29
