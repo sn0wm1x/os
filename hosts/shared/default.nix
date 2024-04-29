@@ -10,6 +10,9 @@
 
   zramSwap.enable = true;
 
+  services.system76-scheduler.enable = true;
+  services.system76-scheduler.useStockConfig = true;
+
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {

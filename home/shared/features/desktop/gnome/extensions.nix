@@ -4,6 +4,7 @@
     kimpanel
     gsconnect
     easyeffects-preset-selector
+    system76-scheduler
     #
     paperwm
     dash-to-dock
@@ -21,6 +22,7 @@
     "kimpanel@kde.org"
     "gsconnect@andyholmes.github.io"
     "eepresetselector@ulville.github.io"
+    "s76-scheduler@mattjakeman.com"
 
     "paperwm@paperwm.github.com"
     "dash-to-dock@micxgx.gmail.com"
