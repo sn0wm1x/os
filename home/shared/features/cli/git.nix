@@ -7,6 +7,10 @@
     # safe.directory = [];
   };
 
+  # difftastic
+  # TODO: difftastic + magit (emacs)
+  programs.git.difftastic.enable = true;
+
   # gh
   programs.gh.enable = true;
 
