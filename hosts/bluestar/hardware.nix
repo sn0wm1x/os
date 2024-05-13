@@ -7,7 +7,8 @@
 }: {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
-    common-gpu-intel
+    # https://github.com/NixOS/nixos-hardware/issues/940
+    # common-gpu-intel
     common-pc-ssd
   ];
 
