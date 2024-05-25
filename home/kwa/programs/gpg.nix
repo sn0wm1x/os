@@ -20,10 +20,10 @@
   # programs.gpg.scdaemonSettings.reader-port = "Yubico Yubi";
 
   home.persistence."/persist${config.home.homeDirectory}".directories = [
-    # ".gnupg/private-keys-v1.d"
-    {
-      directory = ".gnupg/private-keys-v1.d";
-      mode = "0700";
-    }
+    ".gnupg/private-keys-v1.d"
+    # {
+    #   directory = ".gnupg/private-keys-v1.d";
+    #   mode = "0700";
+    # }
   ];
 }
