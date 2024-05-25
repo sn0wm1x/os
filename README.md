@@ -12,15 +12,18 @@
   - 基于 USB 密钥文件的 LUKS2 全盘加密
   - Btrfs, 强制 zstd:1 压缩，文件去重
 - Wayland GTK4 桌面
-  - GNOME 45+, PaperWM
+  - GNOME 46+, PaperWM
   - niri (TODO)
+- 性能调优
+  - linux-xanmod
+  - sched-ext (TODO)
 - Nushell + Starship + carapace
-- VR (TODO)
-  - ALVR
-  - Immersed (with wlr-randr?)
 - Gaming (TODO)
   - fufexan/nix-gaming
   - Juvian-NixOS
+- VR (TODO)
+  - ALVR
+  - Immersed (with wlr-randr?)
 
 <!-- ## Useful links
 
