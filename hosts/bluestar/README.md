@@ -2,7 +2,7 @@
 
 3i 台式机。
 
-- CPU: Intel Core i3-12100
+- CPU: Intel Core i9-13900T
 - GPU 0: Intel UHD Graphics 730
 - GPU 1: Intel Arc A770 Graphics
 - RAM: 64GB DDR4-3200
