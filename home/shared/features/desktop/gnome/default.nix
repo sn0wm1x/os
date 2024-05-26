@@ -4,6 +4,7 @@
     ./extensions.nix
     ./gradience.nix
     ./gtk.nix
+    ./ptyxis.nix
   ];
 
   dconf.settings."org/gnome/desktop/interface" = {

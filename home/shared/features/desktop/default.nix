@@ -6,7 +6,6 @@
     ./misc
     ./vscode
     ./google-chrome.nix
-    ./ptyxis.nix
   ];
 
   dconf.enable = true;
