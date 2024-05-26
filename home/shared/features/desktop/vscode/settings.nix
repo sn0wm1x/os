@@ -106,9 +106,9 @@
   nix = {
     "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
     "nix.enableLanguageServer" = true;
-    "nix.formatterPath" = lib.getExe pkgs.alejandra;
+    "nix.formatterPath" = lib.getExe pkgs.nixpkgs-fmt;
     "nix.serverPath" = lib.getExe pkgs.nil;
-    "nix.serverSettings"."nil"."formatting"."command" = ["${lib.getExe pkgs.alejandra}"];
+    "nix.serverSettings"."nil"."formatting"."command" = ["${lib.getExe pkgs.nixpkgs-fmt}"];
   };
 in {
   programs.vscode.userSettings =

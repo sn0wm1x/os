@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     nil
-    alejandra
+    nixpkgs-fmt
   ];
 }

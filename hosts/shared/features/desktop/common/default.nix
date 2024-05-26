@@ -2,7 +2,6 @@
   imports = [
     ./fcitx5.nix
     ./pipewire.nix
-    ./vscode.nix
   ];
 
   # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
