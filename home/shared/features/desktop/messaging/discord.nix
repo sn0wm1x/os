@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   # https://nixos.wiki/wiki/Discord#Vesktop
   home.packages = with pkgs; [
     (vesktop.overrideAttrs {
@@ -17,5 +17,5 @@
       ];
     })
   ];
-  home.persistence."/persist/home/kwa".directories = [ ".config/vesktop" ];
+  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/vesktop" ];
 }

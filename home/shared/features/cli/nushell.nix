@@ -78,7 +78,7 @@
   # TODO: shellAliases "zj" = "zellij"
   programs.zellij.enable = true;
 
-  home.persistence."/persist/home/kwa" = {
+  home.persistence."/persist${config.home.homeDirectory}" = {
     directories = [
       ".local/share/atuin"
       ".local/share/zoxide"

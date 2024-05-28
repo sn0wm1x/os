@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   home.packages = with pkgs; [
     # google-chrome
     (google-chrome.override {
@@ -7,7 +7,7 @@
       commandLineArgs = "--ozone-platform=wayland --gtk-version=4";
     })
   ];
-  home.persistence."/persist/home/kwa".directories = [
+  home.persistence."/persist${config.home.homeDirectory}".directories = [
     ".config/google-chrome"
   ];
 }
