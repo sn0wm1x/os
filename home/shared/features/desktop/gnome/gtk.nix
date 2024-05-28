@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   theme = {
     # name = "adw-gtk3";
     name = "adw-gtk3-dark";
@@ -20,12 +21,13 @@
     gtk-application-prefer-dark-theme = 1;
     gtk-error-bell = 0;
   };
-in {
+in
+{
   gtk = {
     inherit theme cursorTheme iconTheme;
     enable = true;
-    gtk3 = {inherit extraConfig;};
-    gtk4 = {inherit extraConfig;};
+    gtk3 = { inherit extraConfig; };
+    gtk4 = { inherit extraConfig; };
   };
   home.pointerCursor =
     cursorTheme

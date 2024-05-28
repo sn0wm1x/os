@@ -24,26 +24,26 @@
     # flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    impermanence,
-    home-manager,
-    ...
-  }: {
-    # nixos-rebuild switch --flake .#bluestar
-    nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/bluestar
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.sharedModules = [impermanence.nixosModules.home-manager.impermanence];
-          home-manager.users.kwa = import ./home/kwa;
-        }
-      ];
+  outputs =
+    inputs @ { nixpkgs
+    , impermanence
+    , home-manager
+    , ...
+    }: {
+      # nixos-rebuild switch --flake .#bluestar
+      nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/bluestar
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
+            home-manager.users.kwa = import ./home/kwa;
+          }
+        ];
+      };
     };
-  };
 }

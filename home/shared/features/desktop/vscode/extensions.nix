@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # programs.vscode.mutableExtensionsDir = false;
   programs.vscode.extensions = with pkgs.vscode-extensions; [
     # Theme

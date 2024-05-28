@@ -1,4 +1,4 @@
-{config, ...}: {
+{ config, ... }: {
   # https://nixos.wiki/wiki/Nushell
   programs.nushell = {
     inherit (config.home) shellAliases;

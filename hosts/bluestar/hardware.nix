@@ -1,9 +1,8 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
+{ config
+, inputs
+, lib
+, pkgs
+, ...
 }: {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
@@ -13,9 +12,9 @@
   ];
 
   # boot.initrd.systemd.enable = true;
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod"];
-  boot.initrd.kernelModules = ["uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1"];
-  boot.kernelModules = ["kvm-intel"];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod" ];
+  boot.initrd.kernelModules = [ "uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   # https://nixos.wiki/wiki/Intel_Graphics
@@ -40,20 +39,20 @@
   };
 
   # services.xserver.videoDrivers = ["intel"];
-  services.xserver.videoDrivers = ["modesetting"];
+  services.xserver.videoDrivers = [ "modesetting" ];
 
   # Intel GPU Tools
-  environment.systemPackages = with pkgs; [intel-gpu-tools];
+  environment.systemPackages = with pkgs; [ intel-gpu-tools ];
 
   # fix i915 GuC / HuC
-  hardware.firmware = with pkgs; [linux-firmware];
+  hardware.firmware = with pkgs; [ linux-firmware ];
 
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
-  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = with pkgs; [intel-compute-runtime];
+  hardware.opengl.extraPackages = with pkgs; [ intel-compute-runtime ];
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

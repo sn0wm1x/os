@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./circle.nix
     ./extensions.nix

@@ -1,3 +1,3 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [spacedrive];
+{ pkgs, ... }: {
+  home.packages = with pkgs; [ spacedrive ];
 }

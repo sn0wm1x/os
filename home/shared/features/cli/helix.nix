@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   # https://nixos.wiki/wiki/Helix
   programs.helix = {
@@ -27,12 +26,12 @@
           w = ":w";
           q = ":q";
         };
-        esc = ["collapse_selection" "keep_primary_selection"];
+        esc = [ "collapse_selection" "keep_primary_selection" ];
       };
     };
     themes.catppuccin_frappe_transparent = {
       "inherits" = "catppuccin_frappe";
-      "ui.background" = {};
+      "ui.background" = { };
     };
     languages.language = [
       {
@@ -40,7 +39,7 @@
         auto-format = true;
         formatter.command = lib.getExe pkgs.nixpkgs-fmt;
         # formatter.args = [];
-        language-servers = ["${lib.getExe pkgs.nil}"];
+        language-servers = [ "${lib.getExe pkgs.nil}" ];
       }
     ];
   };

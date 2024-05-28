@@ -13,7 +13,7 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = ["defaults"];
+              mountOptions = [ "defaults" ];
             };
           };
           luks = {
@@ -44,19 +44,19 @@
               };
               content = {
                 type = "btrfs";
-                extraArgs = ["-f"];
+                extraArgs = [ "-f" ];
                 subvolumes = {
                   "/persist" = {
                     mountpoint = "/persist";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
                   };
                   "/opt" = {
                     mountpoint = "/opt";
-                    mountOptions = ["compress-force=zstd:1" "noatime"];
+                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
                   };
                 };
               };
@@ -68,11 +68,11 @@
     nodev = {
       "/" = {
         fsType = "tmpfs";
-        mountOptions = ["defaults" "size=2G" "mode=755" "noatime"];
+        mountOptions = [ "defaults" "size=2G" "mode=755" "noatime" ];
       };
       "/home/kwa" = {
         fsType = "tmpfs";
-        mountOptions = ["defaults" "size=2G" "mode=777" "noatime"];
+        mountOptions = [ "defaults" "size=2G" "mode=777" "noatime" ];
       };
     };
   };

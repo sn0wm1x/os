@@ -1,8 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{ lib
+, pkgs
+, ...
+}:
+let
   editor = {
     "editor.formatOnSave" = true;
   };
@@ -108,9 +108,10 @@
     "nix.enableLanguageServer" = true;
     "nix.formatterPath" = lib.getExe pkgs.nixpkgs-fmt;
     "nix.serverPath" = lib.getExe pkgs.nil;
-    "nix.serverSettings"."nil"."formatting"."command" = ["${lib.getExe pkgs.nixpkgs-fmt}"];
+    "nix.serverSettings"."nil"."formatting"."command" = [ "${lib.getExe pkgs.nixpkgs-fmt}" ];
   };
-in {
+in
+{
   programs.vscode.userSettings =
     {
       "extensions.autoCheckUpdates" = false;
