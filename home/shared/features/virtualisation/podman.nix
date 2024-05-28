@@ -5,9 +5,10 @@
   home.packages = with pkgs; [
     boxbuddy # https://github.com/Dvlv/BoxBuddyRS
     distrobox
+    dive # look into docker image layers
     # lazydocker
-    podman-compose
-    podman-tui
+    docker-compose # start group of containers for dev
+    podman-tui # status of containers in the terminal
     pods # https://github.com/marhkb/pods
   ];
   home.shellAliases = {
