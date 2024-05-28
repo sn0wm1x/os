@@ -78,8 +78,13 @@
   # TODO: shellAliases "zj" = "zellij"
   programs.zellij.enable = true;
 
-  home.persistence."/persist/home/kwa".directories = [
-    ".local/share/atuin"
-    ".local/share/zoxide"
-  ];
+  home.persistence."/persist/home/kwa" = {
+    directories = [
+      ".local/share/atuin"
+      ".local/share/zoxide"
+    ];
+    files = [
+      ".config/nushell/history.txt"
+    ];
+  };
 }
