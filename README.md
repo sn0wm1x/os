@@ -14,6 +14,7 @@
 - Wayland GTK4 桌面
   - GNOME 46+, PaperWM
   - niri (TODO)
+  - [nix-colors](https://github.com/Misterio77/nix-colors) with [flavours](https://github.com/Misterio77/flavours) (TODO)
 - 性能调优
   - linux-xanmod
   - sched-ext (TODO)
