@@ -5,7 +5,6 @@
     ./messaging
     ./misc
     ./vscode
-    ./google-chrome.nix
   ];
 
   dconf.enable = true;
