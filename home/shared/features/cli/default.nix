@@ -1,10 +1,13 @@
 { pkgs, ... }: {
   imports = [
+    ./shell
+    ./bat.nix
     ./btop.nix
     ./direnv.nix
+    ./fzf.nix
     ./git.nix
     ./helix.nix
-    ./nushell.nix
+    ./zellij.nix
   ];
   home.packages = with pkgs; [
     just
