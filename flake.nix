@@ -25,15 +25,31 @@
   };
 
   outputs =
-    inputs @ { nixpkgs
+    inputs @ { self
+    , nixpkgs
     , impermanence
     , home-manager
     , ...
-    }: {
+    }:
+    let
+      inherit (self) outputs;
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixpkgs-fmt);
+      overlays = import ./overlays { inherit inputs; };
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+
       # nixos-rebuild switch --flake .#bluestar
       nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/bluestar
           home-manager.nixosModules.home-manager
