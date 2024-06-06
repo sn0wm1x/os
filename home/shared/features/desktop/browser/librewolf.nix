@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   firefox-gnome-theme = pkgs.fetchFromGitHub {
     owner = "rafaelmardojai";
@@ -14,13 +14,6 @@ let
   };
 in
 {
-  # https://nixos.wiki/wiki/Librewolf
-  # programs.librewolf.enable = true;
-  # programs.librewolf.settings = {
-  #   # Enable WebGL
-  #   "webgl.disabled" = false;
-  # };
-
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.librewolf-unwrapped {
@@ -40,6 +33,14 @@ in
       search.default = "StartPage";
       search.privateDefault = "StartPage";
 
+      settings = {
+        # Enable WebGL
+        # TODO: use CanvasBlocker
+        "webgl.disabled" = false;
+        # Enable letterboxing
+        "privacy.resistFingerprinting.letterboxing" = true;
+      };
+
       # firefox-gnome-theme
       userContent = builtins.readFile "${firefox-gnome-theme}/userContent.css";
       userChrome = builtins.readFile "${firefox-gnome-theme}/userChrome.css";
@@ -52,4 +53,7 @@ in
       ];
     };
   };
+
+  home.file.".mozilla/firefox/profiles.ini".target = ".librewolf/profiles.ini";
+  home.file.".librewolf/kwa".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.mozilla/firefox/kwa";
 }
