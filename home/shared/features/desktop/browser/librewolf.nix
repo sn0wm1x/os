@@ -42,15 +42,15 @@ in
       };
 
       # firefox-gnome-theme
-      userContent = builtins.readFile "${firefox-gnome-theme}/userContent.css";
-      userChrome = builtins.readFile "${firefox-gnome-theme}/userChrome.css";
+      userChrome = ''@import "${firefox-gnome-theme}/userChrome.css";'';
+      userContent = ''@import "${firefox-gnome-theme}/userContent.css";'';
 
-      extraConfig = builtins.concatStringsSep "\n" [
+      extraConfig = ''
         (builtins.readFile "${firefox-gnome-theme}/configuration/user.js")
         (builtins.readFile "${betterfox}/Fastfox.js")
         (builtins.readFile "${betterfox}/Peskyfox.js")
         (builtins.readFile "${betterfox}/Smoothfox.js")
-      ];
+      '';
     };
   };
 
