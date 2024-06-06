@@ -6,12 +6,13 @@ let
     package = pkgs.adw-gtk3;
   };
   cursorTheme = {
-    name = "Catppuccin-Frappe-Blue-Cursors";
+    name = "Catppuccin-frappe-blue-cursors";
     package = pkgs.catppuccin-cursors.frappeBlue;
     size = 32;
   };
   iconTheme = {
-    name = "Papirus";
+    # name = "Papirus";
+    name = "Papirus-Dark";
     package = pkgs.catppuccin-papirus-folders.override {
       accent = "blue";
       flavor = "frappe";
