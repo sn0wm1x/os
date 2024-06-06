@@ -3,9 +3,14 @@
 # use nushell for shell commands
 set shell := ["nu", "-c"]
 
-# TODO: use /etc/hostname
+hostname := `cat /etc/hostname`
+
+# show available recipes.
+list:
+  @just --list
+
 rebuild:
-  sudo nixos-rebuild switch --flake .#bluestar
+  sudo nixos-rebuild switch --flake .#{{hostname}}
 
 up:
   nix flake update
