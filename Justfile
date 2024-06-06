@@ -9,8 +9,8 @@ hostname := `cat /etc/hostname`
 list:
   @just --list
 
-rebuild:
-  sudo nixos-rebuild switch --flake .#{{hostname}}
+rebuild mode='switch' *args='':
+  sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
 
 up:
   nix flake update
