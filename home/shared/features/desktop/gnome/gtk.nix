@@ -6,8 +6,8 @@ let
     package = pkgs.adw-gtk3;
   };
   cursorTheme = {
-    name = "Catppuccin-frappe-blue-cursors";
-    package = pkgs.catppuccin-cursors.frappeBlue;
+    name = "Bibata-Modern-Classic";
+    package = pkgs.bibata-cursors;
     size = 32;
   };
   iconTheme = {
