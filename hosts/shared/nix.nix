@@ -12,6 +12,13 @@
   nix.gc.dates = "weekly";
   nix.gc.options = "--delete-older-than 1w";
 
+  nix.settings.substituters = [
+    "https://devenv.cachix.org" # devenv
+  ];
+  nix.settings.trusted-public-keys = [
+    "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+  ];
+
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
