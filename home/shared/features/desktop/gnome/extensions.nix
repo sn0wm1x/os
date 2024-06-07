@@ -50,5 +50,6 @@
   # Dash to Dock
   dconf.settings."org/gnome/shell/extensions/dash-to-dock" = {
     intellihide-mode = "ALL_WINDOWS";
+    running-indicator-style = "DASHES";
   };
 }
