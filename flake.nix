@@ -46,20 +46,38 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
-      # nixos-rebuild switch --flake .#bluestar
-      nixosConfigurations.bluestar = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/bluestar
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
-            home-manager.users.kwa = import ./home/kwa;
-          }
-        ];
+      nixosConfigurations = {
+        # ./hosts/akahitoha/README.md
+        akahitoha = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/akahitoha
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
+              home-manager.users.kwa = import ./home/kwa;
+            }
+          ];
+        };
+
+        # ./hosts/bluestar/README.md
+        bluestar = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/bluestar
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
+              home-manager.users.kwa = import ./home/kwa;
+            }
+          ];
+        };
       };
     };
 }
