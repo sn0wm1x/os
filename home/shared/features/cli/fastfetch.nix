@@ -10,9 +10,46 @@ in
   programs.fastfetch = {
     enable = true;
     settings = {
+      # "$schema" = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
       logo = {
+        type = "kitty-direct"; # TODO: remove this
         source = "${logo}";
       };
+      # https://github.com/fastfetch-cli/fastfetch/blob/dev/presets/screenfetch.jsonc
+      modules = [
+        "title"
+        "os"
+        "kernel"
+        "uptime"
+        {
+          "type" = "packages";
+          "format" = "{all}";
+        }
+        "shell"
+        {
+          "type" = "display";
+          "key" = "Resolution";
+          "compactType" = "original";
+        }
+        "de"
+        "wm"
+        "wmtheme"
+        {
+          "type" = "terminalfont";
+          "key" = "font";
+        }
+        {
+          "type" = "disk";
+          "folders" = "/";
+          "key" = "Disk";
+        }
+        "cpu"
+        "gpu"
+        {
+          "type" = "memory";
+          "key" = "RAM";
+        }
+      ];
     };
   };
 
