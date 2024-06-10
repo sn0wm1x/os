@@ -1,6 +1,6 @@
 [![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
-# sn0wm1x/nixos
+# sn0wm1x/os
 
 我的 Nix 配置，仅供参考。
 

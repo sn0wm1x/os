@@ -32,7 +32,8 @@
       "Pictures"
       "Documents"
       "Videos"
-      ".nixos"
+      ".os" # github:sn0wm1x/os
+      ".nixos" # TODO: remove this
     ];
     allowOther = lib.mkForce true;
   };
