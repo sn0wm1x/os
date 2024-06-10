@@ -18,7 +18,10 @@ in
       # https://github.com/fastfetch-cli/fastfetch/blob/dev/presets/screenfetch.jsonc
       modules = [
         "title"
-        "os"
+        {
+          "type" = "os";
+          "format" = "SN0WM1X (Nix) OS ({11}, {12})";
+        }
         "kernel"
         "uptime"
         {
