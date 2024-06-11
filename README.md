@@ -1,6 +1,22 @@
-[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+<br />
+<div align="center">
+<img src="https://github.com/sn0wm1x.png" alt="sn0wm1x" />
+</div>
 
-# sn0wm1x/os
+<h1 align="center">SN0WM1X (Nix) OS</h1>
+
+<div align="center">
+
+**[<kbd> <br> Home <br> </kbd>](/home/)** 
+**[<kbd> <br> Hosts <br> </kbd>](/hosts/)** 
+**[<kbd> <br> Overlays <br> </kbd>](/overlays/)** 
+**[<kbd> <br> Packages <br> </kbd>](/pkgs/)**
+
+</div>
+
+---
+
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
 我的 Nix 配置，仅供参考。
 
