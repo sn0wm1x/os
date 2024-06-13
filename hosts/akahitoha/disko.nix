@@ -1,6 +1,6 @@
 let
   device = "/dev/nvme0n1";
-  primary_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+  primary_key = "/dev/disk/by-id/mmc-SA16G_0x3838f37e-part1";
   backup_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
 in
 {
