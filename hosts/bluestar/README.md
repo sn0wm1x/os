@@ -53,6 +53,12 @@ reboot
 重启后 `/etc/nixos` 会丢失，只需重新克隆到用户文件夹。 
 
 ```bash
+# 创建用户文件夹
+sudo mkdir -p /persist/home/kwa
+# 设置文件夹权限
+sudo chown -R kwa /persist/home/kwa
 # 克隆到 ~/.os
 cd ~ && git clone https://github.com/sn0wm1x/os.git .os
+# 重建系统
+just rebuild
 ```
