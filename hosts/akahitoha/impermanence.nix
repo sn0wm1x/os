@@ -7,7 +7,7 @@ in {
   # https://github.com/nix-community/impermanence#btrfs-subvolumes
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
-    mount /dev/mapper/crypted /btrfs_tmp
+    mount /dev/mapper/cryptroot /btrfs_tmp
 
     if [[ -e /btrfs_tmp/root ]]; then
       mkdir -p /btrfs_tmp/old_roots
@@ -28,6 +28,7 @@ in {
       delete_subvolume_recursively "$i"
     done
 
+    btrfs subvolume create /btrfs_tmp/root
     umount /btrfs_tmp
   '';
 
