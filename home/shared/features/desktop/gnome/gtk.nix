@@ -8,7 +8,7 @@ let
   cursorTheme = {
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
-    size = 32;
+    size = 24;
   };
   iconTheme = {
     # name = "Papirus";
