@@ -28,7 +28,7 @@ bluestar 使用 [Disko](https://github.com/nix-community/disko) 进行分区，�
 
 ```bash
 # 移动到暂存目录并下载 disko 配置
-cd /tmp && curl https://raw.githubusercontent.com/sn0wm1x/nixos/main/hosts/bluestar/disko.nix -o /tmp/disko.nix
+cd /tmp && curl https://raw.githubusercontent.com/sn0wm1x/os/main/hosts/bluestar/disko.nix -o /tmp/disko.nix
 # 分区并挂载
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix
 ```
@@ -39,7 +39,7 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 # 创建 /mnt/etc 目录
 cd /mnt && sudo mkdir etc && cd etc
 # 克隆此仓库
-sudo nix --experimental-features "nix-command flakes" run nixpkgs#git -- clone https://github.com/sn0wm1x/nixos.git
+sudo nix --experimental-features "nix-command flakes" run nixpkgs#git -- clone https://github.com/sn0wm1x/os.git nixos
 # 进入目录并删除 .git 文件夹
 cd nixos && sudo rm -rf .git
 # 安装系统
@@ -53,5 +53,6 @@ reboot
 重启后 `/etc/nixos` 会丢失，只需重新克隆到用户文件夹。 
 
 ```bash
-cd ~ && git clone https://github.com/sn0wm1x/nixos.git .nixos
+# 克隆到 ~/.os
+cd ~ && git clone https://github.com/sn0wm1x/os.git .os
 ```
