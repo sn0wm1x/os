@@ -5,7 +5,7 @@ let
 in
 {
   disko.devices = {
-    disk.nvme1 = {
+    disk.main = {
       inherit device;
       type = "disk";
       content = {
@@ -29,7 +29,7 @@ in
               settings = {
                 allowDiscards = true;
                 bypassWorkqueues = true;
-                keyFile = "/key/nixos.key";
+                keyFile = "/key/os.key";
                 keyFileSize = 8192;
                 # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
                 # https://github.com/reo101/rix101/blob/a6efd4146bbe0c7fb44343225b9dbf9585472597/machines/nixos/x86_64-linux/jeeves/disko.nix#L94-L107
@@ -50,6 +50,11 @@ in
                 type = "btrfs";
                 extraArgs = [ "-f" ];
                 subvolumes = {
+                  # https://github.com/nix-community/impermanence#btrfs-subvolumes
+                  "/root" = {
+                    mountpoint = "/";
+                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                  };
                   "/persist" = {
                     mountpoint = "/persist";
                     mountOptions = [ "compress-force=zstd:1" "noatime" ];
@@ -67,16 +72,6 @@ in
             };
           };
         };
-      };
-    };
-    nodev = {
-      "/" = {
-        fsType = "tmpfs";
-        mountOptions = [ "defaults" "size=2G" "mode=755" "noatime" ];
-      };
-      "/home/kwa" = {
-        fsType = "tmpfs";
-        mountOptions = [ "defaults" "size=2G" "mode=777" "noatime" ];
       };
     };
   };
