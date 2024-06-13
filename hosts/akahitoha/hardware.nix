@@ -23,6 +23,9 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # install linux-firmware and sof-firmware
+  hardware.firmware = with pkgs; [ linux-firmware ];
+
   hardware.opengl.enable = true;
   # https://nixos.wiki/wiki/AMD_GPU#Vulkan
   hardware.opengl.driSupport = true;

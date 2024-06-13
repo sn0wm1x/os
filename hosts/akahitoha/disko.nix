@@ -43,7 +43,6 @@ in
                 '';
                 postOpenCommands = ''
                   umount /key
-                  rm -rf /key
                 '';
               };
               content = {
