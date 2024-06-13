@@ -15,7 +15,7 @@
   # boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "bluestar";
+  networking.hostName = "akahitoha";
   networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
