@@ -16,7 +16,8 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "uas" "sd_mod" ];
   # https://nixos.wiki/wiki/AMD_GPU#Make_the_kernel_use_the_correct_driver_early
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
+  boot.initrd.kernelModules = [ "amdgpu" "uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1" ];
   boot.kernelModules = [ "kvm-amd" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
