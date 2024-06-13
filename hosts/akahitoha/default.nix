@@ -16,7 +16,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "bluestar";
+  networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   users.mutableUsers = false;
   # FIXME: update password
