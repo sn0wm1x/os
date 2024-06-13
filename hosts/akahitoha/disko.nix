@@ -1,8 +1,13 @@
+let
+  device = "/dev/nvme0n1";
+  primary_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+  backup_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+in
 {
   disko.devices = {
-    disk.nvme0n1 = {
+    disk.nvme1 = {
+      inherit device;
       type = "disk";
-      device = "/dev/nvme0n1";
       content = {
         type = "gpt";
         partitions = {
@@ -31,16 +36,15 @@
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 5
-                  until mount -n -t vfat -o ro /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1 /key 2>&1 1>/dev/null; do
-                    echo 'Could not find /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1, retrying...'
-                    sleep 2
+                  until [[mount -n -t vfat -o ro ${primary_key}]] || [[mount -n -t vfat -o ro ${backup_key}]]; do
+                    echo 'Could not find primary_key (${primary_key}) or backup_key (${backup_key}), retrying...'
+                    sleep 5
                   done
                 '';
                 postOpenCommands = ''
                   umount /key
                   rm -rf /key
                 '';
-                # mount -n -t vfat -o ro /dev/disk/by-id/${PRIMARYUSBID} /key || mount -n -t vfat -o ro /dev/disk/by-id/${BACKUPUSBID} /key
               };
               content = {
                 type = "btrfs";
