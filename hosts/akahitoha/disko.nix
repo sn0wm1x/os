@@ -36,7 +36,7 @@ in
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 5
-                  until [[mount -n -t vfat -o ro ${primary_key}]] || [[mount -n -t vfat -o ro ${backup_key}]]; do
+                  until [[ mount -n -t vfat -o ro ${primary_key} ]] || [[ mount -n -t vfat -o ro ${backup_key} ]]; do
                     echo 'Could not find primary_key (${primary_key}) or backup_key (${backup_key}), retrying...'
                     sleep 5
                   done
