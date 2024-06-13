@@ -1,5 +1,12 @@
 # [Akahitoha](https://youtu.be/G-qkOhDNfq0)
 
+ThinkBook 14 G6+ AHP
+
+- CPU: AMD Ryzen 7 8845H
+- GPU: AMD Radeon 780M Graphics
+- RAM: 32GB LPDDR5X-7500
+- DISK 0: SK hynix BC901 1TB
+
 ## 准备密钥
 
 akahitoha 默认全盘加密，使用密钥文件启动。
