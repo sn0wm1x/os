@@ -6,8 +6,9 @@
 }: {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
-    common-cpu-amd-pstate
-    # common-cpu-amd-raphael-igpu # TODO: try this
+    # FIXME: this device currently doesn't support CPPC
+    # TODO: waiting for Lenovo to release new BIOS
+    # common-cpu-amd-pstate
     common-gpu-amd
     common-pc-laptop
     common-pc-ssd
@@ -27,14 +28,16 @@
   # improve battery life
   environment.systemPackages = with pkgs; [ powertop ];
   powerManagement.powertop.enable = true;
-  powerManagement.cpuFreqGovernor = "conservative";
-  services.auto-epp = {
-    enable = true;
-    settings.Settings.epp_state_for_BAT = "power";
-    settings.Settings.epp_state_for_AC = "balance_performance";
-  };
+  services.power-profiles-daemon.enable = true;
+  services.auto-cpufreq.enable = true;
+  # TODO: enable this when amd_pstate is available
+  # services.auto-epp = {
+  #   enable = true;
+  #   settings.Settings.epp_state_for_BAT = "power";
+  #   settings.Settings.epp_state_for_AC = "balance_performance";
+  # };
 
-  # install linux-firmware and sof-firmware
+  # install linux-firmware
   hardware.firmware = with pkgs; [ linux-firmware ];
 
   hardware.opengl.enable = true;
