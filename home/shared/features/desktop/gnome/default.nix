@@ -8,6 +8,11 @@
     ./wallpaper.nix
   ];
 
+  # Enable VRR
+  dconf.settings."org/gnome/mutter" = {
+    experimental-features = [ "variable-refresh-rate" ];
+  };
+
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
     font-antialiasing = "rgba";
