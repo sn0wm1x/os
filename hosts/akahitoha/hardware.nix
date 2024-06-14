@@ -24,6 +24,16 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # improve battery life
+  environment.systemPackages = with pkgs; [ powertop ];
+  powerManagement.powertop.enable = true;
+  powerManagement.cpuFreqGovernor = "conservative";
+  services.auto-epp = {
+    enable = true;
+    settings.Settings.epp_state_for_BAT = "power";
+    settings.Settings.epp_state_for_AC = "balance_performance";
+  };
+
   # install linux-firmware and sof-firmware
   hardware.firmware = with pkgs; [ linux-firmware ];
 
