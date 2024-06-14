@@ -8,9 +8,9 @@
     ./wallpaper.nix
   ];
 
-  # Enable VRR
+  # Enable VRR & Fractional scaling
   dconf.settings."org/gnome/mutter" = {
-    experimental-features = [ "variable-refresh-rate" ];
+    experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer" ];
   };
 
   dconf.settings."org/gnome/desktop/interface" = {
