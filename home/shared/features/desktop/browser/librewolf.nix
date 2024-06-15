@@ -46,10 +46,10 @@ in
       userContent = ''@import "${firefox-gnome-theme}/userContent.css";'';
 
       extraConfig = ''
-        (builtins.readFile "${firefox-gnome-theme}/configuration/user.js")
-        (builtins.readFile "${betterfox}/Fastfox.js")
-        (builtins.readFile "${betterfox}/Peskyfox.js")
-        (builtins.readFile "${betterfox}/Smoothfox.js")
+        ${builtins.readFile "${firefox-gnome-theme}/configuration/user.js"}
+        ${builtins.readFile "${betterfox}/Fastfox.js"}
+        ${builtins.readFile "${betterfox}/Peskyfox.js"}
+        ${builtins.readFile "${betterfox}/Smoothfox.js"}
       '';
     };
   };
