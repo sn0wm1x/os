@@ -92,7 +92,28 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sn0wm1x": "sn0wm1x"
+      }
+    },
+    "sn0wm1x": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718109544,
+        "narHash": "sha256-WtOSzeDf8GfLH6cxiU6IrEOK9MFiEri1AdcV9mNLN38=",
+        "owner": "sn0wm1x",
+        "repo": "ur",
+        "rev": "05f9a871608cc6117eb9e433877075b8c8255c34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sn0wm1x",
+        "repo": "ur",
+        "type": "github"
       }
     }
   },
