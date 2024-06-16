@@ -22,6 +22,16 @@
 
     # https://github.com/hercules-ci/flake-parts#migrate
     # flake-parts.url = "github:hercules-ci/flake-parts";
+
+    # nur.url = "github:nix-community/NUR";
+
+    sn0wm1x.url = "github:sn0wm1x/ur";
+    sn0wm1x.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  nixConfig = {
+    extra-substituters = [ "https://sn0wm1x.cachix.org" ];
+    extra-trusted-public-keys = [ "sn0wm1x.cachix.org-1:osOGZnIhSALHVbNcjx9pJIcqNCieQp8I5asyf2IPZFc=" ];
   };
 
   outputs =

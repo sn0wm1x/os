@@ -5,19 +5,16 @@
 }: {
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = "nix-command flakes";
-  nix.settings.auto-optimise-store = true;
-
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
   nix.gc.options = "--delete-older-than 1w";
 
-  nix.settings.substituters = [
-    "https://devenv.cachix.org" # devenv
-  ];
-  nix.settings.trusted-public-keys = [
-    "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
-  ];
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = "nix-command flakes";
+    extra-substituters = [ "https://sn0wm1x.cachix.org" ];
+    extra-trusted-public-keys = [ "sn0wm1x.cachix.org-1:osOGZnIhSALHVbNcjx9pJIcqNCieQp8I5asyf2IPZFc=" ];
+  };
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
