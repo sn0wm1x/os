@@ -1,23 +1,7 @@
-# This file defines overlays
-{ inputs, ... }: {
-  # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs final.pkgs;
-
-  # This one contains whatever you want to overlay
-  # You can change versions, add patches, set compilation flags, anything really.
-  # https://nixos.wiki/wiki/Overlays
-  modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
-  };
-
-  # When applied, the unstable nixpkgs set (declared in the flake inputs) will
-  # be accessible through 'pkgs.unstable'
-  unstable-packages = final: _prev: {
-    unstable = import inputs.nixpkgs-unstable {
-      system = final.system;
-      config.allowUnfree = true;
-    };
-  };
-}
+{ ... }:
+# from https://github.com/nix-community/nur-combined/commit/7df261f5c5bb9dab577944e757d13b4fc7c2d1f9
+let
+  files = builtins.readDir ./.;
+  overlays = builtins.removeAttrs files [ "default.nix" ];
+in
+builtins.mapAttrs (name: _: import "${./.}/${name}") overlays
