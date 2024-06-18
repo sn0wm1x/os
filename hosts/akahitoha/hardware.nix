@@ -27,7 +27,8 @@
     "nls_cp437"
     "nls_iso8859_1"
     # microSD
-    "mmc_block"
+    "sdhci"
+    "mmc_block" # TODO: try remove this
   ];
   boot.kernelModules = [ "kvm-amd" ];
   # use linux 6.10+ testing kernel
