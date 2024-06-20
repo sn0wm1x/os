@@ -9,7 +9,11 @@
     mhutchie.git-graph
     editorconfig.editorconfig
     mkhl.direnv
-    # Languages
+    # Natural Languages
+    ms-ceintl.vscode-language-pack-zh-hans
+    # ms-ceintl.vscode-language-pack-zh-hant
+    # ms-ceintl.vscode-language-pack-ja
+    # Programming Languages
     redhat.vscode-yaml # yaml
     redhat.vscode-xml # xml
     tamasfe.even-better-toml # toml
