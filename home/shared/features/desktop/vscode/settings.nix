@@ -100,6 +100,7 @@ let
     "workbench.startupEditor" = "none";
   };
   git = {
+    "git.allowForcePush" = true;
     "git.autofetch" = true;
     "git.enableSmartCommit" = true;
   };
