@@ -9,6 +9,7 @@
     mhutchie.git-graph
     editorconfig.editorconfig
     mkhl.direnv
+    foam.foam-vscode # Personal knowledge management
     # Natural Languages
     ms-ceintl.vscode-language-pack-zh-hans
     # ms-ceintl.vscode-language-pack-zh-hant
