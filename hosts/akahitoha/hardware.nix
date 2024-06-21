@@ -79,7 +79,6 @@
 
   hardware.opengl.enable = true;
   # https://nixos.wiki/wiki/AMD_GPU#Vulkan
-  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
     # https://nixos.wiki/wiki/AMD_GPU#OpenCL

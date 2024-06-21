@@ -51,7 +51,6 @@
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [ intel-compute-runtime ];
 
