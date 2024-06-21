@@ -89,7 +89,12 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
-              home-manager.users.kwa = import ./home/kwa;
+              home-manager.users.kwa = {
+                imports = [
+                  ./home/kwa
+                  ./home/shared/bluestar
+                ];
+              };
             }
           ];
         };
