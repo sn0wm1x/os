@@ -37,9 +37,6 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # improve battery life
-  # https://nixos.wiki/wiki/Laptop#Powertop
-  powerManagement.powertop.enable = true;
-  environment.systemPackages = with pkgs; [ powertop ];
   services.power-profiles-daemon.enable = true;
   # https://nixos.wiki/wiki/Laptop#auto-cpufreq
   services.auto-cpufreq.enable = true;
@@ -59,6 +56,23 @@
   #   settings.Settings.epp_state_for_BAT = "power";
   #   settings.Settings.epp_state_for_AC = "balance_performance";
   # };
+
+  environment.systemPackages = with pkgs; [
+    powertop
+    ryzenadj
+  ];
+
+  # https://nixos.wiki/wiki/Laptop#Powertop
+  powerManagement.powertop.enable = true;
+  systemd.services.ryzenadj = {
+    description = "ryzenadj --power-saving";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${lib.getExe pkgs.ryzenadj} --power-saving";
+    };
+  };
 
   # install linux-firmware
   hardware.firmware = with pkgs; [ linux-firmware ];
