@@ -13,6 +13,9 @@
   services.system76-scheduler.enable = true;
   services.system76-scheduler.useStockConfig = true;
 
+  # sudo nopasswd
+  security.sudo.wheelNeedsPassword = false;
+
   # Increase open file limit for sudoers
   security.pam.loginLimits = [
     {
