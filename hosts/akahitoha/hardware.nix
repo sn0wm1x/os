@@ -77,16 +77,16 @@
   # install linux-firmware
   hardware.firmware = with pkgs; [ linux-firmware ];
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   # https://nixos.wiki/wiki/AMD_GPU#Vulkan
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.driSupport32Bit = true;
+  hardware.graphics.extraPackages = with pkgs; [
     # https://nixos.wiki/wiki/AMD_GPU#OpenCL
     rocmPackages.clr.icd
     # https://nixos.wiki/wiki/AMD_GPU#AMDVLK
     amdvlk
   ];
-  hardware.opengl.extraPackages32 = with pkgs; [
+  hardware.graphics.extraPackages32 = with pkgs; [
     driversi686Linux.amdvlk
   ];
 
