@@ -79,7 +79,7 @@
 
   hardware.graphics.enable = true;
   # https://nixos.wiki/wiki/AMD_GPU#Vulkan
-  hardware.graphics.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = with pkgs; [
     # https://nixos.wiki/wiki/AMD_GPU#OpenCL
     rocmPackages.clr.icd
