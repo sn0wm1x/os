@@ -38,18 +38,6 @@
 
   # improve battery life
   services.power-profiles-daemon.enable = true;
-  # https://nixos.wiki/wiki/Laptop#auto-cpufreq
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
-  };
   # TODO: enable this when amd_pstate is available
   # services.auto-epp = {
   #   enable = true;
