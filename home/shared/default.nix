@@ -1,10 +1,5 @@
-{ inputs, lib, ... }: {
-  imports = [
-    inputs.impermanence.nixosModules.home-manager.impermanence
-    ./xdg.nix
-  ];
-
-  programs.home-manager.enable = true;
+{ lib, ... }: {
+  imports = [ ./xdg.nix ];
 
   systemd.user.startServices = "sd-switch";
 

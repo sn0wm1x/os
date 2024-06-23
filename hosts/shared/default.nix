@@ -1,19 +1,13 @@
-{ inputs, outputs, lib, ... }: {
+{ lib, ... }: {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ./btrfs.nix
     ./fonts.nix
     ./gpg.nix
+    ./home-manager.nix
     ./locale.nix
     ./nix.nix
     ./ssh.nix
   ];
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = {
-    inherit inputs outputs;
-  };
 
   zramSwap.enable = true;
 

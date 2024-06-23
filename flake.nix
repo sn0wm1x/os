@@ -71,26 +71,5 @@
           modules = [ ./hosts/bluestar ];
         };
       };
-
-      # home-manager --flake .#kwa@${hostname}
-      homeConfigurations = {
-        "kwa@akahitoha" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home/kwa
-            ./home/kwa/akahitoha
-          ];
-        };
-
-        "kwa@bluestar" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            ./home/kwa
-            ./home/kwa/bluestar
-          ];
-        };
-      };
     };
 }

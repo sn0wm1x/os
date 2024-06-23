@@ -12,9 +12,6 @@ list:
 rebuild mode='switch' *args='':
   sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
 
-hm *args='':
-  home-manager --flake .#kwa@{{hostname}} {{args}}
-
 up:
   nix flake update
 

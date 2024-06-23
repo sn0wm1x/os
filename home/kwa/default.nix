@@ -2,8 +2,13 @@
 { config
 , lib
 , pkgs
+, osConfig
 , ...
-}: {
+}:
+let
+  hostName = osConfig.networking.hostName;
+in
+{
   imports = [
     ../shared
     ../shared/features/audio
@@ -12,6 +17,7 @@
     ../shared/features/develop
     ../shared/features/virtualisation
     ./programs
+    (./. + "${hostName}")
   ];
 
   home.username = "kwa";
