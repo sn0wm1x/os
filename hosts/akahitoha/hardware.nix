@@ -30,14 +30,29 @@
     "sdhci"
     "mmc_block" # TODO: try remove this
   ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    # try amd_pstate=passive
+    "amd-pstate"
+  ];
+  # try amd_pstate=passive
+  boot.kernelParams = [ "amd_pstate=passive" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # improve battery life
+  environment.systemPackages = with pkgs; [
+    powertop
+    ryzenadj
+  ];
   services.power-profiles-daemon.enable = true;
+  # https://nixos.wiki/wiki/Laptop#Powertop
+  # powertop --auto-tune
+  powerManagement.powertop.enable = true;
+  # try amd_pstate=passive
+  powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
   # TODO: enable this when amd_pstate is available
   # services.auto-epp = {
   #   enable = true;
@@ -45,13 +60,6 @@
   #   settings.Settings.epp_state_for_AC = "balance_performance";
   # };
 
-  environment.systemPackages = with pkgs; [
-    powertop
-    ryzenadj
-  ];
-
-  # https://nixos.wiki/wiki/Laptop#Powertop
-  powerManagement.powertop.enable = true;
   systemd.services.ryzenadj = {
     description = "ryzenadj --power-saving";
     wantedBy = [ "multi-user.target" ];
