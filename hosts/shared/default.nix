@@ -9,6 +9,8 @@
     ./ssh.nix
   ];
 
+  hardware.enableRedistributableFirmware = true;
+
   zramSwap.enable = true;
 
   services.system76-scheduler.enable = true;
