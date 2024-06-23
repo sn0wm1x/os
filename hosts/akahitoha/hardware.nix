@@ -32,11 +32,11 @@
   ];
   boot.kernelModules = [
     "kvm-amd"
-    # try amd_pstate=passive
+    # try amd_pstate=guided
     "amd-pstate"
   ];
-  # try amd_pstate=passive
-  boot.kernelParams = [ "amd_pstate=passive" ];
+  # try amd_pstate=guided
+  boot.kernelParams = [ "amd_pstate=guided" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
@@ -51,7 +51,7 @@
   # https://nixos.wiki/wiki/Laptop#Powertop
   # powertop --auto-tune
   powerManagement.powertop.enable = true;
-  # try amd_pstate=passive
+  # try amd_pstate=guided
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
   # TODO: enable this when amd_pstate is available
   # services.auto-epp = {
