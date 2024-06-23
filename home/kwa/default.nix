@@ -17,7 +17,7 @@ in
     ../shared/features/develop
     ../shared/features/virtualisation
     ./programs
-    (./. + "${hostName}")
+    (./. + "/${hostName}")
   ];
 
   home.username = "kwa";
