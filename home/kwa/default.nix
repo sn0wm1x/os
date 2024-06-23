@@ -6,7 +6,7 @@
 , ...
 }:
 let
-  hostName = osConfig.networking.hostName;
+  host = osConfig.networking.hostName;
 in
 {
   imports = [
@@ -17,7 +17,8 @@ in
     ../shared/features/develop
     ../shared/features/virtualisation
     ./programs
-    (./. + "/${hostName}")
+    # import host-specific configuration
+    (./. + "/${host}")
   ];
 
   home.username = "kwa";
