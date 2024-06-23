@@ -61,41 +61,34 @@
         akahitoha = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/akahitoha
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
-              home-manager.users.kwa = {
-                imports = [
-                  ./home/kwa
-                  ./home/shared/akahitoha
-                ];
-              };
-            }
-          ];
+          modules = [ ./hosts/akahitoha ];
         };
 
         # ./hosts/bluestar/README.md
         bluestar = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/bluestar ];
+        };
+      };
+
+      # home-manager --flake .#kwa@${hostname}
+      homeConfigurations = {
+        "kwa@akahitoha" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
           modules = [
-            ./hosts/bluestar
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.sharedModules = [ impermanence.nixosModules.home-manager.impermanence ];
-              home-manager.users.kwa = {
-                imports = [
-                  ./home/kwa
-                  ./home/shared/bluestar
-                ];
-              };
-            }
+            ./home/kwa
+            ./home/kwa/akahitoha
+          ];
+        };
+
+        "kwa@bluestar" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/kwa
+            ./home/kwa/bluestar
           ];
         };
       };
