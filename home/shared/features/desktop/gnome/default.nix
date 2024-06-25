@@ -8,8 +8,10 @@
     ./wallpaper.nix
   ];
 
-  # Enable VRR & Fractional scaling
   dconf.settings."org/gnome/mutter" = {
+    # Enable Dynamic Workspaces
+    dynamic-workspaces = true;
+    # Enable VRR & Fractional scaling
     experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer" ];
   };
 
