@@ -2,4 +2,4 @@
 # You can build them using 'nix build .#example'
 pkgs: {
   # example = pkgs.callPackage ./example { };
-}
+} // builtins.mapAttrs (name: _: pkgs.callPackage (./by-name + "/${name}") { }) (builtins.readDir ./by-name)
