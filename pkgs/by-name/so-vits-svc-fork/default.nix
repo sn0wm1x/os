@@ -27,6 +27,7 @@ python3Packages.buildPythonPackage rec {
 
   # specific to buildPythonPackage, see its reference
   build-system = with python3Packages; [
+    poetry-core
     setuptools
     wheel
   ];
