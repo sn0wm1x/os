@@ -1,6 +1,5 @@
 {
   imports = [
     ./desktop/gnome
-    ./misc
   ];
 }
