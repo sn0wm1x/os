@@ -12,6 +12,6 @@
 
   # temporary fix `gpg --card-status`
   environment.sessionVariables = {
-    LD_LIBRARY_PATH = [ "${lib.getLib pkgs.pcsclite}/lib" ];
+    LD_LIBRARY_PATH = lib.makeLibraryPath [ "${lib.getLib pkgs.pcsclite}/lib" ];
   };
 }
