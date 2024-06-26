@@ -9,7 +9,7 @@
   ];
 
   # temporary fix `libstdc++.so.6: cannot open shared object file: No such file or directory`
-  environment.variables = {
+  home.sessionVariables = {
     LD_LIBRARY_PATH = lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
   };
 }
