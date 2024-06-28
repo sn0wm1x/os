@@ -1,4 +1,5 @@
 { config
+, lib
 , pkgs
 , ...
 }: {
@@ -23,6 +24,20 @@
       rgb = null;
     };
   };
+
+  # xdg.configFile."distrobox/distrobox.ini".text = lib.generators.toINI { } {
+  #   arch = {
+  #     image = "archlinux:latest";
+  #     packages = "base-devel";
+  #     pull = true;
+  #   };
+  #   arch = {
+  #     image = "ghcr.io/ublue-os/arch-distrobox";
+  #   };
+  #   bazzite-arch = {
+  #     image = "ghcr.io/ublue-os/bazzite-arch-gnome";
+  #   };
+  # };
 
   home.persistence."/persist${config.home.homeDirectory}".directories = [
     ".local/share/containers"
