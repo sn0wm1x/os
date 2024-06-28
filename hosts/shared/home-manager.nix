@@ -7,6 +7,7 @@
     inherit inputs outputs;
   };
   home-manager.sharedModules = [
+    inputs.catppuccin.homeManagerModules.catppuccin
     inputs.impermanence.nixosModules.home-manager.impermanence
   ];
   home-manager.users.kwa.imports = [

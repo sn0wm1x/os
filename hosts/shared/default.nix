@@ -1,6 +1,7 @@
 { lib, ... }: {
   imports = [
     ./btrfs.nix
+    ./catppuccin.nix
     ./fonts.nix
     ./gpg.nix
     ./home-manager.nix

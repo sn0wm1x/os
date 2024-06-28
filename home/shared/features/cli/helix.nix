@@ -5,6 +5,7 @@
   # https://nixos.wiki/wiki/Helix
   programs.helix = {
     enable = true;
+    # catppuccin.enable = true;
     settings = {
       theme = "catppuccin_frappe_transparent";
       editor = {

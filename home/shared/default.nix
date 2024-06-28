@@ -1,5 +1,8 @@
 { lib, ... }: {
-  imports = [ ./xdg.nix ];
+  imports = [
+    ./catppuccin.nix
+    ./xdg.nix
+  ];
 
   systemd.user.startServices = "sd-switch";
 

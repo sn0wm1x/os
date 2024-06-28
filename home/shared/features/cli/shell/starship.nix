@@ -1,6 +1,7 @@
 {
   # TODO: https://github.com/catppuccin/starship
   programs.starship.enable = true;
+  programs.starship.catppuccin.enable = true;
   programs.starship.settings = {
     add_newline = true;
     character = {

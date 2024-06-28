@@ -2,36 +2,25 @@
   description = "github:sn0wm1x/os";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    catppuccin.url = "github:catppuccin/nix";
 
-    # https://github.com/NixOS/nixos-hardware#using-nix-flakes-support
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
-
-    # https://github.com/nix-community/disko/blob/master/docs/HowTo.md#installing-nixos-module
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # https://github.com/nix-community/impermanence#nixos
-    impermanence.url = "github:nix-community/impermanence";
-
-    # https://nix-community.github.io/home-manager/#ch-nix-flakes
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # https://github.com/hercules-ci/flake-parts#migrate
-    # flake-parts.url = "github:hercules-ci/flake-parts";
+    impermanence.url = "github:nix-community/impermanence";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # nur.url = "github:nix-community/NUR";
 
     sn0wm1x.url = "github:sn0wm1x/ur";
     sn0wm1x.inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  nixConfig = {
-    extra-substituters = [ "https://sn0wm1x.cachix.org" ];
-    extra-trusted-public-keys = [ "sn0wm1x.cachix.org-1:osOGZnIhSALHVbNcjx9pJIcqNCieQp8I5asyf2IPZFc=" ];
   };
 
   outputs =
