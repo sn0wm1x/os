@@ -1,12 +1,10 @@
 { lib, ... }: {
   imports = [
     ./btrfs.nix
-    ./catppuccin.nix
     ./fonts.nix
     ./gpg.nix
-    ./home-manager.nix
     ./locale.nix
-    ./nix-ld.nix
+    ./modules.nix
     ./nix.nix
     ./ssh.nix
   ];
