@@ -4,7 +4,7 @@
       pipx
       pip
     ]))
-    poetry # package manager
+    uv # package manager
     ruff # linter
   ];
 }
