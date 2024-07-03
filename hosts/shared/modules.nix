@@ -1,7 +1,15 @@
-{ inputs, outputs, ... }: {
+{ inputs, outputs, pkgs, ... }: {
   imports = [
+    inputs.agenix.nixosModules.default
+    inputs.agenix-rekey.nixosModules.default
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
+  ];
+
+  # agenix / agenix-rekey
+  environment.systemPackages = [
+    inputs.agenix.packages.${pkgs.system}.default
+    inputs.agenix-rekey.packages.${pkgs.system}.default
   ];
 
   # catppuccin/nix
