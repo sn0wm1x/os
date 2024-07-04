@@ -5,7 +5,7 @@ let
 in
 {
   # https://nixos.wiki/wiki/Yubikey#pam_u2f
-  xdg.configFile."Yubico/pam_u2f".text = ''
+  xdg.configFile."Yubico/u2f_keys".text = ''
     ${config.home.username}:${yubikey5c}:${yubikey5}
   '';
 }
