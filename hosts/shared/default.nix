@@ -2,11 +2,11 @@
   imports = [
     ./btrfs.nix
     ./fonts.nix
-    ./gpg.nix
     ./locale.nix
     ./modules.nix
     ./nix.nix
     ./ssh.nix
+    ./yubikey.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
