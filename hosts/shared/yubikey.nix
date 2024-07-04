@@ -10,6 +10,7 @@
 
   # https://nixos.wiki/wiki/Yubikey#pam_u2f
   security.pam.u2f.enable = true;
+  security.pam.u2f.control = "required";
   security.pam.services.login.u2fAuth = true;
   security.pam.services.sudo.u2fAuth = true;
 
