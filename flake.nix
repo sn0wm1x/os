@@ -2,13 +2,13 @@
   description = "github:sn0wm1x/os";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-    agenix.inputs.home-manager.follows = "home-manager";
-    # agenix.inputs.systems.follows = "systems";
-    agenix.inputs.darwin.follows = "";
-    agenix-rekey.url = "github:oddlama/agenix-rekey";
-    agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
+    # agenix.url = "github:ryantm/agenix";
+    # agenix.inputs.nixpkgs.follows = "nixpkgs";
+    # agenix.inputs.home-manager.follows = "home-manager";
+    # # agenix.inputs.systems.follows = "systems";
+    # agenix.inputs.darwin.follows = "";
+    # agenix-rekey.url = "github:oddlama/agenix-rekey";
+    # agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix";
 
