@@ -29,7 +29,11 @@
         append /usr/bin/env
       )
     '';
+    extraEnv = ''
+      $env.CARAPACE_BRIDGES = 'inshellisense'
+    '';
   };
+
 
   home.persistence."/persist${config.home.homeDirectory}".files = [
     ".config/nushell/history.txt"
