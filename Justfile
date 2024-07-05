@@ -12,6 +12,10 @@ list:
 rebuild mode='switch' *args='':
   sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
 
+rebuild-nom mode='switch' *args='--show-trace --verbose':
+  sudo nom build .#nixosConfigurations.{{hostname}}.config.system.build.toplevel {{args}}
+  just rebuild {{mode}} {{args}}
+
 up:
   nix flake update
 
