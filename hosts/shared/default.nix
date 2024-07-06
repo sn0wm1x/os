@@ -4,8 +4,8 @@
     ./fonts.nix
     ./locale.nix
     ./modules.nix
+    ./network.nix
     ./nix.nix
-    ./ssh.nix
     ./yubikey.nix
   ];
 
@@ -16,8 +16,13 @@
   services.system76-scheduler.enable = true;
   services.system76-scheduler.useStockConfig = true;
 
+  # use sudo-rs
+  security.sudo.enable = false;
+  security.sudo-rs.enable = true;
+  # sudo wheel only
+  security.sudo-rs.execWheelOnly = true;
   # sudo nopasswd
-  security.sudo.wheelNeedsPassword = false;
+  security.sudo-rs.wheelNeedsPassword = false;
   # increase open file limit for sudoers
   security.pam.loginLimits = [
     {
