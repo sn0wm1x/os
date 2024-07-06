@@ -17,6 +17,9 @@
   };
   time.timeZone = lib.mkDefault "Asia/Taipei";
 
+  # use ntpd-rs instead of systemd-timesyncd
+  services.timesyncd.enable = false;
+  services.ntpd-rs.enable = true;
   # https://nixos.wiki/wiki/NTP
   networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
 
