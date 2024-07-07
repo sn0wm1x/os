@@ -8,8 +8,9 @@
     rustfmt
   ];
 
-  # fix rust-analyzer
+  # Certain Rust tools won't work without this
+  # https://nixos.wiki/wiki/Rust#Shell.nix_example
   home.sessionVariables = {
-    RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+    RUST_SRC_PATH = pkgs.rust.packages.stable.rustPlatform.rustLibSrc;
   };
 }
