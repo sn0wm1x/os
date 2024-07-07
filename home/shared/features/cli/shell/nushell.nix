@@ -32,6 +32,9 @@
     extraEnv = ''
       $env.CARAPACE_BRIDGES = 'inshellisense'
     '';
+    # fix home.sessionVariables in nushell
+    # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
+    environmentVariables = builtins.mapAttrs (name: value: "\"${builtins.toString value}\"") config.home.sessionVariables;
   };
 
 
