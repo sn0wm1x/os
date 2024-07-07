@@ -3,6 +3,6 @@
     ./javascript.nix
     ./nix.nix
     ./python.nix
-    ./rust.nix
+    # ./rust.nix
   ];
 }
