@@ -19,7 +19,6 @@
   # gh
   programs.gh.enable = true;
   programs.gh.extensions = with pkgs; [
-    gh-collaborators
     # gh-dash
     gh-markdown-preview
     gh-notify
