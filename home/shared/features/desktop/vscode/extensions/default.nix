@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./javascript.nix
+    ./nix.nix
     ./toml.nix
   ];
 
@@ -23,7 +24,6 @@
     # Programming Languages
     redhat.vscode-yaml # yaml
     redhat.vscode-xml # xml
-    jnoortheen.nix-ide # nix
     rust-lang.rust-analyzer # rust
   ];
 }

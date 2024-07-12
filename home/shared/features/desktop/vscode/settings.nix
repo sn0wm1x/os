@@ -1,7 +1,3 @@
-{ lib
-, pkgs
-, ...
-}:
 let
   editor = {
     "editor.formatOnSave" = true;
@@ -104,13 +100,6 @@ let
     "git.autofetch" = true;
     "git.enableSmartCommit" = true;
   };
-  nix = {
-    "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
-    "nix.enableLanguageServer" = true;
-    "nix.formatterPath" = lib.getExe pkgs.nixpkgs-fmt;
-    "nix.serverPath" = lib.getExe pkgs.nil;
-    "nix.serverSettings"."nil"."formatting"."command" = [ "${lib.getExe pkgs.nixpkgs-fmt}" ];
-  };
 in
 {
   programs.vscode.userSettings =
@@ -130,6 +119,5 @@ in
     // editor
     // explorer
     // workbench
-    // git
-    // nix;
+    // git;
 }
