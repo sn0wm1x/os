@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./javascript.nix
+    ./toml.nix
   ];
 
   # programs.vscode.mutableExtensionsDir = false;
@@ -22,7 +23,6 @@
     # Programming Languages
     redhat.vscode-yaml # yaml
     redhat.vscode-xml # xml
-    tamasfe.even-better-toml # toml
     jnoortheen.nix-ide # nix
     rust-lang.rust-analyzer # rust
   ];
