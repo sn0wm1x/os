@@ -11,6 +11,10 @@
   # TODO: difftastic + magit (emacs)
   programs.git.difftastic.enable = true;
 
+  # gitui
+  programs.gitui.enable = true;
+  programs.gitui.catppuccin.enable = true;
+
   # gh
   programs.gh.enable = true;
   programs.gh.extensions = with pkgs; [
@@ -24,8 +28,4 @@
   # gh-dash
   programs.gh-dash.enable = true;
   programs.gh-dash.catppuccin.enable = true;
-
-  # lazygit
-  programs.lazygit.enable = true;
-  programs.lazygit.catppuccin.enable = true;
 }
