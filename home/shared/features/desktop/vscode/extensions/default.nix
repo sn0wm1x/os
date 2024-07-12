@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./github.nix
     ./javascript.nix
     ./nix.nix
     ./toml.nix
