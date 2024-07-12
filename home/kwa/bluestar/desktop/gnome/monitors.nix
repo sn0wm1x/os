@@ -1,3 +1,1 @@
-{
-  xdg.configFile."monitors.xml".source = ./monitors.xml;
-}
+{ xdg.configFile."monitors.xml".source = ./monitors.xml; }

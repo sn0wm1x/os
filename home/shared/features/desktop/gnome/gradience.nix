@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [ gradience ];
 
   # https://github.com/GradienceTeam/Community/blob/next/official/catppuccin-frappe.json

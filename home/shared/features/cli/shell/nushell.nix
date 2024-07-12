@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   # https://nixos.wiki/wiki/Nushell
   programs.nushell = {
     inherit (config.home) shellAliases;
@@ -34,11 +35,10 @@
     '';
     # fix home.sessionVariables in nushell
     # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
-    environmentVariables = builtins.mapAttrs (name: value: "\"${builtins.toString value}\"") config.home.sessionVariables;
+    environmentVariables = builtins.mapAttrs (
+      name: value: "\"${builtins.toString value}\""
+    ) config.home.sessionVariables;
   };
 
-
-  home.persistence."/persist${config.home.homeDirectory}".files = [
-    ".config/nushell/history.txt"
-  ];
+  home.persistence."/persist${config.home.homeDirectory}".files = [ ".config/nushell/history.txt" ];
 }

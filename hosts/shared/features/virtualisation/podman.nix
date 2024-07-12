@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # https://nixos.wiki/wiki/Podman
   virtualisation.podman.enable = true;
   virtualisation.podman.autoPrune.enable = true;
@@ -22,7 +23,5 @@
     fuse-overlayfs # CoW for images, much faster than default vfs
   ];
 
-  environment.persistence."/persist".directories = [
-    "/var/lib/containers"
-  ];
+  environment.persistence."/persist".directories = [ "/var/lib/containers" ];
 }

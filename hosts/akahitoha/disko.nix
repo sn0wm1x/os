@@ -50,19 +50,31 @@ in
                   # https://github.com/nix-community/impermanence#btrfs-subvolumes
                   "/root" = {
                     mountpoint = "/";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "/persist" = {
                     mountpoint = "/persist";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "/opt" = {
                     mountpoint = "/opt";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                 };
               };

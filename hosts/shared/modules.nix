@@ -1,4 +1,5 @@
-{ inputs, outputs, ... }: {
+{ inputs, outputs, ... }:
+{
   imports = [
     # inputs.agenix.nixosModules.default
     # inputs.agenix-rekey.nixosModules.default
@@ -23,7 +24,9 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = {
+      inherit inputs outputs;
+    };
     sharedModules = [
       inputs.catppuccin.homeManagerModules.catppuccin
       inputs.impermanence.nixosModules.home-manager.impermanence

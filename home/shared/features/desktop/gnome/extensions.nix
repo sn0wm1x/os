@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs.gnomeExtensions; [
     # 功能
     kimpanel

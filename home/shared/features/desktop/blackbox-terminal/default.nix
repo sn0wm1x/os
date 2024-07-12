@@ -1,11 +1,7 @@
-{ pkgs
-, config
-, ...
-}: {
+{ pkgs, config, ... }:
+{
   home = {
-    packages = with pkgs; [
-      blackbox-terminal
-    ];
+    packages = with pkgs; [ blackbox-terminal ];
     # https://github.com/catppuccin/blackbox/blob/main/src/Catppuccin-Frappe.json
     file."${config.home.homeDirectory}/.local/share/blackbox/schemes/Catppuccin-Frappe.json".source = ./Catppuccin-Frappe.json;
     # https://github.com/catppuccin/blackbox/blob/main/src/Catppuccin-Latte.json

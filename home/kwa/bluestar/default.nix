@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./desktop/gnome
-  ];
-}
+{ imports = [ ./desktop/gnome ]; }

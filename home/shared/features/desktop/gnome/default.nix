@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./circle.nix
     ./extensions.nix
@@ -12,7 +13,10 @@
     # Enable Dynamic Workspaces
     dynamic-workspaces = true;
     # Enable VRR & Fractional scaling
-    experimental-features = [ "variable-refresh-rate" "scale-monitor-framebuffer" ];
+    experimental-features = [
+      "variable-refresh-rate"
+      "scale-monitor-framebuffer"
+    ];
   };
 
   dconf.settings."org/gnome/desktop/interface" = {

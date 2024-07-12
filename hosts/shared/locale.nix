@@ -1,7 +1,5 @@
-{ lib
-, options
-, ...
-}: {
+{ lib, options, ... }:
+{
   i18n = {
     # defaultLocale = lib.mkDefault "en_US.UTF-8";
     defaultLocale = lib.mkDefault "zh_CN.UTF-8";

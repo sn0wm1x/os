@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   users.mutableUsers = false;
   users.users.kwa = {
     # FIXME: update password

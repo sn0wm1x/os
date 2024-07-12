@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.vscode.extensions = with pkgs.vscode-extensions; [
     denoland.vscode-deno # javascript (deno)
 

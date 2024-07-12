@@ -1,7 +1,5 @@
-{ lib
-, pkgs
-, ...
-}: {
+{ lib, pkgs, ... }:
+{
   # https://nixos.wiki/wiki/Helix
   programs.helix = {
     enable = true;
@@ -27,7 +25,10 @@
           w = ":w";
           q = ":q";
         };
-        esc = [ "collapse_selection" "keep_primary_selection" ];
+        esc = [
+          "collapse_selection"
+          "keep_primary_selection"
+        ];
       };
     };
     themes.catppuccin_frappe_transparent = {

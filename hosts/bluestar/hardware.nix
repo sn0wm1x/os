@@ -1,9 +1,11 @@
-{ config
-, inputs
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-intel
     # https://github.com/NixOS/nixos-hardware/issues/940
@@ -12,9 +14,24 @@
   ];
 
   # boot.initrd.systemd.enable = true;
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "usb_storage"
+    "uas"
+    "sd_mod"
+  ];
   # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
-  boot.initrd.kernelModules = [ "uas" "usbcore" "usb_storage" "vfat" "nls_cp437" "nls_iso8859_1" ];
+  boot.initrd.kernelModules = [
+    "uas"
+    "usbcore"
+    "usb_storage"
+    "vfat"
+    "nls_cp437"
+    "nls_iso8859_1"
+  ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
@@ -49,7 +66,9 @@
   hardware.firmware = with pkgs; [ linux-firmware ];
 
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = with pkgs; [ intel-compute-runtime ];

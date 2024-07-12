@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   # https://nixos.wiki/wiki/Discord#Vesktop
   home.packages = with pkgs; [
     (vesktop.overrideAttrs {
@@ -11,8 +12,17 @@
           icon = "discord"; # original icon
           startupWMClass = " Vesktop";
           genericName = "Internet Messenger";
-          keywords = [ "discord" "vencord" "electron" "chat" ];
-          categories = [ "Network" "InstantMessaging" "Chat" ];
+          keywords = [
+            "discord"
+            "vencord"
+            "electron"
+            "chat"
+          ];
+          categories = [
+            "Network"
+            "InstantMessaging"
+            "Chat"
+          ];
         })
       ];
     })

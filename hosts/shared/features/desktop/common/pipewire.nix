@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   # https://nixos.wiki/wiki/PipeWire
   sound.enable = lib.mkForce false;
   hardware.pulseaudio.enable = lib.mkForce false;

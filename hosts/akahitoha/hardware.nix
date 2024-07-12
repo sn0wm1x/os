@@ -1,9 +1,11 @@
-{ config
-, inputs
-, lib
-, pkgs
-, ...
-}: {
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
     # FIXME: this device currently doesn't support CPPC
@@ -15,7 +17,14 @@
     common-hidpi
   ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usbhid" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+    "thunderbolt"
+    "usbhid"
+    "uas"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [
     # https://nixos.wiki/wiki/AMD_GPU#Make_the_kernel_use_the_correct_driver_early
     "amdgpu"
@@ -74,9 +83,7 @@
     # https://nixos.wiki/wiki/AMD_GPU#AMDVLK
     amdvlk
   ];
-  hardware.graphics.extraPackages32 = with pkgs; [
-    driversi686Linux.amdvlk
-  ];
+  hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
 
   # ROCm Support
   nixpkgs.config.rocmSupport = true;

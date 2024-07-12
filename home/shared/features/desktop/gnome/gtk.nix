@@ -27,12 +27,14 @@ in
   gtk = {
     inherit theme cursorTheme iconTheme;
     enable = true;
-    gtk3 = { inherit extraConfig; };
-    gtk4 = { inherit extraConfig; };
-  };
-  home.pointerCursor =
-    cursorTheme
-    // {
-      gtk.enable = true;
+    gtk3 = {
+      inherit extraConfig;
     };
+    gtk4 = {
+      inherit extraConfig;
+    };
+  };
+  home.pointerCursor = cursorTheme // {
+    gtk.enable = true;
+  };
 }

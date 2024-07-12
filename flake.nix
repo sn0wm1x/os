@@ -32,11 +32,12 @@
   };
 
   outputs =
-    inputs @ { self
-    , nixpkgs
-    , impermanence
-    , home-manager
-    , ...
+    inputs@{
+      self,
+      nixpkgs,
+      impermanence,
+      home-manager,
+      ...
     }:
     let
       inherit (self) outputs;
@@ -57,14 +58,18 @@
         # ./hosts/akahitoha/README.md
         akahitoha = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = {
+            inherit inputs outputs;
+          };
           modules = [ ./hosts/akahitoha ];
         };
 
         # ./hosts/bluestar/README.md
         bluestar = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = {
+            inherit inputs outputs;
+          };
           modules = [ ./hosts/bluestar ];
         };
       };

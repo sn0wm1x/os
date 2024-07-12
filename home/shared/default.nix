@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [
     ./catppuccin.nix
     ./xdg.nix

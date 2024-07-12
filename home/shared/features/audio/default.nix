@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./easyeffects
-  ];
-}
+{ imports = [ ./easyeffects ]; }

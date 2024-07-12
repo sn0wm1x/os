@@ -1,8 +1,15 @@
-{ inputs, config, lib, ... }:
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
 # let mtime = "30"; # monthly
 # let mtime = "7"; # weekly
-let mtime = "1"; # daily
-in {
+let
+  mtime = "1"; # daily
+in
+{
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   # https://github.com/nix-community/impermanence#btrfs-subvolumes
@@ -36,18 +43,17 @@ in {
   environment.persistence."/persist" = {
     hideMounts = true;
     # https://nixos.wiki/wiki/Impermanence#Persisting
-    directories = [
-      "/var/log"
-      "/var/lib/nixos"
-      "/var/lib/systemd/coredump"
-      "/var/tmp"
-    ]
-    ++ lib.optional config.hardware.bluetooth.enable "/var/lib/bluetooth"
-    ++ lib.optional config.networking.wireless.iwd.enable "/var/lib/iwd"
-    ++ lib.optional config.networking.networkmanager.enable "/etc/NetworkManager/system-connections";
-    files = [
-      "/etc/machine-id"
-    ];
+    directories =
+      [
+        "/var/log"
+        "/var/lib/nixos"
+        "/var/lib/systemd/coredump"
+        "/var/tmp"
+      ]
+      ++ lib.optional config.hardware.bluetooth.enable "/var/lib/bluetooth"
+      ++ lib.optional config.networking.wireless.iwd.enable "/var/lib/iwd"
+      ++ lib.optional config.networking.networkmanager.enable "/etc/NetworkManager/system-connections";
+    files = [ "/etc/machine-id" ];
   };
   programs.fuse.userAllowOther = true;
 }

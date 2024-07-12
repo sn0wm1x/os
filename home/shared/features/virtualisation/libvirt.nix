@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [ gnome.gnome-boxes ];
 
   # https://nixos.wiki/wiki/Virt-manager

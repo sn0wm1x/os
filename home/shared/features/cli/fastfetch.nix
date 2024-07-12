@@ -1,10 +1,9 @@
 { pkgs, ... }:
 let
-  logo = pkgs.fetchurl
-    {
-      url = "https://github.com/sn0wm1x.png";
-      hash = "sha256-7gAf++UN5o7+aP8jLno46zaEtni7vwNBrxD1pDkcA3A=";
-    };
+  logo = pkgs.fetchurl {
+    url = "https://github.com/sn0wm1x.png";
+    hash = "sha256-7gAf++UN5o7+aP8jLno46zaEtni7vwNBrxD1pDkcA3A=";
+  };
 in
 {
   programs.fastfetch = {

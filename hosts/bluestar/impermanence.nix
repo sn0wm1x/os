@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [ inputs.impermanence.nixosModules.impermanence ];
 
   environment.persistence."/persist" = {
@@ -12,9 +13,7 @@
       "/var/tmp"
       "/etc/NetworkManager/system-connections"
     ];
-    files = [
-      "/etc/machine-id"
-    ];
+    files = [ "/etc/machine-id" ];
   };
   programs.fuse.userAllowOther = true;
 }

@@ -48,11 +48,17 @@
                 subvolumes = {
                   "/persist" = {
                     mountpoint = "/persist";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   "/nix" = {
                     mountpoint = "/nix";
-                    mountOptions = [ "compress-force=zstd:1" "noatime" ];
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
                   };
                   # "/opt" = {
                   #   mountpoint = "/opt";
@@ -68,11 +74,21 @@
     nodev = {
       "/" = {
         fsType = "tmpfs";
-        mountOptions = [ "defaults" "size=2G" "mode=755" "noatime" ];
+        mountOptions = [
+          "defaults"
+          "size=2G"
+          "mode=755"
+          "noatime"
+        ];
       };
       "/home/kwa" = {
         fsType = "tmpfs";
-        mountOptions = [ "defaults" "size=2G" "mode=777" "noatime" ];
+        mountOptions = [
+          "defaults"
+          "size=2G"
+          "mode=777"
+          "noatime"
+        ];
       };
     };
   };
