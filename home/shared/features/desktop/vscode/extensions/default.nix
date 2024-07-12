@@ -12,6 +12,7 @@
     catppuccin.catppuccin-vsc-icons
     # Enhancement
     usernamehw.errorlens
+    streetsidesoftware.code-spell-checker
     eamodio.gitlens
     mhutchie.git-graph
     editorconfig.editorconfig
