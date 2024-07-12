@@ -1,10 +1,15 @@
 { pkgs, ... }: {
+  imports = [
+    ./javascript.nix
+  ];
+
   # programs.vscode.mutableExtensionsDir = false;
   programs.vscode.extensions = with pkgs.vscode-extensions; [
     # Theme
     catppuccin.catppuccin-vsc
     catppuccin.catppuccin-vsc-icons
     # Enhancement
+    usernamehw.errorlens
     eamodio.gitlens
     mhutchie.git-graph
     editorconfig.editorconfig
@@ -20,10 +25,5 @@
     tamasfe.even-better-toml # toml
     jnoortheen.nix-ide # nix
     rust-lang.rust-analyzer # rust
-    denoland.vscode-deno # javascript (deno)
   ];
-
-  programs.vscode.userSettings = {
-    "deno.enable" = false;
-  };
 }
