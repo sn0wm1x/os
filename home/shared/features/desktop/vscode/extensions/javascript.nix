@@ -16,7 +16,7 @@
       name = "volumetrics";
       publisher = "Volumetrics";
       version = "0.1.7";
-      sha256 = "S3R1oLk7facP5Rn9czmHlffhMtLNrSaGYbaU3/x6/aM=";
+      sha256 = "4QmSQJjuEach+B9Q2muQ4iVRak40l2yK+5z0RV+58eo=";
     }
   ];
 
