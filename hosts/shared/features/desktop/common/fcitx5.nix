@@ -1,5 +1,9 @@
 { pkgs, ... }:
 {
+  # https://wiki.nixos.org/wiki/Fcitx5
+  # TODO: update format
+  # i18n.inputMethod.enable = true;
+  # i18n.inputMethod.type = "fcitx5";
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5.addons = with pkgs; [
     fcitx5-chinese-addons

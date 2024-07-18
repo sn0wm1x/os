@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   # https://nixos.wiki/wiki/PipeWire
+  # TODO: remove sound.enable
   sound.enable = lib.mkForce false;
   hardware.pulseaudio.enable = lib.mkForce false;
   security.rtkit.enable = true;

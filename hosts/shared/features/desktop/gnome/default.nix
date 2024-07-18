@@ -13,6 +13,13 @@
       # gnome-photos
       gnome-tour
     ])
+    # TODO: move pkgs.gnome to pkgs
+    # ++ (with pkgs; [
+    #   cheese # webcam tool
+    #   epiphany # web browser
+    #   geary # email reader
+    #   totem # video player
+    # ])
     ++ (with pkgs.gnome; [
       cheese # webcam tool
       gnome-music
@@ -29,9 +36,14 @@
       # atomix # puzzle game
     ]);
 
-  environment.systemPackages = with pkgs.gnome; [
+  environment.systemPackages = (with pkgs.gnome; [
     dconf-editor
     gnome-shell-extensions
     gnome-tweaks
-  ];
+    # TODO: move pkgs.gnome to pkgs
+    # ])
+    # ++ (with pkgs; [
+    #   dconf-editor
+    #   gnome-tweaks
+  ]);
 }
