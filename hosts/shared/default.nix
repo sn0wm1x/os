@@ -40,6 +40,14 @@
     }
   ];
 
+  # clean default shellAliases
+  environment.shellAliases =
+    {
+      l = "ls";
+      ll = "ls";
+      ls = "ls";
+    };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = lib.mkDefault "23.11";
 }
