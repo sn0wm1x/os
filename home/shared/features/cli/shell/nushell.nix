@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, osConfig, ... }:
 {
   # https://nixos.wiki/wiki/Nushell
   programs.nushell = {
-    inherit (config.home) shellAliases;
     enable = true;
+    shellAliases = config.home.shellAliases // osConfig.environment.shellAliases;
     extraConfig = ''
       let carapace_completer = {|spans|
         carapace $spans.0 nushell $spans | from json
@@ -35,9 +35,11 @@
     '';
     # fix home.sessionVariables in nushell
     # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
-    environmentVariables = builtins.mapAttrs (
-      name: value: "\"${builtins.toString value}\""
-    ) config.home.sessionVariables;
+    environmentVariables = builtins.mapAttrs
+      (
+        name: value: "\"${builtins.toString value}\""
+      )
+      config.home.sessionVariables;
   };
 
   home.persistence."/persist${config.home.homeDirectory}".files = [ ".config/nushell/history.txt" ];

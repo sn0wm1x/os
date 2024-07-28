@@ -23,6 +23,7 @@
   };
 
   environment.shellAliases = {
-    pc = "proxychains";
+    pc = "proxychains4";
+    proxychains = "proxychains4";
   };
 }
