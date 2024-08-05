@@ -7,6 +7,7 @@
     dbaeumer.vscode-eslint # eslint
 
     # Library / Framework
+    astro-build.astro-vscode # astro
     vue.volar # vue3
     svelte.svelte-vscode # svelte
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
