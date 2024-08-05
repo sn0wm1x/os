@@ -15,7 +15,7 @@
     # npx = "corepack npx";
 
     # npx global packages
-    ni = "npx ni";
+    ni = "npx @antfu/ni";
     taze = "npx taze";
   };
   # home.persistence."/persist${config.home.homeDirectory}".directories = [
