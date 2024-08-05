@@ -19,6 +19,20 @@
       version = "0.1.7";
       sha256 = "4QmSQJjuEach+B9Q2muQ4iVRak40l2yK+5z0RV+58eo=";
     }
+    # UnoCSS
+    {
+      name = "unocss";
+      publisher = "antfu";
+      version = "0.61.9";
+      sha256 = "ugkeCMTvWmC7ebc1uB1ZzIbzIdUTO/8vE3Gfh363Ykc=";
+    }
+    # HTML/CSS Tagged Template Literals
+    {
+      name = "fast-tagged-templates";
+      publisher = "ms-fast";
+      version = "0.2.0";
+      sha256 = "vddpfU6VcXSqRbjGvQEY547e+0GTRNlRKaiYE/Ime3g=";
+    }
   ];
 
   programs.vscode.userSettings = {
