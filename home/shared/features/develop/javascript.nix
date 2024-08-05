@@ -13,7 +13,7 @@
     # pnpx = "corepack pnpx";
     # npm = "corepack npm";
     # npx = "corepack npx";
-  } // {
+
     # npx global packages
     ni = "npx ni";
     taze = "npx taze";
