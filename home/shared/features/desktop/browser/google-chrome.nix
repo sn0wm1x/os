@@ -10,7 +10,7 @@
         # commandLineArgs = "--ozone-platform=wayland --gtk-version=4";
       })
     ])
-    # google-chrome-dev
+    # google-chrome-dev / google-chrome-unstable
     ++ (with inputs.browser-previews.packages.${pkgs.system}; [
       (google-chrome-dev.override {
         # use text-input-v3
@@ -19,6 +19,6 @@
       })
     ]);
   home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/google-chrome" ];
-  # ~/.config/google-chrome-dev symlink
-  home.file.".config/google-chrome-dev".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/google-chrome";
+  # ~/.config/google-chrome-unstable symlink
+  home.file.".config/google-chrome-unstable".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/google-chrome";
 }
