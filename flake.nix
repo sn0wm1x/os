@@ -10,6 +10,9 @@
     # agenix-rekey.url = "github:oddlama/agenix-rekey";
     # agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
+    browser-previews.url = "github:nix-community/browser-previews";
+    browser-previews.inputs.nixpkgs.follows = "nixpkgs";
+
     catppuccin.url = "github:catppuccin/nix";
 
     disko.url = "github:nix-community/disko";
@@ -32,12 +35,11 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      impermanence,
-      home-manager,
-      ...
+    inputs@{ self
+    , nixpkgs
+    , impermanence
+    , home-manager
+    , ...
     }:
     let
       inherit (self) outputs;
