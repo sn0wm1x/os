@@ -12,24 +12,17 @@
     (with pkgs; [
       # gnome-photos
       gnome-tour
-    ])
-    # TODO: move pkgs.gnome to pkgs
-    # ++ (with pkgs; [
-    #   cheese # webcam tool
-    #   epiphany # web browser
-    #   geary # email reader
-    #   totem # video player
-    # ])
-    ++ (with pkgs.gnome; [
       cheese # webcam tool
+      epiphany # web browser
+      geary # email reader
+      totem # video player
+    ])
+    ++ (with pkgs.gnome; [
       gnome-music
       # gnome-terminal
       # gedit # text editor
-      epiphany # web browser
-      geary # email reader
       # evince # document viewer
       # gnome-characters
-      totem # video player
       # tali # poker game
       # iagno # go game
       # hitori # sudoku game
@@ -37,13 +30,10 @@
     ]);
 
   environment.systemPackages = (with pkgs.gnome; [
-    dconf-editor
     gnome-shell-extensions
+  ])
+  ++ (with pkgs; [
+    dconf-editor
     gnome-tweaks
-    # TODO: move pkgs.gnome to pkgs
-    # ])
-    # ++ (with pkgs; [
-    #   dconf-editor
-    #   gnome-tweaks
   ]);
 }
