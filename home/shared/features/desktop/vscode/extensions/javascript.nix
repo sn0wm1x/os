@@ -8,8 +8,9 @@
 
     # Library / Framework
     astro-build.astro-vscode # astro
-    vue.volar # vue3
     svelte.svelte-vscode # svelte
+    unifiedjs.vscode-mdx # mdx
+    vue.volar # vue3
   ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     # THREE.js / R3F / WebXR
     {
