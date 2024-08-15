@@ -1,9 +1,8 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
+{ config
+, inputs
+, lib
+, pkgs
+, ...
 }:
 {
   imports = with inputs.nixos-hardware.nixosModules; [
@@ -40,6 +39,10 @@
     "mmc_block" # TODO: try remove this
   ];
   boot.kernelModules = [ "kvm-amd" ];
+  # FIXME: this device currently doesn't support CPPC
+  # TODO: waiting for Lenovo to release new BIOS
+  # disable amd-pstate
+  boot.kernelParams = [ "amd_pstate=disable" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
