@@ -32,7 +32,7 @@ in
     #   "-e"
     #   "https://www.pixiv.net/"
     # ];
-  };
+  # };
 
   home.persistence."/persist${config.home.homeDirectory}" = {
     # https://github.com/nix-community/impermanence#home-manager
