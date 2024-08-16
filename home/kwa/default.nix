@@ -1,10 +1,9 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
-{
-  config,
-  lib,
-  pkgs,
-  osConfig,
-  ...
+{ config
+, lib
+, pkgs
+, osConfig
+, ...
 }:
 let
   host = osConfig.networking.hostName;
@@ -44,7 +43,6 @@ in
       "Documents"
       "Videos"
       ".os" # github:sn0wm1x/os
-      ".nixos" # TODO: remove this
     ];
     allowOther = lib.mkForce true;
   };
