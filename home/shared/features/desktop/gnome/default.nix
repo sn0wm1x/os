@@ -6,7 +6,7 @@
     ./gradience.nix
     ./gtk.nix
     ./ptyxis.nix
-    ./wallpaper.nix
+    # ./wallpaper.nix
   ];
 
   dconf.settings."org/gnome/mutter" = {
