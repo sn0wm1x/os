@@ -1,8 +1,13 @@
+let
+  device = "/dev/nvme0n1";
+  primary_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+  backup_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+in
 {
   disko.devices = {
-    disk.nvme0n1 = {
+    disk.main = {
+      inherit device;
       type = "disk";
-      device = "/dev/nvme0n1";
       content = {
         type = "gpt";
         partitions = {
@@ -24,28 +29,32 @@
               settings = {
                 allowDiscards = true;
                 bypassWorkqueues = true;
-                keyFile = "/key/nixos.key";
+                keyFile = "/key/os.key";
                 keyFileSize = 8192;
                 # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
                 # https://github.com/reo101/rix101/blob/a6efd4146bbe0c7fb44343225b9dbf9585472597/machines/nixos/x86_64-linux/jeeves/disko.nix#L94-L107
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 5
-                  until mount -n -t vfat -o ro /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1 /key 2>&1 1>/dev/null; do
-                    echo 'Could not find /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1, retrying...'
-                    sleep 2
-                  done
+                  mount -n -t vfat -o ro ${primary_key} /key || mount -n -t vfat -o ro ${backup_key} /key
                 '';
                 postOpenCommands = ''
                   umount /key
                   rm -rf /key
                 '';
-                # mount -n -t vfat -o ro /dev/disk/by-id/${PRIMARYUSBID} /key || mount -n -t vfat -o ro /dev/disk/by-id/${BACKUPUSBID} /key
               };
               content = {
                 type = "btrfs";
                 extraArgs = [ "-f" ];
                 subvolumes = {
+                  # https://github.com/nix-community/impermanence#btrfs-subvolumes
+                  "/root" = {
+                    mountpoint = "/";
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
+                  };
                   "/persist" = {
                     mountpoint = "/persist";
                     mountOptions = [
@@ -60,35 +69,18 @@
                       "noatime"
                     ];
                   };
-                  # "/opt" = {
-                  #   mountpoint = "/opt";
-                  #   mountOptions = ["compress-force=zstd:1" "noatime"];
-                  # };
+                  "/opt" = {
+                    mountpoint = "/opt";
+                    mountOptions = [
+                      "compress-force=zstd:1"
+                      "noatime"
+                    ];
+                  };
                 };
               };
             };
           };
         };
-      };
-    };
-    nodev = {
-      "/" = {
-        fsType = "tmpfs";
-        mountOptions = [
-          "defaults"
-          "size=2G"
-          "mode=755"
-          "noatime"
-        ];
-      };
-      "/home/kwa" = {
-        fsType = "tmpfs";
-        mountOptions = [
-          "defaults"
-          "size=2G"
-          "mode=777"
-          "noatime"
-        ];
       };
     };
   };

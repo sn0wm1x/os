@@ -11,16 +11,18 @@
 
 ## 准备密钥
 
-bluestar 默认全盘加密，使用 U 盘密钥文件启动。
+bluestar 默认全盘加密，使用密钥文件启动。
 
 ```bash
 # 新建文件夹
 sudo mkdir -p /key
-# 挂载 /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1
-sudo mount -n -t vfat -o rw /dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1 /key
-# 在 U 盘根目录下创建 nixos.key 文件，如已有则跳过
-sudo dd if=/dev/random of=/key/nixos.key bs=8192 count=1
+# 挂载 primary_key
+sudo mount -n -t vfat -o rw ${primary_key} /key
+# 在挂载目录下创建 os.key 文件，如已有则跳过
+sudo dd if=/dev/random of=/key/os.key bs=8192 count=1
 ```
+
+注意将 `os.key` 密钥文件复制到备用设备 `backup_key`，以免存储设备损坏导致无法启动系统。
 
 ## 进行分区
 

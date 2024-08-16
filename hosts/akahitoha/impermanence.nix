@@ -1,13 +1,12 @@
-{
-  inputs,
-  config,
-  lib,
-  ...
+{ inputs
+, config
+, lib
+, ...
 }:
-# let mtime = "30"; # monthly
-# let mtime = "7"; # weekly
 let
-  mtime = "1"; # daily
+  # mtime = "30"; # monthly
+  mtime = "7"; # weekly
+  # mtime = "1"; # daily
 in
 {
   imports = [ inputs.impermanence.nixosModules.impermanence ];
