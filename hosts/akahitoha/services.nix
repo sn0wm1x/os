@@ -5,7 +5,6 @@
     # https://github.com/ollama/ollama/pull/5426
     # https://github.com/ollama/ollama/pull/6282
     rocmOverrideGfx = "11.0.1";
-    user = "kwa";
-    home = "/opt/ollama";
+    home = "/home/ollama";
   };
 }
