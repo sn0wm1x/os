@@ -6,5 +6,8 @@
     home = "/opt/ollama";
     user = "ollama";
     # group = "ollama";
+    environmentVariables = {
+      OLLAMA_INTEL_GPU = "1";
+    };
   };
 }
