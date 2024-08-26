@@ -11,14 +11,14 @@
   environment.gnome.excludePackages =
     (with pkgs; [
       # gnome-photos
+      gnome-music
       gnome-tour
       cheese # webcam tool
       epiphany # web browser
       geary # email reader
       totem # video player
-    ])
-    ++ (with pkgs.gnome; [
-      gnome-music
+      # ])
+      # ++ (with pkgs.gnome; [
       # gnome-terminal
       # gedit # text editor
       # evince # document viewer
