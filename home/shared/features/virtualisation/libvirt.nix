@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ gnome.gnome-boxes ];
+  home.packages = with pkgs; [ gnome-boxes ];
 
   # https://nixos.wiki/wiki/Virt-manager
   dconf.settings = {
