@@ -10,7 +10,6 @@
     ./disko.nix
     ./impermanence.nix
     ./hardware.nix
-    ./services.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
