@@ -12,24 +12,26 @@ in {
       } else { };
   };
 
-  home.file.".continue/config.json".text = lib.optional (host == "bluestar")
-    builtins.toJSON
-    {
-      models = [
+  home.file =
+    if host == "bluestar" then {
+      ".continue/config.json".text = builtins.toJSON
         {
-          title = "Mistral-NeMo";
-          provider = "ollama";
-          model = "mistral-nemo";
-        }
-      ];
-      tabAutocompleteModel = {
-        title = "Mistral-NeMo";
-        provider = "ollama";
-        model = "mistral-nemo";
-      };
-      embeddingsProvider = {
-        provider = "ollama";
-        model = "nomic-embed-text";
-      };
-    };
+          models = [
+            {
+              title = "Mistral-NeMo";
+              provider = "ollama";
+              model = "mistral-nemo";
+            }
+          ];
+          tabAutocompleteModel = {
+            title = "Mistral-NeMo";
+            provider = "ollama";
+            model = "mistral-nemo";
+          };
+          embeddingsProvider = {
+            provider = "ollama";
+            model = "nomic-embed-text";
+          };
+        };
+    } else { };
 }
