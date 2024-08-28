@@ -2,12 +2,14 @@
 let host = osConfig.networking.hostName;
 in {
   programs.vscode = {
-    extensions = lib.optional (host == "bluestar") [
-      pkgs.vscode-extensions.continue.continue
-    ];
-    userSettings = lib.optional (host == "bluestar") {
-      "continue.telemetryEnabled" = false;
-    };
+    extensions =
+      if host == "bluestar" then [
+        pkgs.vscode-extensions.continue.continue
+      ] else [ ];
+    userSettings =
+      if host == "bluestar" then {
+        "continue.telemetryEnabled" = false;
+      } else { };
   };
 
   home.file.".continue/config.json".text = lib.optional (host == "bluestar")
