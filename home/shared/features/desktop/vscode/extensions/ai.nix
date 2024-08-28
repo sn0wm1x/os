@@ -1,15 +1,14 @@
 { osConfig, pkgs, lib, ... }:
 let host = osConfig.networking.hostName;
 in {
-  programs.vscode = lib.optional (host == "bluestar")
-    {
-      extensions = with pkgs.vscode-extensions; [
-        continue.continue
-      ];
-      userSettings = {
-        "continue.telemetryEnabled" = false;
-      };
+  programs.vscode = {
+    extensions = lib.optional (host == "bluestar") [
+      pkgs.vscode-extensions.continue.continue
+    ];
+    userSettings = lib.optional (host == "bluestar") {
+      "continue.telemetryEnabled" = false;
     };
+  };
 
   home.file.".continue/config.json".text = lib.optional (host == "bluestar")
     builtins.toJSON
