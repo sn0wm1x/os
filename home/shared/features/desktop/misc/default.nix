@@ -1,5 +1,6 @@
 {
   imports = [
+    ./anytype.nix
     ./database.nix
     ./github-desktop.nix
     ./kitty.nix
