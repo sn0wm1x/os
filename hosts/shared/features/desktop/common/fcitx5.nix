@@ -4,9 +4,10 @@
   i18n.inputMethod.enable = true;
   i18n.inputMethod.type = "fcitx5";
   i18n.inputMethod.fcitx5.addons = with pkgs; [
-    fcitx5-chinese-addons
-    # TODO: fcitx5-pinyin-zhwiki
-    # TODO: fcitx5-pinyin-moegirl
+    fcitx5-mozc # Japanese
+    fcitx5-chinese-addons # Chinese
+    fcitx5-pinyin-zhwiki
+    fcitx5-pinyin-moegirl
   ];
 
   environment.sessionVariables = {
