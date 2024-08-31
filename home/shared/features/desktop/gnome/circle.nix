@@ -5,7 +5,7 @@
   # https://github.com/NixOS/nixpkgs/issues/195280
   home.packages = with pkgs; [
     # collision
-    # commit # missing
+    commit
     eyedropper
     fragments
     gnome-frog # OCR
