@@ -8,6 +8,7 @@
     # commit # missing
     eyedropper
     fragments
+    gnome-frog # OCR
     junction
   ];
 }
