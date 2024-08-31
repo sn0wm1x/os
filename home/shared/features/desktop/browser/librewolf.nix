@@ -23,7 +23,7 @@ in
     };
 
     # https://github.com/nix-community/home-manager/pull/5195
-    # languagePacks = [ "zh-CN" ];
+    languagePacks = [ "zh-CN" ];
 
     profiles.kwa = {
       isDefault = true;
