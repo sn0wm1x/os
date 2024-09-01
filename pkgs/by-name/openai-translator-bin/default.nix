@@ -36,7 +36,9 @@ stdenv.mkDerivation rec {
   installPhase = ''
     runHook preInstall
 
-    mv usr/* $out
+    dpkg-deb -x $src $out
+    mv $out/usr/* $out
+    rmdir $out/usr
 
     runHook postInstall
   '';
