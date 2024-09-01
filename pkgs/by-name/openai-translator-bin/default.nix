@@ -1,11 +1,13 @@
 { lib
+, stdenv
 , autoPatchelfHook
 , dpkg
 , fetchurl
 , libayatana-appindicator
 , openssl
-, stdenv
-, webkitgtk
+, libsoup_3
+, xdotool
+, webkitgtk_4_1
 , wrapGAppsHook3
 }:
 
@@ -26,7 +28,9 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     openssl
-    webkitgtk
+    libsoup_3
+    xdotool
+    webkitgtk_4_1
   ];
 
   runtimeDependencies = [
