@@ -1,7 +1,11 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example'
-pkgs: {
+pkgs:
+let
+  byName = builtins.readDir ./by-name;
+  pkgsByName = builtins.mapAttrs (name: _: pkgs.callPackage (./by-name + "/${name}") { }) byName;
+in
+{
   # example = pkgs.callPackage ./example { };
-}
-# by-name
-# // builtins.mapAttrs (name: _: pkgs.callPackage (./by-name + "/${name}") { }) (builtins.readDir ./by-name)
+} // pkgsByName
+  

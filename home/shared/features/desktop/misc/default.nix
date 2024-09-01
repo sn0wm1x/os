@@ -5,6 +5,7 @@
     ./github-desktop.nix
     ./kitty.nix
     ./obsidian.nix
+    ./openai-translator.nix
     ./spacedrive.nix
   ];
 }
