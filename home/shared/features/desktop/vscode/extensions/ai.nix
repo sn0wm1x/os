@@ -1,4 +1,4 @@
-{ osConfig, pkgs, lib, ... }:
+{ osConfig, pkgs, ... }:
 let host = osConfig.networking.hostName;
 in {
   programs.vscode = {
