@@ -1,5 +1,6 @@
 {
   imports = [
+    ./android.nix
     ./javascript.nix
     ./nix.nix
     ./python.nix
