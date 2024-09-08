@@ -7,9 +7,8 @@
 {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
-    # FIXME: this device currently doesn't support CPPC
-    # TODO: waiting for Lenovo to release new BIOS
-    # common-cpu-amd-pstate
+    # CPPC is now enable since NLCN30WW
+    common-cpu-amd-pstate
     common-gpu-amd
     common-pc-laptop
     common-pc-ssd
@@ -39,10 +38,6 @@
     "mmc_block" # TODO: try remove this
   ];
   boot.kernelModules = [ "kvm-amd" ];
-  # FIXME: this device currently doesn't support CPPC
-  # TODO: waiting for Lenovo to release new BIOS
-  # disable amd-pstate
-  boot.kernelParams = [ "amd_pstate=disable" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
@@ -54,16 +49,15 @@
     ryzenadj
   ];
   services.power-profiles-daemon.enable = true;
+  services.auto-epp = {
+    enable = true;
+    settings.Settings.epp_state_for_BAT = "power";
+    settings.Settings.epp_state_for_AC = "balance_performance";
+  };
   # https://nixos.wiki/wiki/Laptop#Powertop
   # powertop --auto-tune
   powerManagement.powertop.enable = true;
-  # TODO: enable this when amd_pstate is available
-  # services.auto-epp = {
-  #   enable = true;
-  #   settings.Settings.epp_state_for_BAT = "power";
-  #   settings.Settings.epp_state_for_AC = "balance_performance";
-  # };
-
+  # ryzenadj --power-saving
   systemd.services.ryzenadj = {
     description = "ryzenadj --power-saving";
     wantedBy = [ "multi-user.target" ];
