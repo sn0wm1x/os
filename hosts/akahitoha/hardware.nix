@@ -40,8 +40,9 @@
   boot.kernelModules = [ "kvm-amd" ];
   # CPPC is now enabled since NLCN30WW
   boot.kernelParams = [ "amd_pstate=guided" ];
-  # use linux 6.10+ testing kernel
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  # use cachyos kernel + sched-ext/scx (scx_rusty)
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  chaotic.scx.enable = "scx_rusty";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 

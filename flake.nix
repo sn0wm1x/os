@@ -15,6 +15,9 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.nixpkgs.follows = "nixpkgs";
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
