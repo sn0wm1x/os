@@ -7,7 +7,7 @@
 {
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
-    # CPPC is now enable since NLCN30WW
+    # CPPC is now enabled since NLCN30WW
     common-cpu-amd-pstate
     common-gpu-amd
     common-pc-laptop
