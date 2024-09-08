@@ -41,9 +41,10 @@
   # CPPC is now enabled since NLCN30WW
   boot.kernelParams = [ "amd_pstate=guided" ];
   # use cachyos kernel + sched-ext/scx (scx_rusty)
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  chaotic.scx.enable = true;
-  chaotic.scx.scheduler = "scx_rusty";
+  boot.kernelPackages = pkgs.linuxPackages_testing;
+  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  # chaotic.scx.enable = true;
+  # chaotic.scx.scheduler = "scx_rusty";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
