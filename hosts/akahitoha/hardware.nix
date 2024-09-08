@@ -57,7 +57,7 @@
   #   settings.Settings.epp_state_for_AC = "balance_performance";
   # };
   powerManagement.enable = true;
-  powerManagement.cpuFreqGovernor = "schedutil";
+  powerManagement.cpuFreqGovernor = "conversation";
   # https://nixos.wiki/wiki/Laptop#Powertop
   # powertop --auto-tune
   powerManagement.powertop.enable = true;
