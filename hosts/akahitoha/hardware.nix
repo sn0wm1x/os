@@ -8,7 +8,7 @@
   imports = with inputs.nixos-hardware.nixosModules; [
     common-cpu-amd
     # CPPC is now enabled since NLCN30WW
-    common-cpu-amd-pstate
+    # common-cpu-amd-pstate
     common-gpu-amd
     common-pc-laptop
     common-pc-ssd
@@ -38,6 +38,8 @@
     "mmc_block" # TODO: try remove this
   ];
   boot.kernelModules = [ "kvm-amd" ];
+  # CPPC is now enabled since NLCN30WW
+  boot.kernelParams = [ "amd_pstate=guided" ];
   # use linux 6.10+ testing kernel
   boot.kernelPackages = pkgs.linuxPackages_testing;
 
@@ -49,11 +51,13 @@
     ryzenadj
   ];
   services.power-profiles-daemon.enable = true;
-  services.auto-epp = {
-    enable = true;
-    settings.Settings.epp_state_for_BAT = "power";
-    settings.Settings.epp_state_for_AC = "balance_performance";
-  };
+  # services.auto-epp = {
+  #   enable = true;
+  #   settings.Settings.epp_state_for_BAT = "power";
+  #   settings.Settings.epp_state_for_AC = "balance_performance";
+  # };
+  powerManagement.enable = true;
+  powerManagement.cpuFreqGovernor = "schedutil";
   # https://nixos.wiki/wiki/Laptop#Powertop
   # powertop --auto-tune
   powerManagement.powertop.enable = true;
