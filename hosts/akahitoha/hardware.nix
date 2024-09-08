@@ -42,7 +42,8 @@
   boot.kernelParams = [ "amd_pstate=guided" ];
   # use cachyos kernel + sched-ext/scx (scx_rusty)
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
-  chaotic.scx.enable = "scx_rusty";
+  chaotic.scx.enable = true;
+  chaotic.scx.scheduler = "scx_rusty";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
