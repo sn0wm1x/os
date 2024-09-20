@@ -2,7 +2,7 @@
   imports = [
     ../shared
     ../shared/features/audio
-    ../shared/features/cli
+    ../shared/features/cli/mobile
     ../shared/features/mobile
     ./programs
   ];
