@@ -16,7 +16,7 @@ rebuild-nom mode='switch' *args='--show-trace --verbose':
   sudo nom build .#nixosConfigurations.{{hostname}}.config.system.build.toplevel {{args}}
   just rebuild {{mode}} {{args}}
 
-build-mobile target='enchilada-build':
+build-mobile target='enchilada':
   nix build .#nixosConfigurations.{{target}}.config.mobile.outputs.android.android-fastboot-images
 
 up:
