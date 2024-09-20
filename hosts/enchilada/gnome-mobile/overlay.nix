@@ -22,9 +22,14 @@ in
       hash = "sha256-NL1/mddfaL1rMidsbtV4kG2SlAZZNuR8KmqTmEE4IAM=";
       fetchSubmodules = true;
     };
-    # JS ERROR: Error: Requiring ModemManager, version none: Typelib file for namespace 'ModemManager' (any version) not found
-    # @resource:///org/gnome/shell/misc/modemManager.js:4:49
-    buildInputs = old.buildInputs ++ [ super.modemmanager ];
+    buildInputs = old.buildInputs ++ [
+      # JS ERROR: Error: Requiring ModemManager, version none: Typelib file for namespace 'ModemManager' (any version) not found
+      # @resource:///org/gnome/shell/misc/modemManager.js:4:49
+      super.modemmanager
+      # Program appstreamcli found: NO
+      super.appstream
+      super.appstream-glib
+    ];
     postPatch = ''
       patchShebangs src/data-to-c.pl
       ln -sf ${gvc} subprojects/gvc
