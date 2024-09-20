@@ -1,10 +1,10 @@
 {
   imports = [
-    ../carapace.nix
-    ../inshellisense.nix
-    ../starship.nix
-    ../thefuck.nix
-    ../yazi.nix
+    ../../shell/carapace.nix
+    ../../shell/inshellisense.nix
+    ../../shell/starship.nix
+    ../../shell/thefuck.nix
+    ../../shell/yazi.nix
     ./atuin.nix
     ./direnv.nix
     ./nushell.nix
