@@ -1,11 +1,12 @@
 { inputs, ... }: {
   imports = [
     (import "${inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
-    inputs.gnome-mobile.nixosModules.gnome-mobile
+    # inputs.gnome-mobile.nixosModules.gnome-mobile
     ../shared/mobile
     ../shared/features/desktop/common/pipewire.nix
     ../shared/features/desktop/common/wayland.nix
     ../shared/users/kwa
+    ./gnome-mobile
     ./ibus.nix
   ];
 
