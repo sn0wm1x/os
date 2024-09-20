@@ -137,6 +137,21 @@
         "type": "github"
       }
     },
+    "gnome-mobile": {
+      "locked": {
+        "lastModified": 1721246007,
+        "narHash": "sha256-rshGapQpxSQoAb/v2zG5/u/jh3FuQuXL5+drqszhimM=",
+        "owner": "chuangzhu",
+        "repo": "nixpkgs-gnome-mobile",
+        "rev": "060b4db356a2ad91082fe6107894b99c0e3bf554",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chuangzhu",
+        "repo": "nixpkgs-gnome-mobile",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -212,6 +227,23 @@
       "original": {
         "owner": "Jovian-Experiments",
         "repo": "Jovian-NixOS",
+        "type": "github"
+      }
+    },
+    "mobile-nixos": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723014303,
+        "narHash": "sha256-Ody2o+PluSxMQSCPdSEKJ4oL1VXyHbSQjPGWWlwVLEo=",
+        "owner": "linyinfeng",
+        "repo": "mobile-nixos",
+        "rev": "91623a708508423e05f45b80f415d56faa391cbd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "linyinfeng",
+        "ref": "development",
+        "repo": "mobile-nixos",
         "type": "github"
       }
     },
@@ -291,8 +323,10 @@
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
         "disko": "disko",
+        "gnome-mobile": "gnome-mobile",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
+        "mobile-nixos": "mobile-nixos",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
         "sn0wm1x": "sn0wm1x"
