@@ -4,9 +4,9 @@
     ../fonts.nix
     ../locale.nix
     ../network.nix
-    ../nix.nix
     ../yubikey.nix
     ./modules.nix
+    ./nix.nix
   ];
 
   hardware.enableRedistributableFirmware = true;
