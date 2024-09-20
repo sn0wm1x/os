@@ -1,12 +1,10 @@
 { inputs, ... }: {
   imports = [
     (import "${inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
-    ../shared
-    # ../shared/features/desktop/common # exclude fcitx5
+    ../shared/mobile
     ../shared/features/desktop/common/pipewire.nix
     ../shared/features/desktop/common/wayland.nix
     ../shared/features/desktop/gnome
-    # ../shared/features/virtualisation
     ../shared/users/kwa
   ];
 
