@@ -22,6 +22,6 @@
     sharedModules = [
       inputs.catppuccin.homeManagerModules.catppuccin
     ];
-    users.kwa.imports = [ ../../../home/kwa/mobile.nix ];
+    users.kwa.imports = [ ../../../home/kwa/mobile ];
   };
 }
