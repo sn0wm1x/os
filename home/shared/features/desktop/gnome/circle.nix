@@ -10,5 +10,6 @@
     fragments
     gnome-frog # OCR
     junction
+    tuba # fediverse client
   ];
 }
