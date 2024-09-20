@@ -17,7 +17,7 @@ rebuild-nom mode='switch' *args='--show-trace --verbose':
   just rebuild {{mode}} {{args}}
 
 build-mobile target='enchilada':
-  nix build .#nixosConfigurations.{{target}}.config.mobile.outputs.android.android-fastboot-images
+  nom build .#nixosConfigurations.{{target}}.config.mobile.outputs.android.android-fastboot-images
 
 up:
   nix flake update
