@@ -5,7 +5,7 @@
     ../shared/mobile
     ../shared/features/desktop/common/pipewire.nix
     ../shared/features/desktop/common/wayland.nix
-    ../shared/users/kwa
+    ../shared/users/kwa/mobile.nix
     ./gnome-mobile
     ./ibus.nix
   ];
