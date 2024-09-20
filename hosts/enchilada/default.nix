@@ -1,16 +1,13 @@
-{ inputs, lib, ... }: {
+{ inputs, ... }: {
   imports = [
     (import "${inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
+    inputs.gnome-mobile.nixosModules.gnome-mobile
     ../shared/mobile
     ../shared/features/desktop/common/pipewire.nix
     ../shared/features/desktop/common/wayland.nix
-    ../shared/features/desktop/gnome
     ../shared/users/kwa
     ./ibus.nix
   ];
-
-  # gnome-mobile overlays
-  nixpkgs.overlays = lib.mkForce [ inputs.gnome-mobile.overlays.default ];
 
   networking.hostName = "enchilada";
   # networking.wireless.iwd.enable = true;

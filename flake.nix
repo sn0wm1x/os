@@ -21,7 +21,7 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    gnome-mobile.url = "chuangzhu/nixpkgs-gnome-mobile";
+    gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
