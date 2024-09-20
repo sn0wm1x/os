@@ -4,7 +4,6 @@
     # inputs.agenix.nixosModules.default
     # inputs.agenix-rekey.nixosModules.default
     inputs.catppuccin.nixosModules.catppuccin
-    inputs.chaotic.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
   ];
 
