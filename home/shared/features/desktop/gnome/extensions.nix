@@ -3,7 +3,6 @@
   home.packages = with pkgs.gnomeExtensions; [
     # 功能
     kimpanel
-    gsconnect
     easyeffects-preset-selector
     system76-scheduler
     #
@@ -21,7 +20,6 @@
   dconf.settings."org/gnome/shell".disable-user-extensions = false;
   dconf.settings."org/gnome/shell".enabled-extensions = [
     "kimpanel@kde.org"
-    "gsconnect@andyholmes.github.io"
     "eepresetselector@ulville.github.io"
     "s76-scheduler@mattjakeman.com"
 
