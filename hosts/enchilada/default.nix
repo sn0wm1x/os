@@ -6,6 +6,7 @@
     ../shared/features/desktop/common/wayland.nix
     ../shared/features/desktop/gnome
     ../shared/users/kwa
+    ./ibus.nix
   ];
 
   networking.hostName = "enchilada";
