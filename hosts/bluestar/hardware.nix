@@ -1,9 +1,8 @@
-{
-  config,
-  inputs,
-  lib,
-  pkgs,
-  ...
+{ config
+, inputs
+, lib
+, pkgs
+, ...
 }:
 {
   imports = with inputs.nixos-hardware.nixosModules; [
@@ -33,7 +32,10 @@
     "nls_iso8859_1"
   ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  # use cachyos kernel + sched-ext/scx (scx_rusty)
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  chaotic.scx.enable = true;
+  chaotic.scx.scheduler = "scx_rusty";
 
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]

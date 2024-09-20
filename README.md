@@ -32,10 +32,9 @@
   - Catppuccin Frappe
   - niri (TODO)
 - 性能调优
-  - linux-xanmod
+  - linux-cachyos
+  - sched-ext/scx
   - system76-scheduler
-  - linux-cachyos (TODO)
-  - bore-scheduler (TODO)
 - Nushell + Starship + Carapace
 - Gaming (TODO)
   - fufexan/nix-gaming
