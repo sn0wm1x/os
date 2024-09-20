@@ -26,9 +26,6 @@ in
       # JS ERROR: Error: Requiring ModemManager, version none: Typelib file for namespace 'ModemManager' (any version) not found
       # @resource:///org/gnome/shell/misc/modemManager.js:4:49
       super.modemmanager
-      # Program appstreamcli found: NO
-      super.appstream
-      super.appstream-glib
     ];
     postPatch = ''
       patchShebangs src/data-to-c.pl
@@ -45,5 +42,16 @@ in
       rev = version;
       hash = "sha256-Xmoq//Igaz1oVt2/aLV+9WjZzW1g6yLADqg97wD3Lug=";
     };
+  });
+
+  gnome-control-center = super.gnome-control-center.overrideAttrs (old: {
+    patches = old.patches ++ [
+      # not ok /network-panel-wired/connection-multi-add-activate - test-network-panel:ERROR:../tests/network/test-network-panel.c:497:test_connection_multi_add_activate: 'find_label (GTK_WIDGET (fixture->shell), "52:54:00:ab:db:23")' should be NULL
+      # https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1768
+      (super.fetchpatch {
+        url = "https://sources.debian.org/data/main/g/gnome-control-center/1%3A43.6-2~deb12u1/debian/patches/debian/Ignore-result-of-test-network-panel.patch";
+        hash = "sha256-JxMIZ9QiU95iNEXB1dsQXPMWKuq9ZMOptBKV4wmdKfs=";
+      })
+    ];
   });
 }
