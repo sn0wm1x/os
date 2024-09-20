@@ -1,7 +1,7 @@
 {
   imports = [
     ../desktop/blackbox-terminal
-    ../gnome/mobile
+    ../desktop/gnome/mobile
     ./browser
   ];
 
