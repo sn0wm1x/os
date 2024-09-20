@@ -13,9 +13,6 @@
 
   zramSwap.enable = true;
 
-  services.system76-scheduler.enable = true;
-  services.system76-scheduler.useStockConfig = true;
-
   # use sudo-rs
   security.sudo.enable = false;
   security.sudo-rs.enable = true;
