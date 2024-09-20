@@ -49,8 +49,8 @@ in
       # not ok /network-panel-wired/connection-multi-add-activate - test-network-panel:ERROR:../tests/network/test-network-panel.c:497:test_connection_multi_add_activate: 'find_label (GTK_WIDGET (fixture->shell), "52:54:00:ab:db:23")' should be NULL
       # https://gitlab.gnome.org/GNOME/gnome-control-center/-/issues/1768
       (super.fetchpatch {
-        url = "https://sources.debian.org/data/main/g/gnome-control-center/1%3A43.6-2~deb12u1/debian/patches/debian/Ignore-result-of-test-network-panel.patch";
-        hash = "sha256-JxMIZ9QiU95iNEXB1dsQXPMWKuq9ZMOptBKV4wmdKfs=";
+        url = "https://sources.debian.org/data/main/g/gnome-control-center/1%3A46.4-1/debian/patches/debian/Ignore-result-of-test-network-panel.patch";
+        hash = "sha256-7ELAOjT3n2p3mWKRS/3JXwvxWjODGXnfmpIx0dOc2LU=";
       })
     ];
   });
