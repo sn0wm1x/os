@@ -6,7 +6,7 @@
 }:
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = builtins.attrValues outputs.overlays;
+  nixpkgs.overlays = lib.mkDefault builtins.attrValues outputs.overlays;
 
   nix.gc.automatic = true;
   nix.gc.dates = "weekly";
