@@ -21,10 +21,16 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    gnome-mobile.url = "chuangzhu/nixpkgs-gnome-mobile";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
+
+    # https://github.com/linyinfeng/mobile-nixos
+    mobile-nixos.url = "github:linyinfeng/mobile-nixos/development";
+    mobile-nixos.flake = false;
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
@@ -59,24 +65,35 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
-      nixosConfigurations = {
-        # ./hosts/akahitoha/README.md
-        akahitoha = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs outputs;
+      nixosConfigurations =
+        let specialArgs = { inherit inputs outputs; };
+        in {
+          # ./hosts/akahitoha/README.md
+          akahitoha = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "x86_64-linux";
+            modules = [ ./hosts/akahitoha ];
           };
-          modules = [ ./hosts/akahitoha ];
-        };
 
-        # ./hosts/bluestar/README.md
-        bluestar = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit inputs outputs;
+          # ./hosts/bluestar/README.md
+          bluestar = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "x86_64-linux";
+            modules = [ ./hosts/bluestar ];
           };
-          modules = [ ./hosts/bluestar ];
+
+          # ./hosts/enchilada/README.md
+          enchilada = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "aarch64-linux";
+            modules = [ ./hosts/enchilada ];
+          };
+
+          enchilada-cross = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "x86_64-linux";
+            modules = [ ./hosts/enchilada/cross.nix ];
+          };
         };
-      };
     };
 }
