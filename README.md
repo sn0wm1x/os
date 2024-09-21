@@ -55,8 +55,7 @@
 
 - [x] NixOS x86_64
 - [ ] NixOS aarch64 (maybe)
-- [ ] [Mobile NixOS](https://github.com/NixOS/mobile-nixos) (maybe)
-  - https://github.com/chuangzhu/nixpkgs-gnome-mobile
+- [x] [Mobile NixOS](https://github.com/NixOS/mobile-nixos)
 - [ ] [NixOS on WSL2](https://github.com/nix-community/NixOS-WSL) (maybe)
 
 ### Nix
