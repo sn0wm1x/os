@@ -21,14 +21,16 @@ a.k.a OnePlus 6
 
 ## 编译
 
-> 需要一台 aarch64 或设置了 `boot.binfmt.emulatedSystems = [ "aarch64-linux" ];` 的 x86-64 NixOS 设备
+> 需要一台 aarch64 或配置了 `boot.binfmt.emulatedSystems = [ "aarch64-linux" ];` 的 x86-64 NixOS 设备
 >
 > 避免使用 `nixpkgs.crossSystem.system` 或 `nixpkgs.{buildPlatform,hostPlatform}.system`，以免获取不到 https://cache.nixos.org 的缓存
 
 ```bash
 just build-mobile
+
 # 不使用 just
 nom build .#nixosConfigurations.enchilada.config.mobile.outputs.android.android-fastboot-images
+
 # 不使用 nix-output-monitor
 nix build .#nixosConfigurations.enchilada.config.mobile.outputs.android.android-fastboot-images
 ```
