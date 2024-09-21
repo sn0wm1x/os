@@ -11,6 +11,7 @@ a.k.a OnePlus 6
 - 亮度调节，蓝牙不可用
 - 时间默认为 1970 年
 - Firefox Mobile 配置损坏
+- 输入法（ibus）不可用
 
 ## 准备
 
@@ -19,6 +20,8 @@ a.k.a OnePlus 6
 ## 编译
 
 > 需要一台 aarch64 或设置了 `boot.binfmt.emulatedSystems = [ "aarch64-linux" ];` 的 x86-64 NixOS 设备
+>
+> 避免使用 `nixpkgs.crossSystem.system` 或 `nixpkgs.{buildPlatform,hostPlatform}.system`，以免获取不到 https://cache.nixos.org 的缓存
 
 ```bash
 just build-mobile
