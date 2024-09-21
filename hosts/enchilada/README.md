@@ -6,8 +6,10 @@ a.k.a OnePlus 6
 
 - 使用 Mobile NixOS fork [(linyinfeng/mobile-nixos)](https://github.com/linyinfeng/mobile-nixos/tree/development)
 - 使用本地的 `nixpkgs-gnome-mobile` fork [(gnome-mobile/)](gnome-mobile/)
+  - https://github.com/chuangzhu/nixpkgs-gnome-mobile/pull/4
 - growpart, home-manager-kwa 失败
   - growpart: `unexpected output in sfdisk --version`
+    - https://github.com/NixOS/nixpkgs/pull/343424
 - 亮度调节，蓝牙不可用
 - 时间默认为 1970 年
 - Firefox Mobile 配置损坏
