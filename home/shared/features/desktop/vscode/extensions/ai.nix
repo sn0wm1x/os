@@ -18,15 +18,15 @@ in {
         {
           models = [
             {
-              title = "Mistral-NeMo";
+              title = "Llama 3.2 3B";
               provider = "ollama";
-              model = "mistral-nemo";
+              model = "llama3.2";
             }
           ];
           tabAutocompleteModel = {
-            title = "Mistral-NeMo";
+            title = "StarCoder2 3B";
             provider = "ollama";
-            model = "mistral-nemo";
+            model = "starcoder2";
           };
           embeddingsProvider = {
             provider = "ollama";
