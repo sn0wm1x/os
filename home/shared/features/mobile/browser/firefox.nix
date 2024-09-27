@@ -6,12 +6,6 @@ let
     rev = "ff2f07873f4ebc6e220da0e9b9f04c69f451edda";
     sha256 = "sha256-8wRz8corz00+0qROMiOmZAddM4tjfmE91bx0+P8JNx4=";
   };
-  betterfox = pkgs.fetchFromGitHub {
-    owner = "yokoffing";
-    repo = "Betterfox";
-    rev = "126.0";
-    hash = "sha256-W0JUT3y55ro3yU23gynQSIu2/vDMVHX1TfexHj1Hv7Q=";
-  };
   userChrome = pkgs.runCommand "userChrome.css" { } ''
     cat ${mobile-config-firefox}/src/userChrome/*.css > $out
   '';
@@ -120,31 +114,7 @@ in
       '';
     };
 
-
     # https://github.com/nix-community/home-manager/pull/5195
     languagePacks = [ "zh-CN" ];
-
-    profiles.kwa = {
-      isDefault = true;
-      id = 0;
-      name = "藍";
-
-      search.default = "StartPage";
-      search.privateDefault = "StartPage";
-
-      settings = {
-        # Enable WebGL
-        # TODO: use CanvasBlocker
-        "webgl.disabled" = false;
-        # Enable letterboxing
-        "privacy.resistFingerprinting.letterboxing" = true;
-      };
-
-      extraConfig = ''
-        ${builtins.readFile "${betterfox}/Fastfox.js"}
-        ${builtins.readFile "${betterfox}/Peskyfox.js"}
-        ${builtins.readFile "${betterfox}/Smoothfox.js"}
-      '';
-    };
   };
 }
