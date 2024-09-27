@@ -1,6 +1,5 @@
 {
   imports = [
-    ../circle.nix
     ../dconf.nix
     ../gtk.nix
     ../ptyxis.nix
