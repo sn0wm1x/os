@@ -64,7 +64,7 @@ stdenv.mkDerivation rec {
   desktopItems = [
     (makeDesktopItem {
       desktopName = "OpenAI Translator";
-      name = "OpenAI Translator";
+      name = pname;
       exec = pname;
       icon = pname;
       comment = meta.description;
