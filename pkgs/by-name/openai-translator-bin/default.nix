@@ -1,15 +1,17 @@
-{ lib
-, stdenv
-, autoPatchelfHook
-, dpkg
-, fetchurl
-, libayatana-appindicator
-, openssl
-, libsoup_3
-, xdotool
-, webkitgtk_4_1
-, wrapGAppsHook3
-, makeDesktopItem
+{
+  lib,
+  stdenv,
+  fetchurl,
+  autoPatchelfHook,
+  copyDesktopItems,
+  dpkg,
+  wrapGAppsHook3,
+  openssl,
+  libsoup_3,
+  xdotool,
+  webkitgtk_4_1,
+  libayatana-appindicator,
+  makeDesktopItem,
 }:
 
 stdenv.mkDerivation rec {
@@ -22,9 +24,10 @@ stdenv.mkDerivation rec {
   };
 
   nativeBuildInputs = [
+    autoPatchelfHook
+    copyDesktopItems
     dpkg
     wrapGAppsHook3
-    autoPatchelfHook
   ];
 
   buildInputs = [
