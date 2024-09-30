@@ -3,8 +3,7 @@
   home.packages = with pkgs; [
     nil # language server
 
-    nixfmt-rfc-style # experimental formatter
-    nixpkgs-fmt # formatter
+    nixfmt-rfc-style # formatter
     nixpkgs-lint-community # linter
     nixpkgs-hammering # fix PR
     nixpkgs-review # review PR

@@ -39,7 +39,7 @@
       {
         name = "nix";
         auto-format = true;
-        formatter.command = lib.getExe pkgs.nixpkgs-fmt;
+        formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
         # formatter.args = [];
         language-servers = [ "${lib.getExe pkgs.nil}" ];
       }
