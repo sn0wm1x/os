@@ -12,6 +12,8 @@
     ./impermanence.nix
     ./hardware.nix
     ./services.nix
+
+    ./hatsu-module-test.nix
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
