@@ -9,6 +9,7 @@
 , xdotool
 , webkitgtk_4_1
 , wrapGAppsHook3
+, makeDesktopItem
 }:
 
 stdenv.mkDerivation rec {
@@ -37,22 +38,45 @@ stdenv.mkDerivation rec {
     libayatana-appindicator
   ];
 
+  dontConfigure = true;
+  dontBuild = true;
+
   installPhase = ''
     runHook preInstall
 
-    dpkg-deb -x $src $out
-    mv $out/usr/* $out
-    rmdir $out/usr
+    mkdir -p $out/bin
+    install -Dm755 usr/bin/app $out/bin/${pname}
+
+    mkdir -p $out/share/${pname}
+    cp -r usr/lib/app/resources $out/share/${pname}
+
+    mkdir -p $out/share/icons/hicolor/{32x32,128x128,256x256@2}
+    for size in 32x32 128x128 256x256@2; do
+      install -Dm644 usr/share/icons/hicolor/$size/apps/app.png $out/share/icons/hicolor/$size/apps/${pname}.png
+    done
 
     runHook postInstall
   '';
 
+  desktopItems = [
+    (makeDesktopItem {
+      desktopName = "OpenAI Translator";
+      name = "OpenAI Translator";
+      exec = pname;
+      icon = pname;
+      comment = meta.description;
+      terminal = false;
+      categories = [ "Development" ];
+    })
+  ];
+
   meta = {
     description = "Cross-platform desktop application for translation based on ChatGPT API";
     homepage = "https://github.com/openai-translator/openai-translator";
+    downloadPage = "https://github.com/openai-translator/openai-translator/releases";
     changelog = "https://github.com/openai-translator/openai-translator/releases/tag/v${version}";
     license = lib.licenses.agpl3Only;
-    mainProgram = "app";
+    mainProgram = "openai-translator";
     maintainers = with lib.maintainers; [ kwaa ];
     platforms = [ "x86_64-linux" ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
