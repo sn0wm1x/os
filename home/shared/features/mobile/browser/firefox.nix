@@ -11,9 +11,9 @@ in
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-      # autoConfigFiles = [ "${mobile-config-firefox}/src/mobile-config-autoconfig.js" ];
-      extraPoliciesFiles = [ "${mobile-config-firefox}/src/policies.json" ];
       # https://github.com/NixOS/nixpkgs/blob/fbdb99df92d7c42e4cc12b307a4cf577241eed59/nixos/modules/programs/firefox.nix#L312-L315
+      # autoConfigFiles = [ "${mobile-config-firefox}/lib/firefox/mobile-config-autoconfig.js" ];
+      extraPoliciesFiles = [ "${mobile-config-firefox}/etc/firefox/policies/policies.json" ];
       extraPrefsFiles = [
         "${mobile-config-firefox}/lib/firefox/mobile-config-autoconfig.js"
         "${mobile-config-firefox}/lib/firefox/default/pref/mobile-config-prefs.js"
