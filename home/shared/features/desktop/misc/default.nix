@@ -7,6 +7,5 @@
     ./kitty.nix
     ./obsidian.nix
     ./openai-translator.nix
-    ./spacedrive.nix
   ];
 }
