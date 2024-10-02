@@ -3,8 +3,8 @@ let
   mobile-config-firefox = pkgs.fetchFromGitLab {
     owner = "postmarketOS";
     repo = "mobile-config-firefox";
-    rev = "ff2f07873f4ebc6e220da0e9b9f04c69f451edda";
-    sha256 = "sha256-8wRz8corz00+0qROMiOmZAddM4tjfmE91bx0+P8JNx4=";
+    rev = "refs/tags/4.3.2";
+    sha256 = "sha256-AqRnf9wTr6sPLKgpHKFa/vgXBmiC7QulRpHP2ExdEPo=";
   };
   userChrome = pkgs.runCommand "userChrome.css" { } ''
     cat ${mobile-config-firefox}/src/userChrome/*.css > $out
