@@ -2,9 +2,9 @@
 {
   imports = [
     ../fonts.nix
-    ../locale.nix
     ../network.nix
     ../yubikey.nix
+    ./locale.nix
     ./modules.nix
     ./nix.nix
   ];
@@ -37,12 +37,11 @@
   ];
 
   # clean default shellAliases
-  environment.shellAliases =
-    {
-      l = "ls";
-      ll = "ls";
-      ls = "ls";
-    };
+  environment.shellAliases = {
+    l = "ls";
+    ll = "ls";
+    ls = "ls";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = lib.mkDefault "23.11";
