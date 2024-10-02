@@ -16,7 +16,7 @@ in
       extraPoliciesFiles = [ "${mobile-config-firefox}/etc/firefox/policies/policies.json" ];
       extraPrefsFiles = [
         "${mobile-config-firefox}/lib/firefox/mobile-config-autoconfig.js"
-        "${mobile-config-firefox}/lib/firefox/default/pref/mobile-config-prefs.js"
+        "${mobile-config-firefox}/lib/firefox/defaults/pref/mobile-config-prefs.js"
       ];
     };
 
