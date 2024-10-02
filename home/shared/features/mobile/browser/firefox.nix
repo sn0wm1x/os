@@ -1,17 +1,11 @@
-{ pkgs, ... }:
+{
+  outputs,
+  lib,
+  pkgs,
+  ...
+}:
 let
-  mobile-config-firefox = pkgs.fetchFromGitLab {
-    owner = "postmarketOS";
-    repo = "mobile-config-firefox";
-    rev = "refs/tags/4.3.2";
-    sha256 = "sha256-AqRnf9wTr6sPLKgpHKFa/vgXBmiC7QulRpHP2ExdEPo=";
-  };
-  userChrome = pkgs.runCommand "userChrome.css" { } ''
-    cat ${mobile-config-firefox}/src/userChrome/*.css > $out
-  '';
-  userContent = pkgs.runCommand "userContent.css" { } ''
-    cat ${mobile-config-firefox}/src/userContent/*.css > $out
-  '';
+  mobile-config-firefox = outputs.packages.${pkgs.system}.mobile-config-firefox;
 in
 {
   programs.firefox = {
@@ -21,17 +15,33 @@ in
       extraPoliciesFiles = [ "${mobile-config-firefox}/src/policies.json" ];
       # https://github.com/NixOS/nixpkgs/blob/fbdb99df92d7c42e4cc12b307a4cf577241eed59/nixos/modules/programs/firefox.nix#L312-L315
       extraPrefsFiles = [
-        "${mobile-config-firefox}/src/mobile-config-autoconfig.js"
-        "${mobile-config-firefox}/src/mobile-config-prefs.js"
+        "${mobile-config-firefox}/lib/firefox/mobile-config-autoconfig.js"
+        "${mobile-config-firefox}/lib/firefox/default/pref/mobile-config-prefs.js"
       ];
     };
 
-    profiles.kwa = {
-      isDefault = true;
-      id = 0;
-      name = "藍";
-      inherit userChrome userContent;
-    };
+    profiles.kwa =
+      let
+        concatFiles =
+          dir:
+          builtins.concatStringsSep "" (
+            map (k: lib.optionalString (!lib.hasInfix ".before-ff" k) (builtins.readFile "${dir}/${k}")) (
+              builtins.attrNames (builtins.readDir dir)
+            )
+          );
+      in
+      {
+        isDefault = true;
+        id = 0;
+        name = "藍";
+
+        userChrome =
+          concatFiles "${mobile-config-firefox}/etc/mobile-config-firefox/common"
+          + concatFiles "${mobile-config-firefox}/etc/mobile-config-firefox/userChrome";
+        userContent =
+          concatFiles "${mobile-config-firefox}/etc/mobile-config-firefox/common"
+          + concatFiles "${mobile-config-firefox}/etc/mobile-config-firefox/userContent";
+      };
 
     # https://github.com/nix-community/home-manager/pull/5195
     languagePacks = [ "zh-CN" ];
