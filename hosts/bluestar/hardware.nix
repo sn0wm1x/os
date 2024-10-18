@@ -35,7 +35,9 @@
   # use cachyos kernel + sched-ext/scx (scx_rusty)
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   chaotic.scx.enable = true;
-  chaotic.scx.scheduler = "scx_rusty";
+  # TODO: wait upstream fix
+  # https://github.com/chaotic-cx/nyx/blob/a7a28bea9c55041a3bd5e253f8ac7f1e05b90c56/modules/nixos/scx.nix#L27
+  # chaotic.scx.scheduler = "scx_rusty";
 
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]
