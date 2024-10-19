@@ -81,13 +81,8 @@
   hardware.graphics.enable = true;
   # https://nixos.wiki/wiki/AMD_GPU#Vulkan
   hardware.graphics.enable32Bit = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    # https://nixos.wiki/wiki/AMD_GPU#OpenCL
-    rocmPackages.clr.icd
-    # https://nixos.wiki/wiki/AMD_GPU#AMDVLK
-    amdvlk
-  ];
-  hardware.graphics.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  # https://nixos.wiki/wiki/AMD_GPU#OpenCL
+  hardware.graphics.extraPackages = with pkgs; [ rocmPackages.clr.icd ];
 
   # ROCm Support
   nixpkgs.config.rocmSupport = true;
