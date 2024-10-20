@@ -6,4 +6,6 @@
     home = "/opt/ollama";
     user = "ollama";
   };
+
+  services.open-webui.enable = true;
 }
