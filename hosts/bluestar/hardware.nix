@@ -1,14 +1,17 @@
-{ config
-, inputs
-, lib
-, pkgs
-, ...
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
 }:
 {
   imports = with inputs.nixos-hardware.nixosModules; [
+    # included common-gpu-intel
     common-cpu-intel
-    # https://github.com/NixOS/nixos-hardware/issues/940
-    # common-gpu-intel
+    # included prime
+    # https://github.com/NixOS/nixos-hardware/blob/master/common/gpu/nvidia/prime.nix
+    common-gpu-nvidia
     common-pc-ssd
   ];
 
@@ -43,25 +46,35 @@
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]
   # Intel Corporation DG2 [Arc A770] [8086:56a0]
   boot.kernelParams = [
-    # force use UHD730
-    # "i915.force_probe=4692"
     # Workaround iGPU hangs
     # https://discourse.nixos.org/t/intel-12th-gen-igpu-freezes/21768/4
     # https://github.com/NixOS/nixos-hardware/blob/53db5e1070d07e750030bf65f1b9963df8f0c678/framework/13-inch/12th-gen-intel/default.nix#L15-L17
     "i915.enable_psr=1"
   ];
 
+  # https://wiki.nixos.org/wiki/Nvidia
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = true;
+    open = true;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
+
   # Hybrid graphics
   # https://nixos.wiki/wiki/Nvidia#Laptop_Configuration:_Hybrid_Graphics_.28Nvidia_Optimus_PRIME.29
   # nix run nixpkgs#lshw -- -c display
   hardware.nvidia.prime = {
-    sync.enable = true;
     intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:3:0:0";
+    nvidiaBusId = "PCI:1:0:0";
   };
 
   # services.xserver.videoDrivers = ["intel"];
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [
+    "nvidia"
+    "modesetting"
+  ];
 
   # Intel GPU Tools
   environment.systemPackages = with pkgs; [ intel-gpu-tools ];

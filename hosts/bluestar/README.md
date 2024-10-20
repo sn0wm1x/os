@@ -1,13 +1,6 @@
 # [Blue Star](https://youtu.be/sK92X82T3Sk)
 
-3i 台式机。
-
-- CPU: Intel Core i9-13900T
-- GPU 1: Intel UHD Graphics 770
-- GPU 2: Intel Arc A770
-- RAM: 64GB DDR4-3200
-- DISK 0: SK hynix PC801 2TB
-- DISK 1: Acer Pretador GM7 2TB
+台式机
 
 ## 准备密钥
 
