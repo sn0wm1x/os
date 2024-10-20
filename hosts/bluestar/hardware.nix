@@ -76,6 +76,9 @@
     "modesetting"
   ];
 
+  # CUDA Support
+  nixpkgs.config.cudaSupport = true;
+
   # Intel GPU Tools
   environment.systemPackages = with pkgs; [ intel-gpu-tools ];
 
