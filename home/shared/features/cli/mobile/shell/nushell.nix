@@ -5,40 +5,19 @@
     enable = true;
     shellAliases = config.home.shellAliases // osConfig.environment.shellAliases;
     extraConfig = ''
-      let carapace_completer = {|spans|
-        carapace $spans.0 nushell $spans | from json
+      # is init nu
+      # ---------------- inshellisense shell plugin ----------------
+      if "ISTERM" not-in $env and $nu.is-interactive {
+        if $nu.is-login { is -s nu --login ; exit } else { is -s nu ; exit }
       }
-      $env.config = {
-        show_banner: false,
-        completions: {
-        case_sensitive: false # case-sensitive completions
-        quick: true    # set to false to prevent auto-selecting completions
-        partial: true    # set to false to prevent partial filling of the prompt
-        algorithm: "fuzzy"    # prefix or fuzzy
-        external: {
-          # set to false to prevent nushell looking into $env.PATH to find more suggestions
-          enable: true
-          # set to lower can improve completion performance at the cost of omitting some options
-          max_results: 100
-          completer: $carapace_completer # check 'carapace_completer'
-          }
-        }
-      }
-      $env.PATH = ($env.PATH |
-        split row (char esep) |
-        prepend /home/myuser/.apps |
-        append /usr/bin/env
-      )
     '';
-    extraEnv = ''
-      $env.CARAPACE_BRIDGES = 'inshellisense'
-    '';
+
+    # TODO: fix quotes
     # fix home.sessionVariables in nushell
+    # https://github.com/NixOS/nixpkgs/pull/343036
     # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
-    environmentVariables = builtins.mapAttrs
-      (
-        name: value: "\"${builtins.toString value}\""
-      )
-      config.home.sessionVariables;
+    environmentVariables = builtins.mapAttrs (
+      name: value: "\"${builtins.toString value}\""
+    ) config.home.sessionVariables;
   };
 }

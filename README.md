@@ -35,7 +35,7 @@
   - linux-cachyos
   - sched-ext/scx
   - system76-scheduler
-- Nushell + Starship + Carapace
+- Nushell + Starship + Inshellisense
 - Gaming (TODO)
   - fufexan/nix-gaming
   - Juvian-NixOS

@@ -1,6 +1,5 @@
 {
   imports = [
-    ../../shell/carapace.nix
     ../../shell/inshellisense.nix
     ../../shell/starship.nix
     ../../shell/thefuck.nix

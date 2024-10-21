@@ -1,7 +1,6 @@
 {
   imports = [
     ./atuin.nix
-    ./carapace.nix
     ./direnv.nix
     ./inshellisense.nix
     ./nushell.nix
