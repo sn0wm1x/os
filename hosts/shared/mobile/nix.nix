@@ -1,15 +1,19 @@
-{ config
-, inputs
-, lib
-, ...
+{
+  config,
+  inputs,
+  lib,
+  ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
   # nixpkgs.overlays = lib.mkDefault builtins.attrValues outputs.overlays;
 
-  nix.gc.automatic = true;
-  nix.gc.dates = "weekly";
-  nix.gc.options = "--delete-older-than 30d";
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+    flake = "/persist/home/kwa/.os";
+  };
 
   nix.settings = {
     auto-optimise-store = true;
@@ -35,10 +39,8 @@
   # This will additionally add your inputs to the system's legacy channels
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc = lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+  environment.etc = lib.mapAttrs' (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  }) config.nix.registry;
 }

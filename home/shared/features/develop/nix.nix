@@ -14,8 +14,7 @@
 
     nurl # hash util
 
-    # nvd # Differ
-    # nh # Nice wrapper for NixOS and HM
+    nvd # differ
   ];
 
   # TODO: nix-index / nix-index-database

@@ -9,9 +9,12 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = builtins.attrValues outputs.overlays;
 
-  nix.gc.automatic = true;
-  nix.gc.dates = "weekly";
-  nix.gc.options = "--delete-older-than 30d";
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 3";
+    flake = "/persist/home/kwa/.os";
+  };
 
   nix.settings = {
     auto-optimise-store = true;
