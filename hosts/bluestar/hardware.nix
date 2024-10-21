@@ -79,6 +79,9 @@
   # CUDA Support
   nixpkgs.config.cudaSupport = true;
 
+  # NVIDIA Container Toolkit
+  hardware.nvidia-container-toolkit.enable = true;
+
   # Intel GPU Tools
   environment.systemPackages = with pkgs; [ intel-gpu-tools ];
 

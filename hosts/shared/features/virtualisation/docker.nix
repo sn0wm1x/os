@@ -1,14 +1,8 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Docker
   virtualisation.docker = {
     enable = true;
-    enableNvidia = lib.mkIf config.nixpkgs.config.cudaSupport true;
     rootless = {
       enable = true;
       setSocketVariable = true;
