@@ -5,6 +5,9 @@
     enable = true;
     shellAliases = config.home.shellAliases // osConfig.environment.shellAliases;
     extraConfig = ''
+      # nushell config
+      $env.config.show_banner = false
+
       # is init nu
       # ---------------- inshellisense shell plugin ----------------
       if "ISTERM" not-in $env and $nu.is-interactive {
