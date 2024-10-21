@@ -7,5 +7,7 @@
     rocmOverrideGfx = "11.0.1";
     # sudo chown -R ollama:ollama /opt/ollama
     home = "/opt/ollama";
+    user = "ollama";
+    environmentVariables.OLLAMA_ORIGINS = "*";
   };
 }
