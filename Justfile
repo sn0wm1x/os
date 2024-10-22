@@ -9,12 +9,14 @@ hostname := `cat /etc/hostname`
 list:
   @just --list
 
-rebuild mode='switch' *args='':
-  sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
+rebuild:
+  nh os switch --ask .
 
-rebuild-nom mode='switch' *args='--show-trace --verbose':
-  sudo nom build .#nixosConfigurations.{{hostname}}.config.system.build.toplevel {{args}}
-  just rebuild {{mode}} {{args}}
+build package *args='':
+  nom build .#{{package}} {{args}}
+
+nixos-rebuild mode='switch' *args='':
+  sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
 
 build-mobile target='enchilada':
   nom build .#nixosConfigurations.{{target}}.config.mobile.outputs.android.android-fastboot-images
