@@ -6,6 +6,7 @@
         pipx
         pip
         huggingface-hub
+        # TODO: hf-transfer
         # TODO: check CUDA
         # torchWithCuda
         # torchvision
