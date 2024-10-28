@@ -31,6 +31,7 @@
     "usbcore"
     "usb_storage"
     "vfat"
+    "exfat"
     "nls_cp437"
     "nls_iso8859_1"
   ];

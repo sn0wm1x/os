@@ -1,8 +1,9 @@
-{ config
-, inputs
-, lib
-, pkgs
-, ...
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
 }:
 {
   imports = with inputs.nixos-hardware.nixosModules; [
@@ -31,6 +32,7 @@
     "usbcore"
     "usb_storage"
     "vfat"
+    "exfat"
     "nls_cp437"
     "nls_iso8859_1"
     # microSD
