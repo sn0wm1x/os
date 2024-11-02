@@ -1,6 +1,6 @@
 let
   device = "/dev/nvme0n1";
-  primary_key = "/dev/disk/by-id/usb-Acer_USB_Flash_Drive_2235079219404-0:0-part1";
+  primary_key = "/dev/disk/by-id/usb-Lenovo_SX1_Pro_32G_FC372704102414525-0:0-part1";
   backup_key = "/dev/disk/by-id/usb-Realtek_RTL9210B-CG_012345678939-0:0-part1";
 in
 {
@@ -36,7 +36,7 @@ in
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 5
-                  mount -n -t vfat -o ro ${primary_key} /key || mount -n -t exfat -o ro ${backup_key} /key
+                  mount -n -t exfat -o ro ${primary_key} /key || mount -n -t exfat -o ro ${backup_key} /key
                 '';
                 postOpenCommands = ''
                   umount /key
