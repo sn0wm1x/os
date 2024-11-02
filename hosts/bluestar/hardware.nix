@@ -73,8 +73,8 @@
 
   # services.xserver.videoDrivers = ["intel"];
   services.xserver.videoDrivers = [
-    "nvidia"
     "modesetting"
+    "nvidia"
   ];
 
   # CUDA Support
