@@ -87,6 +87,7 @@
   hardware.graphics.extraPackages = with pkgs; [ rocmPackages.clr.icd ];
 
   # ROCm Support
+  nixpkgs.config.cudaSupport = false;
   nixpkgs.config.rocmSupport = true;
 
   networking.useDHCP = lib.mkDefault true;

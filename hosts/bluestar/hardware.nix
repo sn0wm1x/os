@@ -79,6 +79,7 @@
 
   # CUDA Support
   nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.rocmSupport = false;
 
   # NVIDIA Container Toolkit
   hardware.nvidia-container-toolkit.enable = true;
