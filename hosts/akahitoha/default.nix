@@ -6,7 +6,7 @@
     ../shared/features/desktop/gnome
     ../shared/features/virtualisation
     ../shared/users/kwa
-    inputs.chaotic.nixosModules.default
+    # inputs.chaotic.nixosModules.default
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./impermanence.nix

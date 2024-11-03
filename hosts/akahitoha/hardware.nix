@@ -46,7 +46,7 @@
   # TODO: FIXME: use cachyos kernel
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  chaotic.scx.enable = true;
+  # chaotic.scx.enable = true;
   # TODO: wait upstream fix
   # https://github.com/chaotic-cx/nyx/blob/a7a28bea9c55041a3bd5e253f8ac7f1e05b90c56/modules/nixos/scx.nix#L27
   # chaotic.scx.scheduler = "scx_rusty";
