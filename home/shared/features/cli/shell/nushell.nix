@@ -15,12 +15,11 @@
       }
     '';
 
-    # TODO: fix quotes
-    # fix home.sessionVariables in nushell
+    # TODO: fix home.sessionVariables in nushell
     # https://github.com/NixOS/nixpkgs/pull/343036
     # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
     environmentVariables = builtins.mapAttrs (
-      name: value: "\"${builtins.toString value}\""
+      name: value: builtins.toString value
     ) config.home.sessionVariables;
   };
 
