@@ -6,7 +6,8 @@
     ./nushell.nix
     ./starship.nix
     ./thefuck.nix
-    ./yazi.nix
+    # TODO: FIXME: enable yazi
+    # ./yazi.nix
     ./zoxide.nix
   ];
 }
