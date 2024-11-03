@@ -4,7 +4,6 @@
     # 功能
     kimpanel
     easyeffects-preset-selector
-    system76-scheduler
     #
     paperwm
     dash-to-dock
@@ -21,7 +20,6 @@
   dconf.settings."org/gnome/shell".enabled-extensions = [
     "kimpanel@kde.org"
     "eepresetselector@ulville.github.io"
-    "s76-scheduler@mattjakeman.com"
 
     "paperwm@paperwm.github.com"
     "dash-to-dock@micxgx.gmail.com"
