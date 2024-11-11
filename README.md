@@ -34,7 +34,6 @@
 - 性能调优
   - linux-cachyos
   - sched-ext/scx
-  - system76-scheduler
 - Nushell + Starship + Inshellisense
 - Gaming (TODO)
   - fufexan/nix-gaming

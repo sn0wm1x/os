@@ -14,9 +14,6 @@
 
   zramSwap.enable = true;
 
-  services.system76-scheduler.enable = true;
-  services.system76-scheduler.useStockConfig = true;
-
   # use sudo-rs
   security.sudo.enable = false;
   security.sudo-rs.enable = true;
@@ -41,12 +38,11 @@
   ];
 
   # clean default shellAliases
-  environment.shellAliases =
-    {
-      l = "ls";
-      ll = "ls";
-      ls = "ls";
-    };
+  environment.shellAliases = {
+    l = "ls";
+    ll = "ls";
+    ls = "ls";
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = lib.mkDefault "23.11";
