@@ -15,7 +15,7 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # chaotic.nixpkgs.follows = "nixpkgs";
 
     disko.url = "github:nix-community/disko";
@@ -44,11 +44,12 @@
   };
 
   outputs =
-    inputs@{ self
-    , nixpkgs
-    , impermanence
-    , home-manager
-    , ...
+    inputs@{
+      self,
+      nixpkgs,
+      impermanence,
+      home-manager,
+      ...
     }:
     let
       inherit (self) outputs;
@@ -66,8 +67,12 @@
       homeManagerModules = import ./modules/home-manager;
 
       nixosConfigurations =
-        let specialArgs = { inherit inputs outputs; };
-        in {
+        let
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        in
+        {
           # ./hosts/akahitoha/README.md
           akahitoha = nixpkgs.lib.nixosSystem {
             inherit specialArgs;
