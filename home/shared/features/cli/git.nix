@@ -12,6 +12,9 @@
   # TODO: difftastic + magit (emacs)
   programs.git.difftastic.enable = true;
 
+  # TODO: mergiraf
+  # https://github.com/NixOS/nixpkgs/pull/354870
+
   # gitui
   programs.gitui.enable = true;
   programs.gitui.catppuccin.enable = true;
