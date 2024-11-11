@@ -7,6 +7,6 @@
     ./kitty.nix
     ./localsend.nix
     ./obsidian.nix
-    ./openai-translator.nix
+    ./open-ai-translator.nix
   ];
 }
