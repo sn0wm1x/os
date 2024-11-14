@@ -36,8 +36,8 @@
     "nls_cp437"
     "nls_iso8859_1"
     # microSD
-    "sdhci"
-    "mmc_block" # TODO: try remove this
+    "sd_mod"
+    "mmc_block"
   ];
   boot.kernelModules = [ "kvm-amd" ];
   # CPPC is now enabled since NLCN30WW
