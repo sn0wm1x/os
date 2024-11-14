@@ -1,6 +1,6 @@
 let
   device = "/dev/nvme0n1";
-  primary_key = "/dev/disk/by-id/mmc-SA16G_0x3838f37e-part1";
+  primary_key = "/dev/mmcblk0p1";
   backup_key = "/dev/disk/by-id/usb-Lenovo_SX1_Pro_32G_FC372704102414525-0:0-part1";
   backup_backup_key = "/dev/disk/by-id/usb-Realtek_RTL9210B-CG_012345678939-0:0-part1";
 in
