@@ -10,8 +10,9 @@
     # agenix-rekey.url = "github:oddlama/agenix-rekey";
     # agenix-rekey.inputs.nixpkgs.follows = "nixpkgs";
 
-    browser-previews.url = "github:nix-community/browser-previews";
-    browser-previews.inputs.nixpkgs.follows = "nixpkgs";
+    # https://github.com/nix-community/browser-previews/pull/27
+    # browser-previews.url = "github:nix-community/browser-previews";
+    # browser-previews.inputs.nixpkgs.follows = "nixpkgs";
 
     catppuccin.url = "github:catppuccin/nix";
 
