@@ -10,12 +10,8 @@
     noto-fonts-cjk-serif
     # monospace
     monaspace
-    (nerdfonts.override {
-      fonts = [
-        "NerdFontsSymbolsOnly"
-        "Monaspace"
-      ];
-    })
+    nerd-fonts.symbols-only
+    nerd-fonts.monaspace
     # emoji / icon
     noto-fonts-color-emoji
     noto-fonts-emoji
