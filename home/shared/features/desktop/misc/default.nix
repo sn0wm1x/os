@@ -3,6 +3,7 @@
     ./anki.nix
     ./anytype.nix
     ./database.nix
+    ./ffmpeg.nix
     ./github-desktop.nix
     ./kitty.nix
     ./localsend.nix
