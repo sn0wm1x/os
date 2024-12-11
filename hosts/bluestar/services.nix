@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.ollama = {
     enable = true;
@@ -7,6 +8,8 @@
     user = "ollama";
     environmentVariables.OLLAMA_ORIGINS = "*";
   };
+
+  environment.systemPackages = with pkgs; [ openai-whisper-cpp ];
 
   # services.open-webui.enable = true;
 }
