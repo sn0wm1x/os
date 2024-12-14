@@ -23,4 +23,7 @@
       name: value: "\"${builtins.toString value}\""
     ) config.home.sessionVariables;
   };
+
+  # setting the same alias for bash
+  programs.bash.shellAliases = config.home.shellAliases // osConfig.environment.shellAliases;
 }
