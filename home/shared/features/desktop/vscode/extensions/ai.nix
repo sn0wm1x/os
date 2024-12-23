@@ -1,59 +1,35 @@
-{ osConfig, pkgs, ... }:
-let
-  host = osConfig.networking.hostName;
-in
+{ pkgs, ... }:
 {
   programs.vscode = {
-    extensions =
-      if host == "bluestar" then
-        [
-          pkgs.vscode-extensions.continue.continue
-        ]
-      else
-        [ ];
-    userSettings =
-      if host == "bluestar" then
-        {
-          "continue.telemetryEnabled" = false;
-        }
-      else
-        { };
+    extensions = with pkgs; [
+      vscode-extensions.continue.continue
+    ];
+    userSettings = {
+      "continue.telemetryEnabled" = false;
+    };
   };
 
-  home.file =
-    if host == "bluestar" then
+  home.file.".continue/config.json".text = builtins.toJSON {
+    models = [
+      # {
+      #   title = "Qwen 2.5 3B";
+      #   provider = "ollama";
+      #   model = "qwen2.5:3b";
+      # }
       {
-        ".continue/config.json".text = builtins.toJSON {
-          # models = [
-          #   {
-          #     title = "Llama 3.2 3B";
-          #     provider = "ollama";
-          #     model = "llama3.2";
-          #   }
-          # ];
-          # tabAutocompleteModel = {
-          #   title = "StarCoder2 3B";
-          #   provider = "ollama";
-          #   model = "starcoder2";
-          # };
-          models = [
-            {
-              title = "Mistral NeMo";
-              provider = "ollama";
-              model = "mistral-nemo";
-            }
-          ];
-          tabAutocompleteModel = {
-            title = "Mistral NeMo";
-            provider = "ollama";
-            model = "mistral-nemo";
-          };
-          embeddingsProvider = {
-            provider = "ollama";
-            model = "nomic-embed-text";
-          };
-        };
+        title = "Qwen 2.5 Coder 3B";
+        provider = "ollama";
+        model = "qwen2.5-coder:3b";
       }
-    else
-      { };
+    ];
+    tabAutocompleteModel = {
+      title = "Qwen 2.5 Coder 3B";
+      provider = "ollama";
+      model = "qwen2.5-coder:3b";
+    };
+    embeddingsProvider = {
+      provider = "ollama";
+      model = "nomic-embed-text";
+    };
+  };
 }
