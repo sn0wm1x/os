@@ -9,5 +9,6 @@
     ./localsend.nix
     ./obsidian.nix
     ./open-ai-translator.nix
+    ./zoom-us.nix
   ];
 }
