@@ -6,6 +6,7 @@
     experimental-features = [
       "variable-refresh-rate"
       "scale-monitor-framebuffer"
+      "xwayland-native-scaling"
     ];
   };
 
