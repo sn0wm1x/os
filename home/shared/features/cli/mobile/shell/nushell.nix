@@ -7,13 +7,13 @@
     extraConfig = ''
       # nushell config
       $env.config.show_banner = false
-
-      # is init nu
-      # ---------------- inshellisense shell plugin ----------------
-      if "ISTERM" not-in $env and $nu.is-interactive {
-        if $nu.is-login { is -s nu --login ; exit } else { is -s nu ; exit }
-      }
     '';
+    # is init nu
+    # ---------------- inshellisense shell plugin ----------------
+    #   if "ISTERM" not-in $env and $nu.is-interactive {
+    #     if $nu.is-login { is -s nu --login ; exit } else { is -s nu ; exit }
+    #   }
+    # '';
 
     # TODO: fix quotes
     # fix home.sessionVariables in nushell
