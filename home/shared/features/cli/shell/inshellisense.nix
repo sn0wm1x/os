@@ -1,4 +1,4 @@
-# { pkgs, ... }:
+{ pkgs, ... }:
 {
-  # home.packages = with pkgs; [ inshellisense ];
+  home.packages = with pkgs; [ inshellisense ];
 }
