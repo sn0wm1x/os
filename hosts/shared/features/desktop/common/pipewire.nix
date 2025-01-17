@@ -1,12 +1,13 @@
-{ lib, ... }:
 {
-  # https://nixos.wiki/wiki/PipeWire
-  hardware.pulseaudio.enable = lib.mkForce false;
+  # https://wiki.nixos.org/wiki/PipeWire
   security.rtkit.enable = true;
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.alsa.support32Bit = true;
-  services.pipewire.pulse.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    # alsa.support32Bit = true;
+    pulse.enable = true;
+    # jack.enable = true;
+  };
 
   # services.pipewire.wireplumber.enable = true;
   # ".local/state/wireplumber"
