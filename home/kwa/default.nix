@@ -1,8 +1,9 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
-{ config
-, lib
-, osConfig
-, ...
+{
+  config,
+  lib,
+  osConfig,
+  ...
 }:
 let
   host = osConfig.networking.hostName;
@@ -14,6 +15,7 @@ in
     ../shared/features/cli
     ../shared/features/desktop
     ../shared/features/develop
+    ../shared/features/gaming
     ../shared/features/virtualisation
     ./programs
     # import host-specific configuration
