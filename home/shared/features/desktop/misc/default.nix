@@ -7,6 +7,7 @@
     ./github-desktop.nix
     ./kitty.nix
     ./localsend.nix
+    ./motrix.nix
     ./obsidian.nix
     ./open-ai-translator.nix
     ./zoom-us.nix
