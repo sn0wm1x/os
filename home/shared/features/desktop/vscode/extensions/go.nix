@@ -11,7 +11,7 @@
         name = "vscode-buf";
         publisher = "bufbuild";
         version = "0.7.0";
-        sha256 = "";
+        sha256 = "B5/Gc+f3xaYpMTXFcQ9LJiAb9LBJX2aR+gh22up3Wi4=";
       }
     ];
 }
