@@ -1,4 +1,4 @@
 {
   programs.fzf.enable = true;
-  programs.fzf.catppuccin.enable = true;
+  catppuccin.fzf.enable = true;
 }

@@ -1,6 +1,6 @@
 {
   programs.zellij.enable = true;
-  programs.zellij.catppuccin.enable = true;
+  catppuccin.zellij.enable = true;
 
   home.shellAliases = {
     zj = "zellij";

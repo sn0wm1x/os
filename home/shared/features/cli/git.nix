@@ -17,7 +17,7 @@
 
   # gitui
   programs.gitui.enable = true;
-  programs.gitui.catppuccin.enable = true;
+  catppuccin.gitui.enable = true;
 
   # gh
   programs.gh.enable = true;
@@ -30,5 +30,5 @@
 
   # gh-dash
   programs.gh-dash.enable = true;
-  programs.gh-dash.catppuccin.enable = true;
+  catppuccin.gh-dash.enable = true;
 }

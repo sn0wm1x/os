@@ -1,6 +1,5 @@
 {
   programs.starship.enable = true;
-  programs.starship.catppuccin.enable = true;
   programs.starship.settings = {
     add_newline = true;
     character = {
@@ -8,4 +7,5 @@
       error_symbol = "[➜](bold red)";
     };
   };
+  catppuccin.starship.enable = true;
 }
