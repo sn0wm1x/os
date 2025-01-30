@@ -15,7 +15,6 @@ in
     ../shared/features/cli
     ../shared/features/desktop
     ../shared/features/develop
-    ../shared/features/gaming
     ../shared/features/virtualisation
     ./programs
     # import host-specific configuration
