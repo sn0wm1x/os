@@ -22,6 +22,7 @@
       eamodio.gitlens
       mhutchie.git-graph
       editorconfig.editorconfig
+      mikestead.dotenv
       mkhl.direnv
       foam.foam-vscode # Personal knowledge management
       # Natural Languages
