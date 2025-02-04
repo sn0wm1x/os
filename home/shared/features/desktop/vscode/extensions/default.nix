@@ -2,6 +2,7 @@
 {
   imports = [
     ./ai.nix
+    ./database.nix
     ./github.nix
     ./go.nix
     ./javascript.nix
