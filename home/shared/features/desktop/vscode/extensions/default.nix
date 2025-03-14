@@ -19,8 +19,6 @@
       # Enhancement
       usernamehw.errorlens
       streetsidesoftware.code-spell-checker
-      eamodio.gitlens
-      mhutchie.git-graph
       editorconfig.editorconfig
       mikestead.dotenv
       mkhl.direnv
@@ -41,6 +39,13 @@
         publisher = "fill-labs";
         version = "0.7.2";
         sha256 = "S3R1oLk7facP5Rn9czmHlffhMtLNrSaGYbaU3/x6/aM=";
+      }
+      {
+        # gitlens alternative
+        name = "better-git-line-blame";
+        publisher = "mk12";
+        version = "0.2.14";
+        sha256 = "";
       }
     ];
 }
