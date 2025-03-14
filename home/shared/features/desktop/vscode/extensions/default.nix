@@ -45,7 +45,7 @@
         name = "better-git-line-blame";
         publisher = "mk12";
         version = "0.2.14";
-        sha256 = "";
+        sha256 = "mPPNM8QnmZfmC3lKT8Gy4J4Old0Fpu/5TU8KKmAUiYg=";
       }
     ];
 }
