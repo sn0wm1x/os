@@ -35,6 +35,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
 

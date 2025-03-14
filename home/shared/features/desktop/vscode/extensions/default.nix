@@ -32,20 +32,10 @@
       redhat.vscode-xml # xml
       rust-lang.rust-analyzer # rust
     ])
-    ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      {
-        # https://www.dependi.io
-        name = "dependi";
-        publisher = "fill-labs";
-        version = "0.7.2";
-        sha256 = "S3R1oLk7facP5Rn9czmHlffhMtLNrSaGYbaU3/x6/aM=";
-      }
-      {
-        # gitlens alternative
-        name = "better-git-line-blame";
-        publisher = "mk12";
-        version = "0.2.14";
-        sha256 = "mPPNM8QnmZfmC3lKT8Gy4J4Old0Fpu/5TU8KKmAUiYg=";
-      }
-    ];
+    ++ (with pkgs.vscode-marketplace; [
+      # https://www.dependi.io
+      fill-labs.dependi
+      # gitlens alternative
+      mk12.better-git-line-blame
+    ]);
 }

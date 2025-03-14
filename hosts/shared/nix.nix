@@ -7,7 +7,10 @@
 }:
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = builtins.attrValues outputs.overlays;
+  nixpkgs.overlays = builtins.attrValues outputs.overlays ++ [
+    # https://github.com/nix-community/nix-vscode-extensions#overlay
+    inputs.nix-vscode-extensions.overlays.default
+  ];
 
   programs.nh = {
     enable = true;
