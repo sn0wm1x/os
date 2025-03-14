@@ -1,6 +1,7 @@
 {
   imports = [
     ./extensions
+    ./file-nesting-config.nix
     ./settings.nix
   ];
 
