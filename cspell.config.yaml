@@ -1,0 +1,16 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - akahitoha
+  - bluestar
+  - catppuccin
+  - disko
+  - nixfmt
+  - nixos
+  - nixpkgs
+  - pkgs
+  - sn0wm1x
+ignoreWords: []
+import: []
