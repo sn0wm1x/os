@@ -6,12 +6,14 @@ words:
   - akahitoha
   - bluestar
   - catppuccin
+  - cuda
   - dconf
   - dependi
   - disko
   - nixfmt
   - nixos
   - nixpkgs
+  - ollama
   - pkgs
   - sn0wm1x
 ignoreWords: []
