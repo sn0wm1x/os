@@ -20,7 +20,7 @@
       inherit inputs outputs;
     };
     sharedModules = [
-      inputs.catppuccin.homeManagerModules.catppuccin
+      inputs.catppuccin.homeModules.catppuccin
     ];
     users.kwa.imports = [ ../../../home/kwa/mobile ];
   };
