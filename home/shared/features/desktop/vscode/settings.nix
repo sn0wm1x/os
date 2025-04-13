@@ -18,7 +18,7 @@ let
   };
 in
 {
-  programs.vscode.userSettings =
+  programs.vscode.profiles.default.userSettings =
     {
       "extensions.autoCheckUpdates" = false;
       "extensions.ignoreRecommendations" = true;

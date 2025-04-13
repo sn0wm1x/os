@@ -10,7 +10,7 @@
   ];
 
   # programs.vscode.mutableExtensionsDir = false;
-  programs.vscode.extensions =
+  programs.vscode.profiles.default.extensions =
     with pkgs.vscode-extensions;
     ([
       # Theme

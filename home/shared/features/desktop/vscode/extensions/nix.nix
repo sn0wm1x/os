@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [ jnoortheen.nix-ide ];
     userSettings = {
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";

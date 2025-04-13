@@ -6,5 +6,5 @@
   ];
 
   programs.vscode.enable = true;
-  programs.vscode.enableUpdateCheck = false;
+  programs.vscode.profiles.default.enableUpdateCheck = false;
 }

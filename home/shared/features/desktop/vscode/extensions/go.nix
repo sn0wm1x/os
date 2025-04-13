@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.vscode.extensions =
+  programs.vscode.profiles.default.extensions =
     (with pkgs.vscode-extensions; [
       golang.go
     ])

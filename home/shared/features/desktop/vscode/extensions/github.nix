@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [
       github.vscode-pull-request-github
       github.vscode-github-actions

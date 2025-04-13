@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  programs.vscode = {
+  programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-extensions; [ tamasfe.even-better-toml ];
     userSettings = {
       "evenBetterToml.taplo.bundled" = false;

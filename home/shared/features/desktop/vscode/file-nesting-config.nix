@@ -1,6 +1,6 @@
 {
   # https://github.com/antfu/vscode-file-nesting-config#update-manually
-  programs.vscode.userSettings = {
+  programs.vscode.profiles.default.userSettings = {
     "explorer.fileNesting.enabled" = true;
     "explorer.fileNesting.exapnd" = false;
     "explorer.fileNesting.patterns" = {
