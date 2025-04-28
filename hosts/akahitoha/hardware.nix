@@ -44,9 +44,7 @@
   boot.kernelModules = [ "kvm-amd" ];
   # CPPC is now enabled since NLCN30WW
   boot.kernelParams = [ "amd_pstate=guided" ];
-  # https://github.com/ollama/ollama/issues/8262#issuecomment-2571703020
-  boot.kernelPackages = pkgs.linuxPackages_6_11;
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   # chaotic.scx.enable = true;
   # TODO: wait upstream fix
   # https://github.com/chaotic-cx/nyx/blob/a7a28bea9c55041a3bd5e253f8ac7f1e05b90c56/modules/nixos/scx.nix#L27
