@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./misc
     ./shell
     ./bat.nix
     ./btop.nix
