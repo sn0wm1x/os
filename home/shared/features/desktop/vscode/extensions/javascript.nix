@@ -17,7 +17,7 @@
       ]
       ++ (with pkgs.vscode-marketplace; [
         # THREE.js / R3F / WebXR
-        volumetrics.volumetrics
+        trytriplex.triplex-vsce
         # UnoCSS
         antfu.unocss
         # HTML/CSS Tagged Template Literals

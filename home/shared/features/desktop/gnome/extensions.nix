@@ -11,7 +11,6 @@
     # 外观
     user-themes
     blur-my-shell
-    just-perfection
     # rounded-window-corners # legacy
     gnome-40-ui-improvements
   ];
@@ -27,7 +26,6 @@
 
     "user-theme@gnome-shell-extensions.gcampax.github.com"
     "blur-my-shell@aunetx"
-    "just-perfection-desktop@just-perfection"
     # rounded-window-corners
     "gnomeExtensions.gnome-40-ui-improvements@AXP.com"
   ];

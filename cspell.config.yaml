@@ -4,10 +4,13 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - akahitoha
+  - antfu
   - bluestar
   - catppuccin
   - cuda
+  - dbaeumer
   - dconf
+  - denoland
   - dependi
   - disko
   - nixfmt
@@ -16,5 +19,8 @@ words:
   - ollama
   - pkgs
   - sn0wm1x
+  - trytriplex
+  - unifiedjs
+  - unocss
 ignoreWords: []
 import: []
