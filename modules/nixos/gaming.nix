@@ -15,6 +15,7 @@ with lib;
   };
   config = lib.mkIf cfg.enable {
     # https://wiki.nixos.org/wiki/Steam#Configuration
+    # debug: terminal: nvidia-offload steam
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
@@ -24,9 +25,7 @@ with lib;
       gamescopeSession.enable = true;
 
       # https://wiki.nixos.org/wiki/Steam#Proton
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-      ];
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
     };
 
     # https://wiki.nixos.org/wiki/Steam#Gamescope_Compositor_/_%22Boot_to_Steam_Deck%22
