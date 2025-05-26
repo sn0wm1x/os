@@ -17,6 +17,9 @@ words:
   - felixc
   - fetchurl
   - gltf
+  - ideapad
+  - logicalmonitor
+  - monitorspec
   - netdev
   - nixfmt
   - nixos
@@ -25,6 +28,7 @@ words:
   - optimise
   - pkgs
   - qdisc
+  - ratemode
   - rmem
   - sn0wm1x
   - substituters
