@@ -28,6 +28,7 @@ words:
   - nixfmt
   - nixos
   - nixpkgs
+  - nushell
   - ollama
   - optimise
   - pkgs
