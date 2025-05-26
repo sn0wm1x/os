@@ -114,18 +114,18 @@ in
         "Noto Emoji"
       ];
     };
-  };
 
-  # catppuccin/nix
-  # https://nix.catppuccin.com/options/nixos-options.html
-  imports = [ inputs.catppuccin.nixosModules.catppuccin ];
-  catppuccin = {
-    flavor = "frappe";
-    accent = "blue";
-  };
+    # catppuccin/nix
+    # https://nix.catppuccin.com/options/nixos-options.html
+    imports = [ inputs.catppuccin.nixosModules.catppuccin ];
+    catppuccin = {
+      flavor = "frappe";
+      accent = "blue";
+    };
 
-  home-manager = {
-    sharedModules = [ outputs.homeManagerModules.baseline-desktop ];
-    users.kwa.sn0wm1x.baseline-desktop.enable = true;
+    home-manager = {
+      sharedModules = [ outputs.homeManagerModules.baseline-desktop ];
+      users.kwa.sn0wm1x.baseline-desktop.enable = true;
+    };
   };
 }
