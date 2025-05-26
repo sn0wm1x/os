@@ -12,15 +12,6 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  zramSwap.enable = true;
-
-  # use sudo-rs
-  security.sudo.enable = false;
-  security.sudo-rs.enable = true;
-  # sudo wheel only
-  security.sudo-rs.execWheelOnly = true;
-  # sudo nopasswd
-  security.sudo-rs.wheelNeedsPassword = false;
   # increase open file limit for sudoers
   security.pam.loginLimits = [
     {

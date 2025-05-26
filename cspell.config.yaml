@@ -6,6 +6,7 @@ words:
   - akahitoha
   - antfu
   - bluestar
+  - cachix
   - catppuccin
   - cuda
   - dbaeumer
@@ -13,15 +14,24 @@ words:
   - denoland
   - dependi
   - disko
+  - felixc
   - gltf
+  - netdev
   - nixfmt
   - nixos
   - nixpkgs
   - ollama
+  - optimise
   - pkgs
+  - qdisc
+  - rmem
   - sn0wm1x
+  - substituters
+  - timesyncd
   - trytriplex
   - unifiedjs
   - unocss
+  - wmem
+  - zram
 ignoreWords: []
 import: []

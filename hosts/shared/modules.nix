@@ -3,7 +3,10 @@
   imports = [
     inputs.catppuccin.nixosModules.catppuccin
     inputs.home-manager.nixosModules.home-manager
+    outputs.nixosModules.baseline
   ];
+
+  sn0wm1x.baseline.enable = true;
 
   # catppuccin/nix
   # https://nix.catppuccin.com/options/nixos-options.html

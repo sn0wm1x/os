@@ -1,4 +1,4 @@
-{ lib, options, ... }:
+{ lib, ... }:
 {
   i18n = {
     # defaultLocale = lib.mkDefault "en_US.UTF-8";
@@ -13,12 +13,6 @@
       "ja_JP.UTF-8/UTF-8"
     ];
   };
-  time.timeZone = lib.mkDefault "Asia/Taipei";
 
-  # use ntpd-rs instead of systemd-timesyncd
-  services.timesyncd.enable = false;
-  services.ntpd-rs.enable = true;
-  services.ntpd-rs.useNetworkingTimeServers = true;
-  # https://nixos.wiki/wiki/NTP
-  networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
+  time.timeZone = lib.mkDefault "Asia/Taipei";
 }
