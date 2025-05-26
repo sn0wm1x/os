@@ -13,5 +13,6 @@ with lib;
   };
   config = lib.mkIf cfg.enable {
     systemd.user.startServices = "sd-switch";
+    home.stateVersion = "23.11";
   };
 }
