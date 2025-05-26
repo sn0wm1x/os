@@ -9,6 +9,5 @@
     eyedropper
     fragments
     gnome-frog # OCR
-    tuba # fediverse client
   ];
 }
