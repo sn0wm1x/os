@@ -10,9 +10,12 @@ let
 in
 with lib;
 {
+  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+
   options.sn0wm1x.baseline-desktop = {
     enable = mkEnableOption "SN0WM1X baseline-desktop configurations";
   };
+
   config = lib.mkIf cfg.enable {
     home.username = "kwa";
     home.homeDirectory = "/home/kwa";
@@ -20,7 +23,6 @@ with lib;
     home.file.".face".source = ../../assets/100897044_p0.png;
 
     # https://nix.catppuccin.com/options/home-manager-options.html
-    imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
     catppuccin = {
       flavor = osConfig.catppuccin.flavor;
       accent = osConfig.catppuccin.accent;

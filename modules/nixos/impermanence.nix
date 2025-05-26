@@ -9,11 +9,13 @@ let
   cfg = config.sn0wm1x.impermanence;
 in
 {
+  imports = [ inputs.impermanence.nixosModules.impermanence ];
+
   options.sn0wm1x.impermanence = {
     enable = lib.mkEnableOption "SN0WM1X impermanence configurations";
   };
+
   config = lib.mkIf cfg.enable {
-    imports = [ inputs.impermanence.nixosModules.impermanence ];
     home-manager = {
       sharedModules = [ outputs.homeManagerModules.impermanence ];
       users.kwa.sn0wm1x.impermanence.enable = true;

@@ -8,12 +8,13 @@ let
 in
 with lib;
 {
+  imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
+
   options.sn0wm1x.impermanence = {
     enable = mkEnableOption "SN0WM1X impermanence configurations";
   };
-  config = lib.mkIf cfg.enable {
-    imports = [ inputs.impermanence.nixosModules.home-manager.impermanence ];
 
+  config = lib.mkIf cfg.enable {
     home.persistence."/persist${config.home.homeDirectory}" = {
       # https://github.com/nix-community/impermanence#home-manager
       directories = [

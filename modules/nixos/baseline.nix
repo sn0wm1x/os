@@ -11,9 +11,12 @@ let
   cfg = config.sn0wm1x.baseline;
 in
 {
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   options.sn0wm1x.baseline = {
     enable = lib.mkEnableOption "SN0WM1X baseline configurations";
   };
+
   config = lib.mkIf cfg.enable {
     boot = {
       kernel.sysctl = {
@@ -94,7 +97,6 @@ in
       };
     };
 
-    imports = [ inputs.home-manager.nixosModules.home-manager ];
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;

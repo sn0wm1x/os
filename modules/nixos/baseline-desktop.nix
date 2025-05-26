@@ -10,10 +10,14 @@ let
   cfg = config.sn0wm1x.baseline-desktop;
 in
 {
+  imports = [ inputs.catppuccin.nixosModules.catppuccin ];
+
   options.sn0wm1x.baseline-desktop = {
     enable = lib.mkEnableOption "SN0WM1X baseline-desktop configurations";
   };
+
   config = lib.mkIf cfg.enable {
+
     # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -117,7 +121,6 @@ in
 
     # catppuccin/nix
     # https://nix.catppuccin.com/options/nixos-options.html
-    imports = [ inputs.catppuccin.nixosModules.catppuccin ];
     catppuccin = {
       flavor = "frappe";
       accent = "blue";
