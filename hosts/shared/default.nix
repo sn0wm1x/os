@@ -2,9 +2,6 @@
 {
   imports = [
     ./btrfs.nix
-    ./fonts.nix
-    ./locale.nix
-    ./modules.nix
     ./network.nix
     ./nix.nix
     ./yubikey.nix

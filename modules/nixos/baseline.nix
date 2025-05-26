@@ -1,16 +1,18 @@
 {
   config,
   options,
+  pkgs,
   lib,
+  inputs,
+  outputs,
   ...
 }:
 let
   cfg = config.sn0wm1x.baseline;
 in
-with lib;
 {
   options.sn0wm1x.baseline = {
-    enable = mkEnableOption "SN0WM1X baseline configurations";
+    enable = lib.mkEnableOption "SN0WM1X baseline configurations";
   };
   config = lib.mkIf cfg.enable {
     boot = {
@@ -66,9 +68,42 @@ with lib;
     services.ntpd-rs.useNetworkingTimeServers = true;
     # https://wiki.nixos.org/wiki/NTP
     networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
+    time.timeZone = lib.mkDefault "Asia/Taipei";
 
-    users.mutableUsers = false;
-    # FIXME: update password
-    users.users.root.initialPassword = "correcthorsebatterystaple";
+    users = {
+      mutableUsers = false;
+      users = {
+        # FIXME: update password
+        root.initialPassword = "correcthorsebatterystaple";
+        kwa = {
+          # FIXME: update password
+          initialPassword = "correcthorsebatterystaple";
+          isNormalUser = true;
+          shell = pkgs.nushell;
+          extraGroups = [
+            "wheel"
+            "video"
+            "audio"
+          ];
+
+          openssh.authorizedKeys.keys = [
+            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApPwSaizmGRsjTbeFUuzAw/U1zHbVM4ybsN3iILi0mm openpgp:0x22222222" # 0x4444777733334444
+          ];
+          packages = [ pkgs.home-manager ];
+        };
+      };
+    };
+
+    imports = [ inputs.home-manager.nixosModules.home-manager ];
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      extraSpecialArgs = { inherit inputs outputs; };
+      sharedModules = [ outputs.homeManagerModules.baseline ];
+      users.kwa = {
+        imports = [ ../../home/kwa ];
+        sn0wm1x.baseline.enable = true;
+      };
+    };
   };
 }

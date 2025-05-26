@@ -43,12 +43,9 @@ with lib;
     # https://wiki.nixos.org/wiki/Steam#FHS_environment_only
     environment.systemPackages = with pkgs; [ steam-run ];
 
-    # Home Manager Module
     home-manager = {
       sharedModules = [ outputs.homeManagerModules.gaming ];
-      users.kwa = {
-        sn0wm1x.gaming.enable = true;
-      };
+      users.kwa.sn0wm1x.gaming.enable = true;
     };
   };
 }

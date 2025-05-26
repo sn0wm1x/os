@@ -4,45 +4,65 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - akahitoha
+  - alsa
   - antfu
+  - binfmt
   - bluestar
+  - btrfs
   - cachix
   - catppuccin
+  - coredump
+  - correcthorsebatterystaple
+  - cryptroot
   - cuda
   - dbaeumer
   - dconf
   - denoland
   - dependi
   - disko
+  - fcitx
   - felixc
   - fetchurl
+  - fontconfig
   - gamemode
   - gamescope
   - ghostty
   - gltf
   - ideapad
   - logicalmonitor
+  - mimeapps
+  - moegirl
+  - monaspace
   - Monaspice
   - monitorspec
+  - mozc
   - netdev
+  - networkmanager
   - nixfmt
   - nixos
   - nixpkgs
+  - noto
   - nushell
   - ollama
+  - openpgp
   - optimise
+  - pipewire
   - pkgs
   - qdisc
   - ratemode
   - rmem
+  - rtkit
   - sn0wm1x
   - substituters
+  - subvolume
   - timesyncd
   - trytriplex
   - unifiedjs
   - unocss
   - virtualisation
   - wmem
+  - XMODIFIERS
+  - zhwiki
   - zram
 ignoreWords: []
 import: []
