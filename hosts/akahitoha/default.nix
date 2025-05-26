@@ -24,10 +24,6 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
-  users.mutableUsers = false;
-  # FIXME: update password
-  users.users.root.initialPassword = "correcthorsebatterystaple";
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }

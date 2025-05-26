@@ -68,5 +68,7 @@ with lib;
     networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
 
     users.mutableUsers = false;
+    # FIXME: update password
+    users.users.root.initialPassword = "correcthorsebatterystaple";
   };
 }
