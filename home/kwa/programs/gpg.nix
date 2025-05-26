@@ -16,6 +16,8 @@
   programs.gpg.scdaemonSettings.disable-ccid = true;
   # programs.gpg.scdaemonSettings.reader-port = "Yubico Yubi";
 
+  home.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+
   home.persistence."/persist${config.home.homeDirectory}".directories = [
     ".gnupg/private-keys-v1.d"
     # {
