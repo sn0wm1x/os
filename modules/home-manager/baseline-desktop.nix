@@ -48,7 +48,7 @@ with lib;
         documents = "${config.home.homeDirectory}/Documents";
         publicShare = "${config.home.homeDirectory}/Public";
         extraConfig = {
-          XDG_SCREENSHOTS_DIR = "${config.pictures}/Screenshots";
+          XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
         };
       };
     };
