@@ -10,7 +10,7 @@ let
 in
 with lib;
 {
-  imports = [ inputs.catppuccin.homeManagerModules.catppuccin ];
+  imports = [ inputs.catppuccin.homeModules.catppuccin ];
 
   options.sn0wm1x.baseline-desktop = {
     enable = mkEnableOption "SN0WM1X baseline-desktop configurations";
