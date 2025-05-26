@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, outputs, ... }:
 {
   imports = [
     ../shared
@@ -12,6 +12,7 @@
     ./impermanence.nix
     ./hardware.nix
     ./services.nix
+    outputs.nixosModules.gaming
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -23,6 +24,8 @@
   networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
+
+  sn0wm1x.gaming.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
