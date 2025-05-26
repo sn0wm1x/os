@@ -22,16 +22,10 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    # gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     impermanence.url = "github:nix-community/impermanence";
-
-    # https://github.com/linyinfeng/mobile-nixos
-    mobile-nixos.url = "github:linyinfeng/mobile-nixos/development";
-    mobile-nixos.flake = false;
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
@@ -88,13 +82,6 @@
             inherit specialArgs;
             system = "x86_64-linux";
             modules = [ ./hosts/bluestar ];
-          };
-
-          # ./hosts/enchilada/README.md
-          enchilada = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            system = "aarch64-linux";
-            modules = [ ./hosts/enchilada ];
           };
         };
     };

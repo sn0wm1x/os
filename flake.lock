@@ -91,23 +91,6 @@
         "type": "github"
       }
     },
-    "mobile-nixos": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1738485967,
-        "narHash": "sha256-yITUneHIb8i9catkF/6NE4XHf4nkEBxaRFbNxkt8VEY=",
-        "owner": "linyinfeng",
-        "repo": "mobile-nixos",
-        "rev": "5294ce5b2f479e674e9b80aebab82c8c75b3ed7d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "linyinfeng",
-        "ref": "development",
-        "repo": "mobile-nixos",
-        "type": "github"
-      }
-    },
     "nix-vscode-extensions": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -196,7 +179,6 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "mobile-nixos": "mobile-nixos",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",

@@ -7,7 +7,7 @@
       enable = true;
       setSocketVariable = true;
     };
-    storageDriver = "btrfs"; # TODO: support mobile
+    storageDriver = "btrfs";
   };
 
   environment.systemPackages = with pkgs; [

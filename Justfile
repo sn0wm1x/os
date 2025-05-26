@@ -18,9 +18,6 @@ build package *args='':
 nixos-rebuild mode='switch' *args='':
   sudo nixos-rebuild {{mode}} --flake .#{{hostname}} {{args}}
 
-build-mobile target='enchilada':
-  nom build .#nixosConfigurations.{{target}}.config.mobile.outputs.android.android-fastboot-images
-
 up:
   nix flake update
 
