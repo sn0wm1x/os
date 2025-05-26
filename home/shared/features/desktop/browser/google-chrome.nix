@@ -25,6 +25,11 @@
   #     commandLineArgs = "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3";
   #   })
   # ]);
+
+  # https://wiki.archlinux.org/title/Profile-sync-daemon
+  services.psd.enable = true;
+  services.psd.browsers = [ "google-chrome" ];
+
   home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/google-chrome" ];
   # ~/.config/google-chrome-unstable symlink
   # home.file.".config/google-chrome-unstable".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/google-chrome";
