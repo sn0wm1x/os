@@ -26,6 +26,9 @@ with lib;
         "Videos"
         ".os" # github:sn0wm1x/os
       ];
+      files = [
+        ".ssh/known_hosts"
+      ];
       allowOther = lib.mkForce true;
     };
   };
