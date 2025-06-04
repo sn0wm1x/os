@@ -1,6 +1,5 @@
 {
   imports = [
-    ./blackbox-terminal
     ./browser
     ./gnome
     ./messaging
