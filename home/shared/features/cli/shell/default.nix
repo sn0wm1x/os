@@ -4,8 +4,8 @@
     ./direnv.nix
     ./inshellisense.nix
     ./nushell.nix
+    ./pay-respects.nix
     ./starship.nix
-    ./thefuck.nix
     # TODO: FIXME: enable yazi
     # ./yazi.nix
     ./zoxide.nix
