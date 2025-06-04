@@ -12,12 +12,14 @@ words:
   - btrfs
   - cachix
   - catppuccin
+  - clinfo
   - coredump
   - correcthorsebatterystaple
   - cryptroot
   - cuda
   - dbaeumer
   - dconf
+  - dearmor
   - denoland
   - dependi
   - disko
@@ -30,7 +32,15 @@ words:
   - gamescope
   - ghostty
   - gltf
+  - gpasswd
+  - GPGPU
   - ideapad
+  - keyrings
+  - kobuk
+  - libmfx
+  - libva
+  - libvpl
+  - libze
   - logicalmonitor
   - mimeapps
   - moegirl
@@ -40,13 +50,17 @@ words:
   - mozc
   - netdev
   - networkmanager
+  - newgrp
   - nixfmt
   - nixos
   - nixpkgs
   - noto
   - numtide
   - nushell
+  - ocloc
   - ollama
+  - oneapi
+  - opencl
   - openpgp
   - optimise
   - pipewire
@@ -55,13 +69,16 @@ words:
   - ratemode
   - rmem
   - rtkit
+  - setvars
   - sn0wm1x
   - substituters
   - subvolume
+  - sycl
   - timesyncd
   - trytriplex
   - unifiedjs
   - unocss
+  - vainfo
   - virtualisation
   - wmem
   - XMODIFIERS
