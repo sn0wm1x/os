@@ -55,13 +55,13 @@ sudo apt install intel-gpu-tools
 sudo apt install xpu-smi
 ```
 
-之后可以通过 `xpu-smi` 查看和配置显卡。
+之后可以通过 `xpu-smi` 查看和配置显卡，例如 `xpu-smi discovery -d 0`。
 
-### 将当前用户添加到 render 组
+### 将当前用户添加到 render / video 组
 
 ```bash
-sudo gpasswd -a ${USER} render
-newgrp render
+sudo usermod -aG render $USER
+sudo usermod -aG video $USER
 ```
 
 ### 测试
