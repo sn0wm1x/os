@@ -10,14 +10,6 @@ https://ubuntu.com/tutorials/install-ubuntu-server
 
 ## 安装 GPGPU 环境
 
-### 安装 intel-gpu-tools
-
-```bash
-sudo apt install intel-gpu-tools 
-```
-
-之后可以通过 `sudo intel_gpu_top` 查看显卡运行状态。
-
 ### 安装 GPU 驱动
 
 > 在这里只需要 `compute-related`。
@@ -48,6 +40,22 @@ sudo apt update
 
 sudo apt install intel-oneapi-base-toolkit
 ```
+
+### 安装 intel-gpu-tools
+
+```bash
+sudo apt install intel-gpu-tools 
+```
+
+之后可以通过 `sudo intel_gpu_top` 查看显卡运行状态。
+
+### 安装 xpu-smi
+
+```bash
+sudo apt install xpu-smi
+```
+
+之后可以通过 `xpu-smi` 查看和配置显卡。
 
 ### 将当前用户添加到 render 组
 
