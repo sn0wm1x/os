@@ -17,3 +17,12 @@ https://ubuntu.com/tutorials/install-ubuntu-server
 # nix install plan: yes
 curl -sSf -L https://install.determinate.systems/nix | sudo sh -s -- install
 ```
+
+## 安装环境
+
+```bash
+# 克隆到 ~/.os
+cd ~ && git clone https://github.com/sn0wm1x/os.git .os
+# 激活配置
+nix run 'github:numtide/system-manager' -- switch --flake '.#blueplanet'
+```

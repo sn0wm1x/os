@@ -7,6 +7,7 @@ words:
   - alsa
   - antfu
   - binfmt
+  - blueplanet
   - bluestar
   - btrfs
   - cachix
@@ -20,6 +21,7 @@ words:
   - denoland
   - dependi
   - disko
+  - fastfetch
   - fcitx
   - felixc
   - fetchurl
@@ -42,6 +44,7 @@ words:
   - nixos
   - nixpkgs
   - noto
+  - numtide
   - nushell
   - ollama
   - openpgp

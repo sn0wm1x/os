@@ -38,6 +38,9 @@
 
     sn0wm1x.url = "github:sn0wm1x/ur";
     sn0wm1x.inputs.nixpkgs.follows = "nixpkgs";
+
+    system-manager.url = "github:numtide/system-manager";
+    system-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -46,6 +49,7 @@
       nixpkgs,
       impermanence,
       home-manager,
+      system-manager,
       ...
     }:
     let
@@ -84,5 +88,13 @@
             modules = [ ./hosts/bluestar ];
           };
         };
+
+      systemConfigs = {
+        blueplanet = system-manager.lib.makeSystemConfig {
+          modules = [
+            ./hosts/blueplanet
+          ];
+        };
+      };
     };
 }
