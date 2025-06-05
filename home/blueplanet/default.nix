@@ -2,6 +2,7 @@
 {
   imports = [
     outputs.homeManagerModules.baseline
+    outputs.homeManagerModules.impermanence
     outputs.homeManagerModules.nushell
   ];
 
