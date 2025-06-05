@@ -1,4 +1,9 @@
-{ config, osConfig, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
 {
   # https://nixos.wiki/wiki/Nushell
   programs.nushell = {
@@ -23,5 +28,7 @@
     ) config.home.sessionVariables;
   };
 
-  home.persistence."/persist${config.home.homeDirectory}".files = [ ".config/nushell/history.txt" ];
+  home.persistence = lib.mkIf config.sn0wm1x.impermanence.enable {
+    "/persist${config.home.homeDirectory}".files = [ ".config/nushell/history.txt" ];
+  };
 }
