@@ -88,4 +88,14 @@ curl -sSf -L https://install.determinate.systems/nix | sudo sh -s -- install
 # 克隆到 ~/.os
 cd ~ && git clone https://github.com/sn0wm1x/os.git .os
 # 激活配置
+nix run home-manager/master -- switch --flake .#blueplanet
+```
+
+以后可以通过 `home-manager switch --flake .#blueplanet` 更新配置。
+
+### 设置 Shell
+
+```bash
+# 将 "exec nu" 添加到末尾
+nano ~/.bashrc
 ```
