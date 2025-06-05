@@ -50,6 +50,7 @@
     }:
     let
       inherit (self) outputs;
+      specialArgs = { inherit inputs outputs; };
       systems = [
         "aarch64-linux"
         "x86_64-linux"
@@ -63,42 +64,35 @@
       nixosModules = import ./modules/nixos;
       homeManagerModules = import ./modules/home-manager;
 
-      nixosConfigurations =
-        let
-          specialArgs = { inherit inputs outputs; };
-        in
-        {
-          # ./hosts/akahitoha/README.md
-          akahitoha = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            system = "x86_64-linux";
-            modules = [ ./hosts/akahitoha ];
-          };
-
-          # ./hosts/bluestar/README.md
-          bluestar = nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            system = "x86_64-linux";
-            modules = [ ./hosts/bluestar ];
-          };
+      nixosConfigurations = {
+        # ./hosts/akahitoha/README.md
+        akahitoha = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+          modules = [ ./hosts/akahitoha ];
         };
 
-      homeConfigurations =
-        let
-          specialArgs = { inherit inputs outputs; };
-        in
-        {
-          blueplanet =
-            let
-              pkgs = import nixpkgs {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
-            in
-            home-manager.lib.homeManagerConfiguration {
-              inherit pkgs specialArgs;
-              modules = [ ./home/blueplanet ];
+        # ./hosts/bluestar/README.md
+        bluestar = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+          modules = [ ./hosts/bluestar ];
+        };
+      };
+
+      homeConfigurations = {
+        blueplanet =
+          let
+            pkgs = import nixpkgs {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
             };
-        };
+          in
+          home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            extraSpecialArgs = specialArgs;
+            modules = [ ./home/blueplanet ];
+          };
+      };
     };
 }
