@@ -88,7 +88,7 @@
               config.allowUnfree = true;
             };
           in
-          {
+          home-manager.lib.homeManagerConfiguration {
             inherit pkgs specialArgs;
             modules = [ ./home/blueplanet ];
           };
