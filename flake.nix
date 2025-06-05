@@ -85,5 +85,24 @@
             modules = [ ./hosts/bluestar ];
           };
         };
+
+      homeConfigurations = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          specialArgs = {
+            inherit inputs outputs;
+          };
+        in
+        {
+          blueplanet = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs specialArgs;
+            modules = [ ./home/blueplanet ];
+          };
+        }
+      );
     };
 }

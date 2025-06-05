@@ -13,6 +13,9 @@ with lib;
   };
   config = lib.mkIf cfg.enable {
     systemd.user.startServices = "sd-switch";
+
+    home.username = "kwa";
+    home.homeDirectory = "/home/kwa";
     home.stateVersion = "23.11";
   };
 }

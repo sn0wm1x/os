@@ -7,4 +7,5 @@
   baseline-desktop = import ./baseline-desktop.nix;
   gaming = import ./gaming.nix;
   impermanence = import ./impermanence.nix;
+  nushell = import ./nushell.nix;
 }

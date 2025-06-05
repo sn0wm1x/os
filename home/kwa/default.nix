@@ -1,5 +1,6 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
 {
+  outputs,
   osConfig,
   ...
 }:
@@ -16,5 +17,9 @@ in
     ./programs
     # import host-specific configuration
     (./. + "/${host}")
+    # sn0wm1x nushell
+    outputs.homeManagerModules.nushell
   ];
+
+  sn0wm1x.nushell.enable = true;
 }
