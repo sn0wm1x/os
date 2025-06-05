@@ -182,8 +182,7 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "sn0wm1x": "sn0wm1x",
-        "system-manager": "system-manager"
+        "sn0wm1x": "sn0wm1x"
       }
     },
     "sn0wm1x": {
@@ -203,26 +202,6 @@
       "original": {
         "owner": "sn0wm1x",
         "repo": "ur",
-        "type": "github"
-      }
-    },
-    "system-manager": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1748252092,
-        "narHash": "sha256-6nL55wvV7SthEXaXDiQo8xxkxQLAVcNBU21YJ7GJLm8=",
-        "owner": "numtide",
-        "repo": "system-manager",
-        "rev": "c6850451ef769fd03d0ad5474f928b916aa23775",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "system-manager",
         "type": "github"
       }
     },
