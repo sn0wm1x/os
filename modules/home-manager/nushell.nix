@@ -25,7 +25,11 @@ with lib;
     # https://nixos.wiki/wiki/Nushell
     programs.nushell = {
       enable = true;
-      shellAliases = config.home.shellAliases // osConfig.environment.shellAliases;
+      shellAliases =
+        if osConfig != null then
+          config.home.shellAliases // osConfig.environment.shellAliases
+        else
+          config.home.shellAliases;
       # TODO: fix home.sessionVariables in nushell
       # https://github.com/NixOS/nixpkgs/pull/343036
       # https://github.com/nix-community/home-manager/issues/4313#issuecomment-1759789504
