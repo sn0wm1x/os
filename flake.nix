@@ -46,7 +46,6 @@
       nixpkgs,
       impermanence,
       home-manager,
-      system-manager,
       ...
     }:
     let

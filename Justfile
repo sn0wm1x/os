@@ -12,9 +12,6 @@ list:
 rebuild:
   nh os switch --ask .
 
-system-manager-rebuild:
-  nix run 'github:numtide/system-manager' -- switch --flake .#{{hostname}}
-
 build package *args='':
   nom build .#{{package}} {{args}}
 
