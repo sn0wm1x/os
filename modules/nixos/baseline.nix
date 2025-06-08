@@ -73,6 +73,9 @@ in
     networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
     time.timeZone = lib.mkDefault "Asia/Taipei";
 
+    # https://github.com/nix-community/nix-ld#installation
+    programs.nix-ld.enable = true;
+
     users = {
       mutableUsers = false;
       users = {
