@@ -68,8 +68,10 @@ words:
   - openpgp
   - optimise
   - pipewire
+  - pipx
   - pkgs
   - qdisc
+  - ramalama
   - ratemode
   - rmem
   - rtkit

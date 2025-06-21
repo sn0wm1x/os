@@ -8,4 +8,7 @@
 
   sn0wm1x.baseline.enable = true;
   sn0wm1x.nushell.enable = true;
+
+  # python
+  home.sessionPath = [ "$HOME/.local/bin" ];
 }
