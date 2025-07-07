@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    nil # language server
+    nixd # language server
 
     nixfmt-rfc-style # formatter
     nixpkgs-lint-community # linter

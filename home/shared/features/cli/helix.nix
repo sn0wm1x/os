@@ -40,7 +40,7 @@
         auto-format = true;
         formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
         # formatter.args = [];
-        language-servers = [ "${lib.getExe pkgs.nil}" ];
+        language-servers = [ "${lib.getExe pkgs.nixd}" ];
       }
     ];
   };
