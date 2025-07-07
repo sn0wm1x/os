@@ -5,8 +5,6 @@
 }:
 {
   home.packages = with pkgs; [
-    boxbuddy # https://github.com/Dvlv/BoxBuddyRS
-    distrobox
     dive # look into docker image layers
     lazydocker
   ];
