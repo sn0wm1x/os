@@ -6,6 +6,6 @@
   home.packages = with pkgs; [
     # collision
     eyedropper
-    gnome-frog # OCR
+    # gnome-frog # OCR
   ];
 }
