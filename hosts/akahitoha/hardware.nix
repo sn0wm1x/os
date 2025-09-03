@@ -55,6 +55,8 @@
     powertop
     ryzenadj
   ];
+  # conflict with services.tuned
+  services.tlp.enable = false;
   services.tuned = {
     enable = true;
     settings.dynamic_tuning = true;
