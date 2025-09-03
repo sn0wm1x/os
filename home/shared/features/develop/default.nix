@@ -1,7 +1,6 @@
 {
   imports = [
     ./android.nix
-    ./go.nix
     ./javascript.nix
     ./nix.nix
     ./python.nix

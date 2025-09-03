@@ -3,7 +3,6 @@
   imports = [
     ./ai.nix
     ./github.nix
-    ./go.nix
     ./javascript.nix
     ./nix.nix
     ./python.nix
