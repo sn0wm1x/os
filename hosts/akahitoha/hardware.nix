@@ -55,7 +55,10 @@
     powertop
     ryzenadj
   ];
-  services.power-profiles-daemon.enable = true;
+  services.tuned = {
+    enable = true;
+    settings.dynamic_tuning = true;
+  };
   services.auto-epp = {
     enable = true;
     settings.Settings = {
@@ -63,10 +66,12 @@
       epp_state_for_BAT = "power";
     };
   };
-  powerManagement.enable = true;
   # https://nixos.wiki/wiki/Laptop#Powertop
-  # powertop --auto-tune
-  powerManagement.powertop.enable = true;
+  powerManagement = {
+    enable = true;
+    # powertop --auto-tune
+    powertop.enable = true;
+  };
   # ryzenadj --power-saving
   systemd.services.ryzenadj = {
     description = "ryzenadj --power-saving";

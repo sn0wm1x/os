@@ -5,6 +5,7 @@ dictionaries: []
 words:
   - akahitoha
   - alsa
+  - amdgpu
   - antfu
   - atuin
   - binfmt
@@ -70,18 +71,21 @@ words:
   - ocloc
   - ollama
   - oneapi
+  - oneshot
   - opencl
   - openpgp
   - optimise
   - pipewire
   - pipx
   - pkgs
+  - powertop
   - qdisc
   - ramalama
   - ratemode
   - rmem
   - rocm
   - rtkit
+  - ryzenadj
   - setvars
   - sn0wm1x
   - substituters
