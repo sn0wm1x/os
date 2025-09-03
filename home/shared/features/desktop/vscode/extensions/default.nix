@@ -6,6 +6,7 @@
     ./go.nix
     ./javascript.nix
     ./nix.nix
+    ./python.nix
     ./toml.nix
   ];
 
