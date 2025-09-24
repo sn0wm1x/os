@@ -17,15 +17,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment = {
+    environment.sessionVariables = {
       # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
-      sessionVariables.NIXOS_OZONE_WL = "1";
-
-      systemPackages = with pkgs; [
-        # alternative for steam-run (umu-run)
-        # TODO: move to baseline?
-        umu-launcher
-      ];
+      NIXOS_OZONE_WL = "1";
+      # libstdc++.so.6
+      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
     };
 
     xdg.portal = {

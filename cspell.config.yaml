@@ -47,6 +47,7 @@ words:
   - kobuk
   - lazydocker
   - libmfx
+  - libstdc
   - libva
   - libvpl
   - libze
@@ -88,6 +89,7 @@ words:
   - ryzenadj
   - setvars
   - sn0wm1x
+  - stdenv
   - substituters
   - subvolume
   - sycl
