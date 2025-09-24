@@ -21,6 +21,7 @@ in
       # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
       NIXOS_OZONE_WL = "1";
       # libstdc++.so.6
+      # TODO: maybe wrap deno only?
       LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
     };
 
