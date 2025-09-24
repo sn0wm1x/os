@@ -76,6 +76,10 @@ in
     # https://github.com/nix-community/nix-ld#installation
     programs.nix-ld.enable = true;
 
+    # libstdc++.so.6
+    # TODO: maybe wrap deno only?
+    environment.sessionVariables.LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+
     users = {
       mutableUsers = false;
       users = {
