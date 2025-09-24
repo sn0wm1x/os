@@ -17,9 +17,16 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    environment = {
+      # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
+      sessionVariables.NIXOS_OZONE_WL = "1";
 
-    # https://nixos.wiki/wiki/Chromium#Enabling_native_Wayland_support
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+      systemPackages = with pkgs; [
+        # alternative for steam-run (umu-run)
+        # TODO: move to baseline?
+        umu-launcher
+      ];
+    };
 
     xdg.portal = {
       enable = true;
