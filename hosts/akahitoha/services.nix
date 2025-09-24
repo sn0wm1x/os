@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   services.ollama = {
     enable = true;
@@ -10,5 +11,12 @@
     home = "/opt/ollama";
     user = "ollama";
     environmentVariables.OLLAMA_ORIGINS = "*";
+  };
+
+  # ramalama
+  # sudo mkdir /opt/ramalama
+  environment = {
+    systemPackages = with pkgs; [ ramalama ];
+    etc."ramalama/ramalama.conf".source = ./ramalama.conf;
   };
 }
