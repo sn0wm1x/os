@@ -20,6 +20,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "akahitoha";
+  # TODO: impala
+  # https://github.com/pythops/impala
   networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
