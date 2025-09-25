@@ -3,6 +3,7 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - abmlevel
   - akahitoha
   - alsa
   - amdgpu
@@ -83,6 +84,7 @@ words:
   - qdisc
   - ramalama
   - ratemode
+  - rcutree
   - rmem
   - rocm
   - rtkit

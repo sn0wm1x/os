@@ -45,8 +45,12 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   # sched-ext
   services.scx.scheduler = true;
-  # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
-  boot.kernelParams = [ "amdgpu.abmlevel=0" ];
+  boot.kernelParams = [
+    # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
+    "amdgpu.abmlevel=0"
+    # https://wiki.cachyos.org/configuration/general_system_tweaks/#enable-rcu-lazy
+    "rcutree.enable_rcu_lazy=1"
+  ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
