@@ -43,12 +43,10 @@
   ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # sched-ext
+  services.scx.scheduler = true;
   # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
   boot.kernelParams = [ "amdgpu.abmlevel=0" ];
-  # chaotic.scx.enable = true;
-  # TODO: wait upstream fix
-  # https://github.com/chaotic-cx/nyx/blob/a7a28bea9c55041a3bd5e253f8ac7f1e05b90c56/modules/nixos/scx.nix#L27
-  # chaotic.scx.scheduler = "scx_rusty";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 

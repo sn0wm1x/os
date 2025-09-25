@@ -87,6 +87,7 @@ words:
   - rocm
   - rtkit
   - ryzenadj
+  - sched
   - setvars
   - sn0wm1x
   - stdenv
