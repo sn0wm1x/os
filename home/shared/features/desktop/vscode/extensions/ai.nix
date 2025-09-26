@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.vscode.profiles.default = {
     extensions = with pkgs; [
@@ -6,6 +6,11 @@
     ];
     userSettings = {
       "continue.telemetryEnabled" = false;
+      "yaml.schemas" = {
+        "/home/${config.home.username}/.vscode/extensions/Continue.continue/config-yaml-schema.json" = [
+          ".continue/**/*.yaml"
+        ];
+      };
     };
   };
 
