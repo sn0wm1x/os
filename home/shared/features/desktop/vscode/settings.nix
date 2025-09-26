@@ -1,10 +1,15 @@
 let
   editor = {
-    "editor.formatOnSave" = true;
+    "editor.tabSize" = 2;
   };
   explorer = {
     "explorer.confirmDelete" = false;
     "explorer.confirmDragAndDrop" = false;
+  };
+  files = {
+    "files.eol" = "\n";
+    "files.insertFinalNewline" = true;
+    "files.simpleDialog.enable" = true;
   };
   workbench = {
     "workbench.colorTheme" = "Catppuccin Frappé";
@@ -14,7 +19,9 @@ let
   git = {
     "git.allowForcePush" = true;
     "git.autofetch" = true;
+    "git.confirmSync" = false;
     "git.enableSmartCommit" = true;
+    "git.untrackedChanges" = "separate";
   };
 in
 {
@@ -31,6 +38,7 @@ in
   }
   // editor
   // explorer
+  // files
   // workbench
   // git;
 }

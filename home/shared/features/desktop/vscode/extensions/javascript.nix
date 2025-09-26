@@ -23,6 +23,10 @@
         trytriplex.triplex-vsce
         # UnoCSS
         antfu.unocss
+        # pnpm catalog
+        antfu.pnpm-catalog-lens
+        # smart clicks
+        antfu.smart-clicks
         # HTML/CSS Tagged Template Literals
         ms-fast.fast-tagged-templates
       ]);
