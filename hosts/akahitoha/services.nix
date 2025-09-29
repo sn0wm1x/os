@@ -17,6 +17,8 @@
   # sudo mkdir /opt/ramalama
   environment = {
     systemPackages = with pkgs; [ ramalama ];
+    # https://github.com/containers/ramalama#default-container-engine
+    sessionVariables.RAMALAMA_CONTAINER_ENGINE = "docker";
     etc."ramalama/ramalama.conf".source = ./ramalama.conf;
   };
 }
