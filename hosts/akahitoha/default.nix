@@ -22,8 +22,8 @@
   networking.hostName = "akahitoha";
   # TODO: impala
   # https://github.com/pythops/impala
-  networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   sn0wm1x.baseline.enable = true;
   sn0wm1x.baseline-desktop.enable = true;
