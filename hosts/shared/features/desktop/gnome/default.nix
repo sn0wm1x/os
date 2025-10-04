@@ -2,33 +2,26 @@
 {
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-  # services.xserver.desktopManager.xterm.enable = false;
-  # services.xserver.excludePackages = with pkgs; [ xterm ];
 
-  # https://nixos.wiki/wiki/GNOME#Excluding_some_GNOME_applications_from_the_default_install
+  # https://wiki.nixos.org/wiki/GNOME#GNOME_desktop
+  services.gnome.games.enable = false;
   environment.gnome.excludePackages = with pkgs; [
-    # gnome-photos
-    gnome-music
     gnome-tour
+    gnome-user-docs
+    gnome-music # music player
     cheese # webcam tool
     epiphany # web browser
     geary # email reader
     totem # video player
-    # ])
-    # ++ (with pkgs.gnome; [
-    # gnome-terminal
-    # gedit # text editor
-    # evince # document viewer
-    # gnome-characters
-    # tali # poker game
-    # iagno # go game
-    # hitori # sudoku game
-    # atomix # puzzle game
   ];
 
+  # https://wiki.nixos.org/wiki/GNOME#GNOME_power_user_apps
   environment.systemPackages = with pkgs; [
     dconf-editor
     gnome-shell-extensions
     gnome-tweaks
+    refine
   ];
+
+  # Maybe: https://wiki.nixos.org/wiki/GNOME#GNOME_Qt_integration
 }

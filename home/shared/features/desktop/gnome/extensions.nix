@@ -3,9 +3,8 @@
   home.packages = with pkgs.gnomeExtensions; [
     # 功能
     kimpanel
-    coverflow-alt-tab
     easyeffects-preset-selector
-    #
+    # 关键
     paperwm
     dash-to-dock
     # 外观
@@ -14,16 +13,13 @@
   ];
 
   dconf.settings."org/gnome/shell".disable-user-extensions = false;
-  dconf.settings."org/gnome/shell".enabled-extensions = [
-    "kimpanel@kde.org"
-    "CoverflowAltTab@palatis.blogspot.com"
-    "eepresetselector@ulville.github.io"
-
-    "paperwm@paperwm.github.com"
-    "dash-to-dock@micxgx.gmail.com"
-
-    "user-theme@gnome-shell-extensions.gcampax.github.com"
-    "blur-my-shell@aunetx"
+  dconf.settings."org/gnome/shell".enabled-extensions = with pkgs.gnomeExtensions; [
+    kimpanel.extensionUuid
+    easyeffects-preset-selector.extensionUuid
+    paperwm.extensionUuid
+    dash-to-dock.extensionUuid
+    user-themes.extensionUuid
+    blur-my-shell.extensionUuid
   ];
 
   # Blur My Shell

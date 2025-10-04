@@ -4,6 +4,7 @@
       # Enable Dynamic Workspaces
       dynamic-workspaces = true;
       # Enable VRR & Fractional scaling
+      # https://wiki.nixos.org/wiki/GNOME#Experimental_settings
       experimental-features = [
         "variable-refresh-rate"
         "scale-monitor-framebuffer"

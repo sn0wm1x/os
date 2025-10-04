@@ -173,6 +173,9 @@ in
       };
     };
 
+    # https://wiki.nixos.org/wiki/GNOME#GDM_does_not_show_user
+    environment.shells = with pkgs; [ nushell ];
+
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
