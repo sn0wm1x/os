@@ -80,11 +80,12 @@ in
     '';
 
     nix = {
-      gc = {
-        automatic = true;
-        options = "--delete-older-than 14d";
-        dates = "weekly";
-      };
+      # replaced by programs.nh.clean.enable
+      # gc = {
+      #   automatic = true;
+      #   options = "--delete-older-than 14d";
+      #   dates = "weekly";
+      # };
       settings = {
         auto-optimise-store = true;
         experimental-features = [
