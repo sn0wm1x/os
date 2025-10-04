@@ -3,6 +3,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     # 功能
     kimpanel
+    coverflow-alt-tab
     easyeffects-preset-selector
     #
     paperwm
@@ -15,6 +16,7 @@
   dconf.settings."org/gnome/shell".disable-user-extensions = false;
   dconf.settings."org/gnome/shell".enabled-extensions = [
     "kimpanel@kde.org"
+    "CoverflowAltTab@palatis.blogspot.com"
     "eepresetselector@ulville.github.io"
 
     "paperwm@paperwm.github.com"
