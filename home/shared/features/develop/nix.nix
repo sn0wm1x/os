@@ -17,6 +17,7 @@
     nvd # differ
   ];
 
-  # TODO: nix-index / nix-index-database
+  # TODO: nix-index / nix-index-database / comma
   # https://github.com/nix-community/nix-index
+  # https://github.com/nix-community/comma
 }

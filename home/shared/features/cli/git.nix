@@ -9,7 +9,6 @@
   };
 
   # difftastic
-  # TODO: difftastic + magit (emacs)
   programs.git.difftastic.enable = true;
 
   # TODO: mergiraf

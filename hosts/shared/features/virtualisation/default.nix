@@ -2,6 +2,6 @@
   imports = [
     ./docker.nix
     ./libvirt.nix
-    # ./waydroid.nix # TODO
+    # TODO: ./waydroid.nix
   ];
 }
