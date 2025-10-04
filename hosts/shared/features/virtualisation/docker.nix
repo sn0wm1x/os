@@ -6,11 +6,9 @@
     # optimize boot time (systemd-analyze critical-chain)
     # TODO: enable when host is a server
     enableOnBoot = false;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
     storageDriver = "btrfs";
+    # TODO: https://wiki.nixos.org/wiki/Docker#Storage_space_issues
+    # TODO: https://wiki.nixos.org/wiki/Distrobox
   };
 
   environment.systemPackages = with pkgs; [
