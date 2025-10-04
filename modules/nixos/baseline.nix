@@ -141,7 +141,7 @@ in
     networking.networkmanager = lib.mkIf config.networking.networkmanager.enable {
       dns = "systemd-resolved";
       connectionConfig."connection.mdns" = 2;
-      wifi.backend = lib.mkIf config.wireless.iwd.enable "iwd";
+      wifi.backend = lib.mkIf config.networking.wireless.iwd.enable "iwd";
     };
 
     # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
