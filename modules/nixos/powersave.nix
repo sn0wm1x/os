@@ -34,7 +34,7 @@ in
       SUBSYSTEM=="power_supply", \
       ATTR{status}=="Discharging", \
       ATTR{capacity}=="[0-5]", \
-      RUN+="/usr/bin/systemctl hibernate"
+      RUN+="systemctl hibernate"
     '';
 
     # TODO: https://wiki.archlinux.org/title/Power_management#Power_saving
