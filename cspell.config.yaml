@@ -4,12 +4,14 @@ dictionaryDefinitions: []
 dictionaries: []
 words:
   - abmlevel
+  - adwaita
   - akahitoha
   - alsa
   - amdgpu
   - antfu
   - atuin
   - autopower
+  - bibata
   - binfmt
   - blueplanet
   - bluestar
@@ -86,6 +88,7 @@ words:
   - openpgp
   - optimise
   - paperwm
+  - papirus
   - pipewire
   - pipx
   - pkgs

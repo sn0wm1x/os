@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   theme = {
     # name = "adw-gtk3";
@@ -22,19 +22,24 @@ let
     gtk-application-prefer-dark-theme = 1;
     gtk-error-bell = 0;
   };
+  extraCss = builtins.readFile ../../../../../assets/catppuccin-frappe-blue.css;
 in
 {
   gtk = {
     inherit theme cursorTheme iconTheme;
     enable = true;
     gtk3 = {
-      inherit extraConfig;
+      inherit extraConfig extraCss;
     };
     gtk4 = {
-      inherit extraConfig;
+      inherit extraConfig extraCss;
     };
   };
+
   home.pointerCursor = cursorTheme // {
     gtk.enable = true;
   };
+
+  # https://github.com/nix-community/home-manager/issues/7113
+  xdg.configFile."gtk-4.0/gtk.css" = lib.mkForce { text = config.gtk.gtk4.extraCss; };
 }
