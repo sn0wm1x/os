@@ -43,49 +43,16 @@
   ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
-    "amdgpu.abmlevel=0"
-    # https://wiki.cachyos.org/configuration/general_system_tweaks/#enable-rcu-lazy
-    "rcutree.enable_rcu_lazy=1"
-  ];
+  # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
+  boot.kernelParams = [ "amdgpu.abmlevel=0" ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # improve battery life
-  environment.systemPackages = with pkgs; [
-    powertop
-    ryzenadj
-  ];
   # conflict with services.tuned
   services.tlp.enable = false;
-  services.tuned = {
-    enable = true;
-    settings.dynamic_tuning = true;
-  };
-  services.auto-epp = {
-    enable = true;
-    settings.Settings = {
-      epp_state_for_AC = "balance_performance";
-      epp_state_for_BAT = "power";
-    };
-  };
-  # https://nixos.wiki/wiki/Laptop#Powertop
-  powerManagement = {
-    enable = true;
-    # powertop --auto-tune
-    powertop.enable = true;
-  };
-  # ryzenadj --power-saving
-  systemd.services.ryzenadj = {
-    description = "ryzenadj --power-saving";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${lib.getExe pkgs.ryzenadj} --power-saving";
-    };
-  };
+  services.tuned.enable = true;
+  services.auto-epp.enable = true;
+  powerManagement.enable = true;
 
   # install linux-firmware
   hardware.firmware = with pkgs; [ linux-firmware ];
