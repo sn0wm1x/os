@@ -60,6 +60,7 @@ in
     };
 
     zramSwap.enable = true;
+    zramSwap.memoryPercent = 100;
 
     security.sudo.enable = false;
     security.sudo-rs.enable = true;
