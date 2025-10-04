@@ -3,6 +3,9 @@
   # https://nixos.wiki/wiki/Docker
   virtualisation.docker = {
     enable = true;
+    # optimize boot time (systemd-analyze critical-chain)
+    # TODO: enable when host is a server
+    enableOnBoot = false;
     rootless = {
       enable = true;
       setSocketVariable = true;
