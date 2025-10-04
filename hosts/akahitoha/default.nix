@@ -24,6 +24,8 @@
   # https://github.com/pythops/impala
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
+  # https://wiki.nixos.org/wiki/NetworkManager#Power_Saving
+  networking.networkmanager.wifi.powersave = true;
 
   sn0wm1x.baseline.enable = true;
   sn0wm1x.baseline-desktop.enable = true;
