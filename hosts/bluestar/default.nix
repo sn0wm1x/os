@@ -23,11 +23,6 @@
   networking.hostName = "bluestar";
   networking.wireless.iwd.enable = true;
   networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-
-  # mDNS
-  services.resolved.enable = true;
-  networking.networkmanager.connectionConfig."connection.mdns" = 2;
 
   sn0wm1x.baseline.enable = true;
   sn0wm1x.baseline-desktop.enable = true;

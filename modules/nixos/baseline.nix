@@ -19,6 +19,8 @@ in
 
   config = lib.mkIf cfg.enable {
     boot = {
+      # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
+      kernelParams = [ "max_ptes_none=409" ];
       kernel.sysctl = {
         # https://wiki.archlinux.org/title/Sysctl#Improving_performance
         "net.core.netdev_max_backlog" = 16384;
@@ -28,15 +30,43 @@ in
         "net.ipv4.tcp_wmem" = "4096 16384 16777216";
         # https://github.com/klzgrad/naiveproxy/wiki/Performance-Tuning
         "net.ipv4.tcp_slow_start_after_idle" = 0;
+        # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/sysctl.d/99-cachyos-settings.conf
+        "vm.swappiness" = 100;
+        "vm.vfs_cache_pressure" = 50;
+        "vm.dirty_bytes" = 268435456;
+        "vm.page-cluster" = 0;
+        "vm.dirty_background_bytes" = 67108864;
+        "vm.dirty_writeback_centisecs" = 1500;
+        "kernel.nmi_watchdog" = 0;
+        "kernel.unprivileged_userns_clone" = 1;
+        "kernel.printk" = "3 3 3 3";
+        "kernel.kptr_restrict" = 2;
+        "kernel.kexec_load_disabled" = 1;
+        "fs.file-max" = 2097152;
+        # https://wiki.cachyos.org/configuration/general_system_tweaks/#disabling-split-lock-mitigate
+        "kernel.split_lock_mitigate" = 0;
       };
+      # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/modprobe.d/blacklist.conf
+      blacklistedKernelModules = [
+        "iTCO_wdt"
+        "sp5100_tco"
+      ];
     };
 
+    # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/30-zram.rules
+    services.udev.extraRules = ''
+      ACTION=="change", \
+      KERNEL=="zram0", \
+      ATTR{initstate}=="1", \
+      SYSCTL{vm.swappiness}="150"
+    '';
+
     nix = {
-      # gc = {
-      #   automatic = true;
-      #   options = "--delete-older-than 14d";
-      #   dates = "weekly";
-      # };
+      gc = {
+        automatic = true;
+        options = "--delete-older-than 14d";
+        dates = "weekly";
+      };
       settings = {
         auto-optimise-store = true;
         experimental-features = [
@@ -59,20 +89,45 @@ in
       };
     };
 
+    # systemd
+    # https://wiki.cachyos.org/features/cachyos_settings/#systemd-services-tweaks
+    systemd = {
+      user.extraConfig = "DefaultLimitNOFILE=1024:1048576";
+      settings.Manager = {
+        DefaultTimeoutStartSec = "15s";
+        DefaultTimeoutStopSec = "10s";
+        DefaultLimitNOFILE = "2048:2097152";
+      };
+    };
+
+    # zram
     zramSwap.enable = true;
     zramSwap.memoryPercent = 100;
 
+    # sudo-rs
     security.sudo.enable = false;
     security.sudo-rs.enable = true;
     security.sudo-rs.execWheelOnly = true;
     security.sudo-rs.wheelNeedsPassword = false;
 
+    # NTP
     services.timesyncd.enable = false;
     services.ntpd-rs.enable = true;
     services.ntpd-rs.useNetworkingTimeServers = true;
     # https://wiki.nixos.org/wiki/NTP
     networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
     time.timeZone = lib.mkDefault "Asia/Taipei";
+
+    # Networking
+    services.resolved.enable = true;
+    networking.networkmanager = lib.mkIf config.networking.networkmanager.enable {
+      dns = "systemd-resolved";
+      connectionConfig."connection.mdns" = 2;
+      wifi.backend = lib.mkIf config.wireless.iwd.enable "iwd";
+    };
+
+    # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
+    services.journald.extraConfig = "SystemMaxUse=50M";
 
     # https://github.com/nix-community/nix-ld#installation
     programs.nix-ld.enable = true;

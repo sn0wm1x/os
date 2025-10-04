@@ -15,6 +15,7 @@ words:
   - btrfs
   - cachix
   - catppuccin
+  - centisecs
   - charliermarsh
   - clinfo
   - coredump
@@ -42,10 +43,13 @@ words:
   - GPGPU
   - huggingface
   - ideapad
+  - initstate
   - inshellisense
   - jnoortheen
+  - kexec
   - keyrings
   - kobuk
+  - kptr
   - lazydocker
   - libmfx
   - libstdc
@@ -67,6 +71,7 @@ words:
   - nixfmt
   - nixos
   - nixpkgs
+  - NOFILE
   - noto
   - numtide
   - nushell
@@ -81,6 +86,8 @@ words:
   - pipx
   - pkgs
   - powertop
+  - printk
+  - ptes
   - qdisc
   - ramalama
   - ratemode
@@ -101,9 +108,11 @@ words:
   - unifiedjs
   - unocss
   - usermod
+  - userns
   - vainfo
   - virtualisation
   - wmem
+  - writeback
   - XMODIFIERS
   - zhwiki
   - zram
