@@ -59,6 +59,7 @@ words:
   - libvpl
   - libze
   - logicalmonitor
+  - loglevel
   - mdns
   - mimeapps
   - moegirl

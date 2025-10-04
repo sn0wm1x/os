@@ -19,8 +19,17 @@ in
 
   config = lib.mkIf cfg.enable {
     boot = {
-      # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
-      kernelParams = [ "max_ptes_none=409" ];
+      kernelParams = [
+        # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
+        "max_ptes_none=409"
+        # https://wiki.archlinux.org/title/Improving_performance/Boot_process#Less_output_during_boot
+        # https://wiki.archlinux.org/title/Silent_boot#Kernel_parameters
+        "quiet"
+        "loglevel=3"
+        "udev.log_level=3"
+        "rd.udev.log_level=3"
+        "systemd.show_status=auto"
+      ];
       kernel.sysctl = {
         # https://wiki.archlinux.org/title/Sysctl#Improving_performance
         "net.core.netdev_max_backlog" = 16384;
