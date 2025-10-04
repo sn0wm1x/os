@@ -97,6 +97,7 @@ words:
   - rmem
   - rocm
   - rtkit
+  - rustscheds
   - ryzenadj
   - sched
   - setvars
