@@ -7,12 +7,9 @@
     #
     paperwm
     dash-to-dock
-    quick-settings-tweaker
     # 外观
     user-themes
     blur-my-shell
-    # rounded-window-corners # legacy
-    gnome-40-ui-improvements
   ];
 
   dconf.settings."org/gnome/shell".disable-user-extensions = false;
@@ -22,12 +19,9 @@
 
     "paperwm@paperwm.github.com"
     "dash-to-dock@micxgx.gmail.com"
-    "quick-settings-tweaks@qwreey"
 
     "user-theme@gnome-shell-extensions.gcampax.github.com"
     "blur-my-shell@aunetx"
-    # rounded-window-corners
-    "gnomeExtensions.gnome-40-ui-improvements@AXP.com"
   ];
 
   # Blur My Shell
