@@ -2,7 +2,6 @@
   imports = [
     ./anki.nix
     ./anytype.nix
-    ./cherry-studio.nix
     ./database.nix
     ./ffmpeg.nix
     ./ghostty.nix
