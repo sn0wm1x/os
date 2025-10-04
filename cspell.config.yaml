@@ -9,6 +9,7 @@ words:
   - amdgpu
   - antfu
   - atuin
+  - autopower
   - binfmt
   - blueplanet
   - bluestar
@@ -50,6 +51,7 @@ words:
   - keyrings
   - kobuk
   - kptr
+  - lavd
   - lazydocker
   - libmfx
   - libstdc

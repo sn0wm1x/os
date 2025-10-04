@@ -43,8 +43,6 @@
   ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # sched-ext
-  services.scx.scheduler = true;
   boot.kernelParams = [
     # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
     "amdgpu.abmlevel=0"

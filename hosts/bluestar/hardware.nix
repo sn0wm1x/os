@@ -39,8 +39,6 @@
   # TODO: FIXME: use cachyos kernel
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  # sched-ext
-  services.scx.scheduler = true;
 
   # https://nixos.wiki/wiki/Intel_Graphics
   # Intel Corporation Alder Lake-S GT1 [UHD Graphics 730] [8086:4692]
