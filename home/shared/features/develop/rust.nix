@@ -11,6 +11,10 @@
     # cc linker
     gcc
 
+    # openssl
+    pkg-config
+    openssl
+
     # cargo extensions
     cargo-nextest
     cargo-edit
