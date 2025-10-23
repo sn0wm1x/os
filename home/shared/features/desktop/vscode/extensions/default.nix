@@ -31,6 +31,7 @@
         redhat.vscode-yaml # yaml
         redhat.vscode-xml # xml
         rust-lang.rust-analyzer # rust
+        vadimcn.vscode-lldb # rust debugger
       ])
       ++ (with pkgs.vscode-marketplace; [
         # https://www.dependi.io
