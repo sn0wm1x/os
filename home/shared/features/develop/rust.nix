@@ -8,6 +8,9 @@
     rustc
     rustfmt
 
+    # cc linker
+    gcc
+
     # cargo extensions
     cargo-nextest
     cargo-edit
