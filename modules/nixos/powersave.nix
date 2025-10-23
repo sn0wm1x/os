@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -23,6 +24,9 @@ in
 
     # https://wiki.nixos.org/wiki/Laptop#Powertop
     powerManagement.powertop.enable = lib.mkIf config.powerManagement.enable true;
+    environment.systemPackages = lib.mkIf config.powerManagement.enable (with pkgs; [
+      powertop
+    ]);
 
     services.tuned.settings.dynamic_tuning = lib.mkIf config.services.tuned.enable true;
 
