@@ -1,12 +1,20 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    # rust-toolchain
     cargo
-    cargo-edit
     clippy
     rust-analyzer
     rustc
     rustfmt
+
+    # cargo extensions
+    cargo-nextest
+    cargo-edit
+    cargo-bloat
+
+    # watcher
+    bacon
   ];
 
   # Certain Rust tools won't work without this
