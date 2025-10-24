@@ -34,10 +34,10 @@ with lib;
       # https://github.com/nix-community/impermanence/issues/248
       defaultDirectoryMethod = "symlink";
     };
-  };
 
-  # https://github.com/nix-community/impermanence/issues/256
-  home.activation.fixPathForImpermanence = lib.hm.dag.entryBefore [ "cleanEmptyLinkTargets" ] ''
-    PATH=$PATH:/run/wrappers/bin
-  '';
+    # https://github.com/nix-community/impermanence/issues/256
+    home.activation.fixPathForImpermanence = lib.hm.dag.entryBefore [ "cleanEmptyLinkTargets" ] ''
+      PATH=$PATH:/run/wrappers/bin
+    '';
+  };
 }
