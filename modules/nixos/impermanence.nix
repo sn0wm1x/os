@@ -56,7 +56,6 @@ in
         umount /btrfs_tmp
       '';
 
-    environment.systemPackages = with pkgs; [ fuse ];
     programs.fuse.userAllowOther = true;
     environment.persistence."/persist" = {
       hideMounts = true;

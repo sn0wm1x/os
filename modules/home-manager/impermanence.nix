@@ -35,4 +35,9 @@ with lib;
       defaultDirectoryMethod = "symlink";
     };
   };
+
+  # https://github.com/nix-community/impermanence/issues/256
+  home.activation.fixPathForImpermanence = lib.hm.dag.entryBefore [ "cleanEmptyLinkTargets" ] ''
+    PATH=$PATH:/run/wrappers/bin
+  '';
 }
