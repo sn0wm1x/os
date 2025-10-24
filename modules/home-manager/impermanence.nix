@@ -30,6 +30,9 @@ with lib;
         ".ssh/known_hosts"
       ];
       allowOther = lib.mkForce true;
+      # https://github.com/nix-community/impermanence/issues/206
+      # https://github.com/nix-community/impermanence/issues/248
+      defaultDirectoryMethod = "symlink";
     };
   };
 }
