@@ -17,6 +17,12 @@
     pyrefly # type checker / lsp
   ];
 
+  home.sessionVariables = {
+    UV_PYTHON = pkgs.python3;
+    UV_PYTHON_DOWNLOADS = "never";
+    UV_LINK_MODE = "symlink";
+  };
+
   home.persistence."/persist${config.home.homeDirectory}".directories = [
     ".cache/huggingface"
   ];
