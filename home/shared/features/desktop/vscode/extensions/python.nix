@@ -7,7 +7,7 @@
       charliermarsh.ruff
     ])
     ++ (with pkgs.vscode-marketplace; [
-      # ty
-      astral-sh.ty
+      # pyrefly (lsp)
+      meta.pyrefly
     ]);
 }

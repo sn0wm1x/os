@@ -14,7 +14,7 @@
     ))
     uv # package manager
     ruff # linter / formatter
-    ty # type checker / lsp
+    pyrefly # type checker / lsp
   ];
 
   home.persistence."/persist${config.home.homeDirectory}".directories = [
