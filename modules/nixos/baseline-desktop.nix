@@ -82,7 +82,6 @@ in
       nerd-fonts.monaspace
       # emoji / icon
       noto-fonts-color-emoji
-      noto-fonts-emoji
       # material-symbols
       # material-design-icons
       # font-awesome
