@@ -27,8 +27,8 @@
   # ]);
 
   # https://wiki.archlinux.org/title/Profile-sync-daemon
-  services.psd.enable = true;
-  services.psd.browsers = [ "google-chrome" ];
+  # services.psd.enable = true;
+  # services.psd.browsers = [ "google-chrome" ];
 
   home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/google-chrome" ];
   # ~/.config/google-chrome-unstable symlink
