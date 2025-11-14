@@ -3,13 +3,13 @@
   # git
   programs.git.enable = true;
   programs.git.lfs.enable = true;
-  programs.git.extraConfig = {
+  programs.git.settings = {
     init.defaultBranch = "main";
     # safe.directory = [];
   };
 
   # difftastic
-  programs.git.difftastic.enable = true;
+  programs.difftastic.enable = true;
 
   # TODO: mergiraf
   # https://github.com/NixOS/nixpkgs/pull/354870
