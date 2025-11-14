@@ -1,4 +1,4 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ tor-browser-bundle-bin ];
+  home.packages = with pkgs; [ tor-browser ];
 }
