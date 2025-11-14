@@ -1,7 +1,7 @@
 {
   imports = [
     ./google-chrome.nix
-    ./librewolf.nix
+    # ./librewolf.nix
     ./tor-browser.nix
   ];
 }
