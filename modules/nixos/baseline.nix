@@ -92,13 +92,13 @@ in
           "nix-command"
           "flakes"
         ];
-        extra-substituters = [
+        substituters = [
           "https://sn0wm1x.cachix.org"
           # https://wiki.nixos.org/wiki/CUDA#Setting_up_CUDA_Binary_Cache
           "https://nix-community.cachix.org"
           # "https://nyx.chaotic.cx"
         ];
-        extra-trusted-public-keys = [
+        trusted-public-keys = [
           "sn0wm1x.cachix.org-1:osOGZnIhSALHVbNcjx9pJIcqNCieQp8I5asyf2IPZFc="
           # https://wiki.nixos.org/wiki/CUDA#Setting_up_CUDA_Binary_Cache
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
