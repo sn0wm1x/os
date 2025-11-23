@@ -11,6 +11,7 @@
         "xwayland-native-scaling"
       ];
     };
+
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       font-antialiasing = "rgba";
@@ -19,9 +20,14 @@
       document-font-name = "Noto Sans CJK SC 12";
       monospace-font-name = "MonaspiceNe Nerd Font 10";
     };
+
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-ac-type = "nothing";
       power-button-action = "interactive";
+    };
+
+    "org/gnome/settings-daemon/plugins/housekeeping" = {
+      donation-reminder-enabled = false;
     };
   };
 }
