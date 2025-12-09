@@ -5,6 +5,7 @@
 
   # https://wiki.nixos.org/wiki/Secret_Service#GNOME_Keyring
   services.gnome.gnome-keyring.enable = true;
+  security.pam.services.gdm.enableGnomeKeyring = true;
 
   # https://wiki.nixos.org/wiki/GNOME#GNOME_desktop
   services.gnome.games.enable = false;
