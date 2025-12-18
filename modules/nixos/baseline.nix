@@ -87,6 +87,10 @@ in
       #   dates = "weekly";
       # };
       settings = {
+        trusted-users = [
+          "root"
+          "@wheel"
+        ];
         auto-optimise-store = true;
         experimental-features = [
           "nix-command"
