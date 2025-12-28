@@ -4,9 +4,7 @@
     bun
     deno
     nodejs_latest
-    corepack.override {
-      nodejs = nodejs_latest;
-    }
+    corepack
   ];
   home.persistence."/persist${config.home.homeDirectory}".directories = [
     # ".bun"
