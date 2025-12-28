@@ -42,7 +42,7 @@
     "rtsx_pci_sdmmc"
   ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   # https://wiki.nixos.org/wiki/Hardware/Framework/Laptop_16#Fix_Color_accuracy_in_Power_Saving_modes
   boot.kernelParams = [ "amdgpu.abmlevel=0" ];
 
