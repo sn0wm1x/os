@@ -2,15 +2,15 @@
 {
   services.ollama = {
     enable = true;
-    acceleration = false;
-    # acceleration = "rocm";
-    # https://github.com/ollama/ollama/pull/5426
-    # https://github.com/ollama/ollama/pull/6282
-    # rocmOverrideGfx = "11.0.2";
-    # sudo chown -R ollama:ollama /opt/ollama
+    package = pkgs.ollama-vulkan;
     home = "/opt/ollama";
     user = "ollama";
-    environmentVariables.OLLAMA_ORIGINS = "*";
+    environmentVariables = {
+      OLLAMA_ORIGINS = "*";
+      OLLAMA_CONTEXT_LENGTH = "32768";
+      # OLLAMA_FLASH_ATTENTION = "1";
+      OLLAMA_KV_CACHE_TYPE = "q8_0";
+    };
   };
 
   # ramalama

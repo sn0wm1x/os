@@ -1,7 +1,7 @@
-{
+{pkgs, ...}: {
   services.ollama = {
     enable = true;
-    acceleration = "cuda";
+    package = pkgs.ollama-cuda;
     # sudo chown -R ollama:ollama /opt/ollama
     home = "/opt/ollama";
     user = "ollama";
