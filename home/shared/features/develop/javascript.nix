@@ -3,8 +3,10 @@
   home.packages = with pkgs; [
     bun
     deno
-    nodePackages_latest.nodejs
-    corepack_latest
+    nodejs_latest
+    corepack.override {
+      nodejs = nodejs_latest;
+    }
   ];
   home.persistence."/persist${config.home.homeDirectory}".directories = [
     # ".bun"
