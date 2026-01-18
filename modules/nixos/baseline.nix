@@ -152,7 +152,13 @@ in
     services.journald.extraConfig = "SystemMaxUse=50M";
 
     # https://github.com/nix-community/nix-ld#installation
-    programs.nix-ld.enable = true;
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        zlib
+        stdenv.cc.cc
+      ];
+    };
 
     users = {
       mutableUsers = false;
