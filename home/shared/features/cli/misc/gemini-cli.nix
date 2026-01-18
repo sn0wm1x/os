@@ -5,6 +5,11 @@
   home.file.".gemini/settings.json".text = builtins.toJSON {
     theme = "ANSI";
     selectedAuthType = "oauth-personal";
+    # https://agents.md
+    contextFileName = "AGENTS.md";
+    general = {
+      previewFeatures = true;
+    };
   };
 
   home.persistence."/persist${config.home.homeDirectory}".files = [
