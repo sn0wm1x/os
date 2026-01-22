@@ -14,10 +14,6 @@
   # mergiraf
   programs.mergiraf.enable = true;
 
-  # gitui
-  programs.gitui.enable = true;
-  catppuccin.gitui.enable = true;
-
   # gh
   programs.gh.enable = true;
   programs.gh.extensions = with pkgs; [
