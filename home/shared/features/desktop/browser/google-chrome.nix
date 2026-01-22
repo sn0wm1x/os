@@ -29,7 +29,7 @@
   services.psd.enable = true;
   services.psd.browsers = [ "google-chrome" ];
 
-  home.file.".config/google-chrome".force = true;
+  # home.file.".config/google-chrome".force = true;
   home.persistence."/persist".directories = [ ".config/google-chrome" ];
   # ~/.config/google-chrome-unstable symlink
   # home.file.".config/google-chrome-unstable".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/google-chrome";
