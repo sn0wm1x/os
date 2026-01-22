@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ gemini-cli ];
 
@@ -12,7 +12,7 @@
     };
   };
 
-  home.persistence."/persist${config.home.homeDirectory}".files = [
+  home.persistence."/persist".files = [
     ".gemini/oauth_creds.json"
     ".gemini/user_id"
   ];

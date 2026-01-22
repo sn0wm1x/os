@@ -1,6 +1,5 @@
 {
   # inputs,
-  config,
   pkgs,
   ...
 }:
@@ -31,7 +30,7 @@
   services.psd.browsers = [ "google-chrome" ];
 
   home.file.".config/google-chrome".force = true;
-  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/google-chrome" ];
+  home.persistence."/persist".directories = [ ".config/google-chrome" ];
   # ~/.config/google-chrome-unstable symlink
   # home.file.".config/google-chrome-unstable".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/google-chrome";
 }

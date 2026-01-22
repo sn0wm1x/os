@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   programs.vscode.profiles.default = {
     extensions = with pkgs.vscode-marketplace; [
@@ -13,5 +13,5 @@
     };
   };
 
-  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".cache/llama.cpp" ];
+  home.persistence."/persist".directories = [ ".cache/llama.cpp" ];
 }

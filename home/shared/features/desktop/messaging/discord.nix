@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Discord#Vesktop
   home.packages = with pkgs; [
@@ -27,5 +27,5 @@
       ];
     })
   ];
-  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/vesktop" ];
+  home.persistence."/persist".directories = [ ".config/vesktop" ];
 }

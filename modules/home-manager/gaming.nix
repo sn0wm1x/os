@@ -12,6 +12,6 @@ with lib;
     enable = mkEnableOption "SN0WM1X gaming configurations";
   };
   config = lib.mkIf cfg.enable {
-    home.persistence."/persist${config.home.homeDirectory}".directories = [ ".local/share/Steam" ];
+    home.persistence."/persist".directories = [ ".local/share/Steam" ];
   };
 }

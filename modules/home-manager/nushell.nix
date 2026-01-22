@@ -71,7 +71,7 @@ with lib;
     home.packages = with pkgs; [ inshellisense ];
 
     home.persistence = lib.mkIf config.sn0wm1x.impermanence.enable {
-      "/persist${config.home.homeDirectory}" = {
+      "/persist" = {
         directories = [
           ".local/share/atuin"
           ".local/share/direnv"

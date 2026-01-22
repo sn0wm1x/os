@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     bun
@@ -6,7 +6,7 @@
     nodejs_latest
     corepack
   ];
-  home.persistence."/persist${config.home.homeDirectory}".directories = [
+  home.persistence."/persist".directories = [
     # ".bun"
     # ".cache/deno"
     ".cache/node/corepack"

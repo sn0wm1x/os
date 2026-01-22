@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ localsend ];
-  home.persistence."/persist${config.home.homeDirectory}".directories = [
+  home.persistence."/persist".directories = [
     ".local/share/org.localsend.localsend_app"
   ];
 }

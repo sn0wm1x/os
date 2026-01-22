@@ -1,5 +1,5 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ github-desktop ];
-  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".config/GitHub Desktop" ];
+  home.persistence."/persist".directories = [ ".config/GitHub Desktop" ];
 }

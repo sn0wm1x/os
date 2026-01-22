@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     (python3.withPackages (
@@ -23,7 +23,7 @@
     UV_LINK_MODE = "symlink";
   };
 
-  home.persistence."/persist${config.home.homeDirectory}".directories = [
+  home.persistence."/persist".directories = [
     ".cache/huggingface"
   ];
 }

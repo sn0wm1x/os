@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.gpg.enable = true;
   programs.gpg.publicKeys = [
@@ -18,7 +18,7 @@
 
   home.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
 
-  home.persistence."/persist${config.home.homeDirectory}".directories = [
+  home.persistence."/persist".directories = [
     ".gnupg/private-keys-v1.d"
     # {
     #   directory = ".gnupg/private-keys-v1.d";

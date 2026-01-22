@@ -1,4 +1,4 @@
-{ lib, config, osConfig, ... }:
+{ lib, osConfig, ... }:
 {
   imports = [
     ./circle.nix
@@ -10,7 +10,7 @@
   ];
 
   # gnome-keyring
-  home.persistence."/persist${config.home.homeDirectory}".directories = lib.mkIf osConfig.services.gnome.gnome-keyring.enable [
+  home.persistence."/persist".directories = lib.mkIf osConfig.services.gnome.gnome-keyring.enable [
     ".local/share/keyrings"
   ];
 }
