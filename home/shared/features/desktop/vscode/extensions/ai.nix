@@ -1,35 +1,17 @@
 { pkgs, config, ... }:
 {
   programs.vscode.profiles.default = {
-    extensions = with pkgs; [
-      vscode-extensions.continue.continue
+    extensions = with pkgs.vscode-marketplace; [
+      ggml-org.llama-vscode
     ];
     userSettings = {
-      "continue.telemetryEnabled" = false;
-      "yaml.schemas" = {
-        "/home/${config.home.username}/.vscode/extensions/Continue.continue/config-yaml-schema.json" = [
-          ".continue/**/*.yaml"
-        ];
-      };
+      "llama-vscode.launch_chat" = "";
+      "llama-vscode.launch_completion" = "${pkgs.llama-cpp}/bin/llama-server --fim-qwen-1.5b-default";
+      "llama-vscode.launch_embeddings" = "";
+      "llama-vscode.launch_training_chat" = "";
+      "llama-vscode.launch_training_completion" = "";
     };
   };
 
-  home.file.".continue/config.json".text = builtins.toJSON {
-    models = [
-      {
-        title = "Qwen 2.5 Coder 1.5B";
-        provider = "ollama";
-        model = "qwen2.5-coder:1.5b";
-      }
-    ];
-    tabAutocompleteModel = {
-      title = "Qwen 2.5 Coder 1.5B";
-      provider = "ollama";
-      model = "qwen2.5-coder:1.5b";
-    };
-    embeddingsProvider = {
-      provider = "ollama";
-      model = "nomic-embed-text";
-    };
-  };
+  home.persistence."/persist${config.home.homeDirectory}".directories = [ ".cache/llama.cpp" ];
 }

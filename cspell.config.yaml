@@ -16,6 +16,7 @@ words:
   - blueplanet
   - bluestar
   - btrfs
+  - byok
   - cachix
   - catppuccin
   - centisecs
@@ -41,6 +42,7 @@ words:
   - fontconfig
   - gamemode
   - gamescope
+  - ggml
   - ghostty
   - gltf
   - gpasswd
@@ -98,6 +100,7 @@ words:
   - printk
   - ptes
   - qdisc
+  - qwen
   - ramalama
   - ratemode
   - rcutree
