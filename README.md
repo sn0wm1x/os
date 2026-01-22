@@ -22,25 +22,26 @@
 
 ## 特征
 
-- Flakes
-  - [nixos-flake](https://github.com/srid/nixos-flake) + [flake-parts](https://github.com/hercules-ci/flake-parts) (TODO)
+<!-- - Flakes
+  - [nixos-flake](https://github.com/srid/nixos-flake) + [flake-parts](https://github.com/hercules-ci/flake-parts) (TODO) -->
 - Disko + Impermanence
   - 基于 USB 密钥文件的 LUKS2 全盘加密
   - Btrfs, 强制 zstd:1 压缩，文件去重
 - Wayland GTK4 桌面
-  - GNOME 46+, PaperWM
+  - GNOME 49+, PaperWM
   - Catppuccin Frappe
   - niri (TODO)
 - 性能调优
-  - linux-cachyos
-  - sched-ext/scx
+  <!-- - linux-cachyos -->
+  - linux-zen
+  - sched-ext/scx (lavd)
 - Nushell + Starship + Inshellisense
-- Gaming (TODO)
+<!-- - Gaming (TODO)
   - fufexan/nix-gaming
   - Juvian-NixOS
 - VR (TODO)
   - ALVR
-  - WiVRn
+  - WiVRn -->
 
 <!-- ## Useful links
 
