@@ -11,8 +11,8 @@
   # difftastic
   programs.difftastic.enable = true;
 
-  # TODO: mergiraf
-  # https://github.com/NixOS/nixpkgs/pull/354870
+  # mergiraf
+  programs.mergiraf.enable = true;
 
   # gitui
   programs.gitui.enable = true;
