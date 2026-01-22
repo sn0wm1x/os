@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     nixd # language server
 
-    nixfmt-rfc-style # formatter
+    nixfmt # formatter
     nixpkgs-lint-community # linter
     nixpkgs-hammering # fix PR
     nixpkgs-review # review PR
