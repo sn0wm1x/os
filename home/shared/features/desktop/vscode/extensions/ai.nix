@@ -13,5 +13,7 @@
     };
   };
 
+  home.packages = with pkgs; [ llama-cpp ];
+
   home.persistence."/persist".directories = [ ".cache/llama.cpp" ];
 }
