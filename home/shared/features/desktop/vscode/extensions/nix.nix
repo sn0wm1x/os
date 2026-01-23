@@ -7,7 +7,7 @@
       "nix.enableLanguageServer" = true;
       "nix.formatterPath" = "nixfmt";
       "nix.serverPath" = lib.getExe pkgs.nixd;
-      "nix.serverSettings"."nixd"."formatting"."command" = [ "${lib.getExe pkgs.nixfmt-rfc-style}" ];
+      "nix.serverSettings"."nixd"."formatting"."command" = [ "${lib.getExe pkgs.nixfmt}" ];
     };
   };
 }
