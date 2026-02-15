@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./ai.nix
     ./github.nix
     ./javascript.nix
     ./nix.nix
