@@ -1,4 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [ antigravity ];
-  home.persistence."/persist".directories = [ ".config/antigravity" ];
+  home.persistence."/persist".directories = [
+    ".antigravity"
+    ".config/Antigravity"
+  ];
 }
