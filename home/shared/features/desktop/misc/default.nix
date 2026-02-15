@@ -8,7 +8,5 @@
     ./github-desktop.nix
     ./localsend.nix
     ./motrix.nix
-    ./obsidian.nix
-    ./open-ai-translator.nix
   ];
 }
