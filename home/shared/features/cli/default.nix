@@ -5,6 +5,7 @@
     ./bat.nix
     ./btop.nix
     ./fastfetch.nix
+    ./ffmpeg.nix
     ./fzf.nix
     ./git.nix
     ./helix.nix
