@@ -10,6 +10,8 @@
     ./git.nix
     ./helix.nix
     ./just.nix
+    ./nvtop.nix
+    ./onefetch.nix
     ./tealdeer.nix
     ./zellij.nix
   ];
