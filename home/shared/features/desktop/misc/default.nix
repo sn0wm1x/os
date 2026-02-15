@@ -6,7 +6,6 @@
     ./ffmpeg.nix
     ./ghostty.nix
     ./github-desktop.nix
-    ./hoppscotch.nix
     ./localsend.nix
     ./motrix.nix
     ./obsidian.nix
