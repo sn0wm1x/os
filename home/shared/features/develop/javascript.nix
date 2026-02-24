@@ -1,10 +1,16 @@
 { pkgs, ... }:
+let
+  corepackWithoutCheck = pkgs.corepack.overrideAttrs (oldAttrs: {
+    doInstallCheck = false;
+  });
+in
 {
   home.packages = with pkgs; [
     bun
     deno
     nodejs_latest
-    corepack
+    # corepack
+    corepackWithoutCheck
   ];
   home.persistence."/persist".directories = [
     # ".bun"
