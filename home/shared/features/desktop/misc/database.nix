@@ -1,7 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    antares # https://github.com/antares-sql/antares
+    beekeeper-studio # https://github.com/beekeeper-studio/beekeeper-studio/
     sqlitebrowser # https://github.com/sqlitebrowser/sqlitebrowser
+  ];
+
+  home.persistence."/persist".directories = [
+    ".config/beekeeper-studio"
   ];
 }
