@@ -31,8 +31,6 @@
         redhat.vscode-xml # xml
         rust-lang.rust-analyzer # rust
         vadimcn.vscode-lldb # rust debugger
-        # Databases
-        ms-ossdata.vscode-pgsql # postgresql
       ])
       ++ (with pkgs.vscode-marketplace; [
         # https://www.dependi.io
@@ -41,6 +39,8 @@
         mk12.better-git-line-blame
         # open in github
         antfu.open-in-github-button
+        # postgresql
+        ms-ossdata.vscode-pgsql
       ]);
 
     userSettings = {
