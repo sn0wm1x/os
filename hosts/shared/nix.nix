@@ -10,6 +10,8 @@
   nixpkgs.overlays = builtins.attrValues outputs.overlays ++ [
     # https://github.com/nix-community/nix-vscode-extensions#overlay
     inputs.nix-vscode-extensions.overlays.default
+    # https://github.com/numtide/llm-agents.nix#using-overlay
+    inputs.llm-agents.overlays.default
   ];
 
   programs.nh = {

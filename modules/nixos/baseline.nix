@@ -100,11 +100,15 @@ in
           "https://sn0wm1x.cachix.org"
           # https://wiki.nixos.org/wiki/CUDA#NixOS
           "https://cache.nixos-cuda.org"
+          # https://github.com/numtide/llm-agents.nix#binary-cache
+          "https://cache.numtide.com"
         ];
         trusted-public-keys = [
           "sn0wm1x.cachix.org-1:osOGZnIhSALHVbNcjx9pJIcqNCieQp8I5asyf2IPZFc="
           # https://wiki.nixos.org/wiki/CUDA#NixOS
           "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+          # https://github.com/numtide/llm-agents.nix#binary-cache
+          "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
         ];
       };
     };
@@ -171,7 +175,8 @@ in
             "wheel"
             "video"
             "audio"
-          ] ++ lib.optional config.virtualisation.docker.enable "docker";
+          ]
+          ++ lib.optional config.virtualisation.docker.enable "docker";
 
           openssh.authorizedKeys.keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApPwSaizmGRsjTbeFUuzAw/U1zHbVM4ybsN3iILi0mm openpgp:0x22222222" # 0x4444777733334444

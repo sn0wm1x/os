@@ -27,6 +27,8 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
