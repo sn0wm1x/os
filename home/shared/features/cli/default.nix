@@ -6,6 +6,7 @@
     ./btop.nix
     ./fastfetch.nix
     ./ffmpeg.nix
+    ./fresh.nix
     ./fzf.nix
     ./git.nix
     ./helix.nix
