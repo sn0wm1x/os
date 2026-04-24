@@ -69,16 +69,15 @@ with lib;
     programs.zoxide.enableNushellIntegration = true;
 
     home.packages = with pkgs; [
-      inshellisense.overrideAttrs
-      (old: {
-        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
+      (inshellisense.overrideAttrs (old: {
+        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ makeWrapper ];
         postInstall = (old.postInstall or "") + ''
           for bin in is inshellisense; do
             wrapProgram "$out/bin/$bin" \
               --run "cd $out/lib/node_modules/@microsoft/inshellisense"
           done
         '';
-      })
+      }))
     ];
 
     home.persistence = lib.mkIf config.sn0wm1x.impermanence.enable {
