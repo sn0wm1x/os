@@ -17,7 +17,7 @@
       ]
     );
   # google-chrome-dev / google-chrome-unstable
-  # ++ (with inputs.browser-previews.packages.${pkgs.system}; [
+  # ++ (with inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}; [
   #   (google-chrome-dev.override {
   #     # use text-input-v3
   #     # https://github.com/chromium/chromium/commit/5874fc33585ded8316f6a4336a25da64dc2a7027

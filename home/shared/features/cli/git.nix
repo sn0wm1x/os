@@ -13,6 +13,7 @@
 
   # mergiraf
   programs.mergiraf.enable = true;
+  programs.mergiraf.enableGitIntegration = true;
 
   # gh
   programs.gh.enable = true;
