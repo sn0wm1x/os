@@ -37,6 +37,7 @@ words:
   - difftastic
   - direnv
   - disko
+  - esac
   - exfat
   - fastfetch
   - fcitx
@@ -115,6 +116,7 @@ words:
   - ratemode
   - rcutree
   - realtek
+  - reinit
   - rmem
   - rocm
   - rtkit

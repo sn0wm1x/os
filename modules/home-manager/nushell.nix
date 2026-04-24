@@ -7,6 +7,21 @@
 }:
 let
   cfg = config.sn0wm1x.nushell;
+  inshellisense = pkgs.inshellisense;
+  inshellisenseWrapper = pkgs.runCommand "inshellisense-wrapper" { } ''
+    mkdir -p "$out/bin"
+
+    for bin in is inshellisense; do
+      cat > "$out/bin/$bin" <<EOF
+    #!${pkgs.runtimeShell}
+    case "\$1" in
+      init|reinit) cd "${inshellisense}/lib/node_modules/@microsoft/inshellisense" ;;
+    esac
+    exec "${inshellisense}/bin/$bin" "\$@"
+    EOF
+      chmod +x "$out/bin/$bin"
+    done
+  '';
 in
 with lib;
 {
@@ -68,17 +83,7 @@ with lib;
     programs.zoxide.enable = true;
     programs.zoxide.enableNushellIntegration = true;
 
-    home.packages = with pkgs; [
-      (inshellisense.overrideAttrs (old: {
-        nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ makeWrapper ];
-        postInstall = (old.postInstall or "") + ''
-          for bin in is inshellisense; do
-            wrapProgram "$out/bin/$bin" \
-              --run "case \"\$1\" in init|reinit) cd \"$out/lib/node_modules/@microsoft/inshellisense\" ;; esac"
-          done
-        '';
-      }))
-    ];
+    home.packages = [ inshellisenseWrapper ];
 
     home.persistence = lib.mkIf config.sn0wm1x.impermanence.enable {
       "/persist" = {
