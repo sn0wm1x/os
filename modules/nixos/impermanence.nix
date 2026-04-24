@@ -23,7 +23,7 @@ in
     };
 
     # https://github.com/nix-community/impermanence#btrfs-subvolumes
-    boot.initrd.postDeviceCommands =
+    boot.initrd.postResumeCommands =
       let
         # mtime = "30"; # monthly
         mtime = "7"; # weekly

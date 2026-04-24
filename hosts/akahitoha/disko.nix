@@ -32,8 +32,7 @@ in
                 bypassWorkqueues = true;
                 keyFile = "/key/os.key";
                 keyFileSize = 8192;
-                # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
-                # https://github.com/reo101/rix101/blob/a6efd4146bbe0c7fb44343225b9dbf9585472597/machines/nixos/x86_64-linux/jeeves/disko.nix#L94-L107
+                # https://wiki.nixos.org/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_USB_stick
                 preOpenCommands = ''
                   mkdir -m 0755 -p /key
                   sleep 5
