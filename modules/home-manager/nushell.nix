@@ -74,7 +74,7 @@ with lib;
         postInstall = (old.postInstall or "") + ''
           for bin in is inshellisense; do
             wrapProgram "$out/bin/$bin" \
-              --run "cd $out/lib/node_modules/@microsoft/inshellisense"
+              --run "case \"\$1\" in init|reinit) cd \"$out/lib/node_modules/@microsoft/inshellisense\" ;; esac"
           done
         '';
       }))
