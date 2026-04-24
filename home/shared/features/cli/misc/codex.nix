@@ -11,6 +11,11 @@
     # };
   };
 
+  home.packages = with pkgs.llm-agents; [
+    ccusage-codex
+    # rtk
+  ];
+
   home.persistence."/persist".directories = [
     ".codex"
   ];
