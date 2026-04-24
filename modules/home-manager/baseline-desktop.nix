@@ -36,6 +36,7 @@ with lib;
       userDirs = {
         enable = true;
         createDirectories = true;
+        setSessionVariables = true;
         music = "${config.home.homeDirectory}/Music";
         videos = "${config.home.homeDirectory}/Videos";
         pictures = "${config.home.homeDirectory}/Pictures";

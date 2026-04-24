@@ -32,7 +32,7 @@ in
       inherit extraConfig extraCss;
     };
     gtk4 = {
-      inherit extraConfig extraCss;
+      inherit extraConfig extraCss theme;
     };
   };
 
