@@ -23,6 +23,7 @@ words:
   - charliermarsh
   - clinfo
   - coredump
+  - coreutils
   - correcthorsebatterystaple
   - creds
   - cryptroot
@@ -35,10 +36,12 @@ words:
   - difftastic
   - direnv
   - disko
+  - exfat
   - fastfetch
   - fcitx
   - felixc
   - fetchurl
+  - findutils
   - fontconfig
   - gamemode
   - gamescope
@@ -66,9 +69,11 @@ words:
   - libze
   - logicalmonitor
   - loglevel
+  - luks
   - mdns
   - mergiraf
   - mimeapps
+  - mmcblk
   - moegirl
   - monaspace
   - Monaspice
@@ -81,10 +86,12 @@ words:
   - nixfmt
   - nixos
   - nixpkgs
+  - noatime
   - NOFILE
   - noto
   - numtide
   - nushell
+  - nvme
   - nvtop
   - ocloc
   - ollama
@@ -106,6 +113,7 @@ words:
   - ramalama
   - ratemode
   - rcutree
+  - realtek
   - rmem
   - rocm
   - rtkit
@@ -125,11 +133,13 @@ words:
   - usermod
   - userns
   - vainfo
+  - vfat
   - virtualisation
   - wmem
   - writeback
   - XMODIFIERS
   - zhwiki
   - zram
+  - zstd
 ignoreWords: []
 import: []

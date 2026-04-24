@@ -1,3 +1,4 @@
+{ ... }:
 let
   device = "/dev/nvme0n1";
   primary_key = "/dev/disk/by-id/usb-Lenovo_SX1_Pro_32G_FC372704102414525-0:0-part1";
@@ -31,17 +32,6 @@ in
                 bypassWorkqueues = true;
                 keyFile = "/key/os.key";
                 keyFileSize = 8192;
-                # https://nixos.wiki/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_usb_stick
-                # https://github.com/reo101/rix101/blob/a6efd4146bbe0c7fb44343225b9dbf9585472597/machines/nixos/x86_64-linux/jeeves/disko.nix#L94-L107
-                preOpenCommands = ''
-                  mkdir -m 0755 -p /key
-                  sleep 5
-                  mount -n -t exfat -o ro ${primary_key} /key || mount -n -t exfat -o ro ${backup_key} /key
-                '';
-                postOpenCommands = ''
-                  umount /key
-                  rm -rf /key
-                '';
               };
               content = {
                 type = "btrfs";
@@ -84,5 +74,50 @@ in
       };
     };
   };
+
+  # https://wiki.nixos.org/wiki/Full_Disk_Encryption#Option_2:_Copy_Key_as_file_onto_a_vfat_USB_stick
+  boot.initrd.systemd.services = {
+    initrd-mount-cryptroot-key = {
+      description = "Mount external key for cryptroot";
+      wantedBy = [ "systemd-cryptsetup@cryptroot.service" ];
+      before = [
+        "systemd-cryptsetup@cryptroot.service"
+        "shutdown.target"
+      ];
+      after = [ "systemd-modules-load.service" ];
+      conflicts = [ "shutdown.target" ];
+      unitConfig.DefaultDependencies = false;
+      script = ''
+        mkdir -m 0755 -p /key
+        sleep 5
+        mount -n -t exfat -o ro ${primary_key} /key || mount -n -t exfat -o ro ${backup_key} /key
+      '';
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+    };
+
+    initrd-umount-cryptroot-key = {
+      description = "Unmount external key for cryptroot";
+      wantedBy = [ "initrd-fs.target" ];
+      before = [
+        "initrd-fs.target"
+        "shutdown.target"
+      ];
+      after = [
+        "systemd-cryptsetup@cryptroot.service"
+        "cryptsetup.target"
+      ];
+      conflicts = [ "shutdown.target" ];
+      unitConfig.DefaultDependencies = false;
+      script = ''
+        umount /key || true
+        rm -rf /key
+      '';
+      serviceConfig.Type = "oneshot";
+    };
+  };
+
   fileSystems."/persist".neededForBoot = true;
 }
