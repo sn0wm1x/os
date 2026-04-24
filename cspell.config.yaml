@@ -22,6 +22,7 @@ words:
   - centisecs
   - charliermarsh
   - clinfo
+  - clippy
   - coredump
   - coreutils
   - correcthorsebatterystaple
@@ -117,6 +118,7 @@ words:
   - rmem
   - rocm
   - rtkit
+  - rustc
   - rustscheds
   - ryzenadj
   - sched
