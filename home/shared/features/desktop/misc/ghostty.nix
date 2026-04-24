@@ -1,9 +1,10 @@
+{ osConfig, ... }:
 {
   programs.ghostty = {
     enable = true;
     settings = {
       theme = "Catppuccin Frappe";
-      font-family = "MonaspiceNe NFM";
+      font-family = osConfig.fonts.fontconfig.defaultFonts.monospace;
     };
   };
 }
