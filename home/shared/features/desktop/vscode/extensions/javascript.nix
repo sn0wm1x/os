@@ -17,7 +17,7 @@
       ]
       ++ (with pkgs.vscode-marketplace; [
         # Linter / Formatter
-        oxc.oxc-vscode # oxc
+        # oxc.oxc-vscode # oxc
 
         # THREE.js / R3F / WebXR
         trytriplex.triplex-vsce
@@ -33,7 +33,7 @@
 
     userSettings = {
       "deno.enable" = false; # disabled by default
-      "oxc.enable" = false; # disabled by default
+      # "oxc.enable" = false; # disabled by default
     };
   };
 }
