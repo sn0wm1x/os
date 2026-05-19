@@ -34,7 +34,7 @@
   };
 
   home.packages = with pkgs.llm-agents; [
-    ccusage-codex
+    ccusage
     # rtk
     pi
   ];
