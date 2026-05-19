@@ -1,7 +1,6 @@
 {
   imports = [
     ./anki.nix
-    ./antigravity.nix
     ./anytype.nix
     ./database.nix
     ./ghostty.nix
