@@ -1,27 +1,27 @@
 {
   config,
   lib,
-  pkgs,
+  # pkgs,
   osConfig ? null,
   ...
 }:
 let
   cfg = config.sn0wm1x.nushell;
-  inshellisense = pkgs.inshellisense;
-  inshellisenseWrapper = pkgs.runCommand "inshellisense-wrapper" { } ''
-    mkdir -p "$out/bin"
+  # inshellisense = pkgs.inshellisense;
+  # inshellisenseWrapper = pkgs.runCommand "inshellisense-wrapper" { } ''
+  #   mkdir -p "$out/bin"
 
-    for bin in is inshellisense; do
-      cat > "$out/bin/$bin" <<EOF
-    #!${pkgs.runtimeShell}
-    case "\$1" in
-      init|reinit) cd "${inshellisense}/lib/node_modules/@microsoft/inshellisense" ;;
-    esac
-    exec "${inshellisense}/bin/$bin" "\$@"
-    EOF
-      chmod +x "$out/bin/$bin"
-    done
-  '';
+  #   for bin in is inshellisense; do
+  #     cat > "$out/bin/$bin" <<EOF
+  #   #!${pkgs.runtimeShell}
+  #   case "\$1" in
+  #     init|reinit) cd "${inshellisense}/lib/node_modules/@microsoft/inshellisense" ;;
+  #   esac
+  #   exec "${inshellisense}/bin/$bin" "\$@"
+  #   EOF
+  #     chmod +x "$out/bin/$bin"
+  #   done
+  # '';
 in
 with lib;
 {
@@ -52,13 +52,13 @@ with lib;
       extraConfig = ''
         # nushell config
         $env.config.show_banner = false
-
+      '';
         # is init nu
         # ---------------- inshellisense shell plugin ----------------
-        if "ISTERM" not-in $env and $nu.is-interactive {
-          if $nu.is-login { is -s nu --login ; exit } else { is -s nu ; exit }
-        }
-      '';
+        # if "ISTERM" not-in $env and $nu.is-interactive {
+        #   if $nu.is-login { is -s nu --login ; exit } else { is -s nu ; exit }
+        # }
+        # '';
     };
 
     programs.pay-respects = {
@@ -83,7 +83,7 @@ with lib;
     programs.zoxide.enable = true;
     programs.zoxide.enableNushellIntegration = true;
 
-    home.packages = [ inshellisenseWrapper ];
+    # home.packages = [ inshellisenseWrapper ];
 
     home.persistence = lib.mkIf config.sn0wm1x.impermanence.enable {
       "/persist" = {
