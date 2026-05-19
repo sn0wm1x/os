@@ -24,6 +24,10 @@
     gh-poi
   ];
 
+  home.persistence."/persist".directories = [
+    ".config/gh"
+  ];
+
   # gh-dash
   programs.gh-dash.enable = true;
   catppuccin.gh-dash.enable = true;
