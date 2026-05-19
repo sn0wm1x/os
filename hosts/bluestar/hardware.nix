@@ -55,6 +55,7 @@
     modesetting.enable = true;
     powerManagement.enable = true;
     powerManagement.finegrained = true;
+    nvidiaPersistenced = true;
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
@@ -94,6 +95,27 @@
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages = with pkgs; [ intel-compute-runtime ];
+
+  # sudo nvidia-smi -pl 300
+  systemd.services.nvidia-power-limit =
+    let
+      nvidia-smi = "${config.hardware.nvidia.package.bin}/bin/nvidia-smi";
+    in
+    {
+      wantedBy = [ "multi-user.target" ];
+      wants = [ "nvidia-persistenced.service" ];
+      after = [ "nvidia-persistenced.service" ];
+
+      serviceConfig = {
+        Type = "oneshot";
+        RemainAfterExit = true;
+      };
+
+      script = ''
+        ${nvidia-smi} -pm 1 || true
+        ${nvidia-smi} -i GPU-22273ce2-6d5b-8183-2853-d7237769581b -pl 300
+      '';
+    };
 
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
