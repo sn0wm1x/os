@@ -37,7 +37,7 @@ with lib;
     programs.direnv.nix-direnv.enable = true;
     programs.direnv.enableNushellIntegration = true;
 
-    # https://nixos.wiki/wiki/Nushell
+    # https://wiki.nixos.org/wiki/Nushell
     programs.nushell = {
       enable = true;
       shellAliases =
@@ -56,7 +56,7 @@ with lib;
         # carapace completions https://www.nushell.sh/cookbook/external_completers.html#carapace-completer
         # + fix https://www.nushell.sh/cookbook/external_completers.html#err-unknown-shorthand-flag-using-carapace
         # enable the package and integration bellow
-        let carapace_completer = {|spans: list&lt;string&gt;|
+        let carapace_completer = {|spans: list<string>|
           carapace $spans.0 nushell ...$spans
           | from json
           | if ($in | default [] | where value == $"($spans | last)ERR" | is-empty) { $in } else { null }
@@ -97,8 +97,8 @@ with lib;
           ## alias fixer end
 
           match $spans.0 {
-            __zoxide_z | __zoxide_zi =&gt; $zoxide_completer
-            _ =&gt; $carapace_completer
+            __zoxide_z | __zoxide_zi => $zoxide_completer
+            _ => $carapace_completer
           } | do $in $spans
         }
 

@@ -170,7 +170,6 @@ in
           # FIXME: update password
           initialPassword = "correcthorsebatterystaple";
           isNormalUser = true;
-          shell = pkgs.nushell;
           extraGroups = [
             "wheel"
             "video"
@@ -186,7 +185,13 @@ in
     };
 
     # https://wiki.nixos.org/wiki/GNOME#GDM_does_not_show_user
+    # https://wiki.nixos.org/wiki/Nushell#Installation
     environment.shells = with pkgs; [ nushell ];
+    programs.bash.interactiveShellInit = ''
+      if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+        exec nu
+      fi
+    '';
 
     home-manager = {
       useGlobalPkgs = true;
