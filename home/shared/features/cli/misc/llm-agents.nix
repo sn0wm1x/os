@@ -23,7 +23,7 @@
   # https://home-manager-options.extranix.com/?query=claude-code&release=master
   programs.claude-code = {
     enable = true;
-    package = pkgs.llm-agents.claude-code;
+    # package = pkgs.llm-agents.claude-code;
     settings.theme = "dark";
     # mcpServers = {
     #   grep = {
