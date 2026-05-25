@@ -39,7 +39,7 @@
       # rtk
       pi
     ])
-    ++ (with outputs.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
+    ++ (with outputs.packages.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
 
   home.persistence."/persist".directories = [
     ".codex"
