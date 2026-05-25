@@ -37,6 +37,7 @@ words:
   - difftastic
   - direnv
   - disko
+  - dont
   - esac
   - esep
   - exfat
@@ -63,6 +64,7 @@ words:
   - kimi
   - kobuk
   - kptr
+  - kwaa
   - lavd
   - lazydocker
   - libmfx
@@ -109,6 +111,7 @@ words:
   - pipewire
   - pipx
   - pkgs
+  - pname
   - powertop
   - printk
   - ptes

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, outputs, ... }:
 {
   # https://home-manager-options.extranix.com/?query=codex&release=master
   programs.codex = {
@@ -33,11 +33,13 @@
     # };
   };
 
-  home.packages = with pkgs.llm-agents; [
-    ccusage
-    # rtk
-    pi
-  ];
+  home.packages =
+    (with pkgs.llm-agents; [
+      ccusage
+      # rtk
+      pi
+    ])
+    ++ (with outputs.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
 
   home.persistence."/persist".directories = [
     ".codex"
