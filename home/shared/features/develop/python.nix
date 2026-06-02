@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     (python3.withPackages (
       python3Packages: with python3Packages; [
-        pipx
+        # pipx
         pip
         huggingface-hub
         # TODO: check CUDA
