@@ -25,6 +25,7 @@ in
   ];
 
   home.sessionVariables = {
+    # https://wiki.nixos.org/wiki/Playwright#Installing_browsers_for_Playwright_under_NixOS
     PLAYWRIGHT_BROWSERS_PATH = pkgs.playwright-driver.browsers;
     PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = true;
     # PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
