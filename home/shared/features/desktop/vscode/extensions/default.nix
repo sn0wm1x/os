@@ -41,6 +41,8 @@
         antfu.open-in-github-button
         # postgresql
         ms-ossdata.vscode-pgsql
+        # codex
+        openai.chatgpt
       ]);
 
     userSettings = {
