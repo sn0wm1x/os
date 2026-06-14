@@ -115,13 +115,10 @@ in
 
     # systemd
     # https://wiki.cachyos.org/features/cachyos_settings/#systemd-services-tweaks
-    systemd = {
-      user.extraConfig = "DefaultLimitNOFILE=1024:1048576";
-      settings.Manager = {
-        DefaultTimeoutStartSec = "15s";
-        DefaultTimeoutStopSec = "10s";
-        DefaultLimitNOFILE = "2048:2097152";
-      };
+    systemd.settings.Manager = {
+      DefaultTimeoutStartSec = "15s";
+      DefaultTimeoutStopSec = "10s";
+      DefaultLimitNOFILE = "2048:2097152";
     };
 
     # zram
