@@ -43,7 +43,7 @@
       ccusage
       # rtk
       pi
-      agent-browsers
+      agent-browser
     ])
     ++ (with outputs.packages.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
 
