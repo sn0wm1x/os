@@ -1,4 +1,9 @@
-{ pkgs, outputs, ... }:
+{
+  pkgs,
+  lib,
+  outputs,
+  ...
+}:
 {
   # https://home-manager-options.extranix.com/?query=codex&release=master
   programs.codex = {
@@ -38,8 +43,13 @@
       ccusage
       # rtk
       pi
+      agent-browsers
     ])
     ++ (with outputs.packages.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
+
+  home.sessionVariables = {
+    AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
+  };
 
   home.persistence."/persist".directories = [
     ".codex"

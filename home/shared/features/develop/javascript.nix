@@ -11,7 +11,18 @@ in
     nodejs_latest
     # corepack
     corepackWithoutCheck
+
+    playwright-driver.browsers
   ];
+
+  home.sessionVariables = {
+    PLAYWRIGHT_BROWSERS_PATH = pkgs.playwright-driver.browsers;
+    PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS = true;
+    # PLAYWRIGHT_HOST_PLATFORM_OVERRIDE = "ubuntu-24.04";
+
+    # PNPM_HOME = "$HOME/.local/share/pnpm";
+  };
+
   home.persistence."/persist".directories = [
     # ".bun"
     # ".cache/deno"
@@ -20,7 +31,4 @@ in
     # ".yarn"
     # ".local/share/pnpm"
   ];
-  # home.sessionVariables = {
-  #   PNPM_HOME = "$HOME/.local/share/pnpm";
-  # };
 }
