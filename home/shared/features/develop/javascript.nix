@@ -1,13 +1,22 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   corepackWithoutCheck = pkgs.corepack.overrideAttrs (oldAttrs: {
     doInstallCheck = false;
   });
+
+  denoWithStdenv = pkgs.writeShellScriptBin "deno" ''
+    export LD_LIBRARY_PATH=${
+      lib.makeLibraryPath [
+        pkgs.stdenv.cc.cc.lib
+      ]
+    }:''${LD_LIBRARY_PATH:-}
+    exec ${pkgs.deno}/bin/deno "$@"
+  '';
 in
 {
   home.packages = with pkgs; [
     bun
-    deno
+    denoWithStdenv
     nodejs_latest
     # corepack
     corepackWithoutCheck
