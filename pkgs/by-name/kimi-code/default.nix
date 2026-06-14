@@ -13,11 +13,11 @@
 
 let
   pname = "kimi-code";
-  version = "0.11.0";
+  version = "0.14.3";
 
   srcTarball = fetchurl {
     url = "https://registry.npmjs.org/@moonshot-ai/kimi-code/-/kimi-code-${version}.tgz";
-    hash = "sha256-S2y/Uiy7SHDVbhjihS4gpgALIqlkvGBf40SPupYD9Ik=";
+    hash = "sha256-eMkyjHAT32sIZ7RMJZJ5Y8RHBE8/6RrgFA2URrZ0FQQ=";
   };
 
   generatedLock = stdenvNoCC.mkDerivation {
@@ -34,7 +34,7 @@ let
 
     outputHashAlgo = "sha256";
     outputHashMode = "recursive";
-    outputHash = "sha256-zRlaKLX6B4mG8iXNlX7pIQ1C0Dtg0/XYApUsj3u+Rm0=";
+    outputHash = "sha256-tDazQ+qfQDiv6JO6i9bv3qjxpTVlIFcjYwb/Iz+eH8I=";
 
     buildPhase = ''
       runHook preBuild
@@ -90,7 +90,7 @@ buildNpmPackage {
 
   nodejs = nodejs_24;
 
-  npmDepsHash = "sha256-kqgBAI4jO7rzmvB55zdd8ejW939txkCuzviUJbuP2vY=";
+  npmDepsHash = "sha256-hfVSebf7mhi/ZcRA4z8syZSSviD7Ym/z9NyR0a0N/+Q=";
 
   dontNpmBuild = true;
 
