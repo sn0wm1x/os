@@ -1,7 +1,7 @@
 {
   imports = [
     ./anki.nix
-    ./anytype.nix
+    # ./anytype.nix
     ./database.nix
     ./ghostty.nix
     ./github-desktop.nix
