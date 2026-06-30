@@ -7,6 +7,8 @@
 }:
 {
   nixpkgs.config.allowUnfree = true;
+  # TODO: remove this
+  nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
   nixpkgs.overlays = builtins.attrValues outputs.overlays ++ [
     # https://github.com/nix-community/nix-vscode-extensions#overlay
     inputs.nix-vscode-extensions.overlays.default
