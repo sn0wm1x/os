@@ -34,7 +34,7 @@ let
 
     outputHashAlgo = "sha256";
     outputHashMode = "recursive";
-    outputHash = "sha256-tDazQ+qfQDiv6JO6i9bv3qjxpTVlIFcjYwb/Iz+eH8I=";
+    outputHash = "sha256-Xwwz7iZdnm9brP6ChyTgQQyG+EwUmlrK8VsFFdTc70c=";
 
     buildPhase = ''
       runHook preBuild
@@ -90,7 +90,7 @@ buildNpmPackage {
 
   nodejs = nodejs_24;
 
-  npmDepsHash = "sha256-hfVSebf7mhi/ZcRA4z8syZSSviD7Ym/z9NyR0a0N/+Q=";
+  npmDepsHash = "sha256-t2ubwB8HAdOjYe+eDzWdcrxMb6a6V7Zywzd+z9eXbUQ=";
 
   dontNpmBuild = true;
 
