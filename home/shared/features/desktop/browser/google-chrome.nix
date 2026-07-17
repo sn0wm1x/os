@@ -10,9 +10,13 @@
       with pkgs;
       [
         (google-chrome.override {
-          # force ozone wayland & fcitx5 wayland fix
-          # https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron
-          commandLineArgs = "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3";
+          commandLineArgs = [
+            # force ozone wayland & fcitx5 wayland fix
+            # https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron
+            "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
+            # https://wiki.nixos.org/wiki/Chromium#Accelerated_video_playback
+            "--enable-features=Vulkan"
+          ];
         })
       ]
     );
