@@ -10,16 +10,18 @@
 let
   isBluestar = osConfig.networking.hostName == "bluestar";
 
-  # force ozone wayland & fcitx5 wayland fix
-  # https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron
-  fcitx5Args = "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3";
+  commandLineArgs = [
+    # force ozone wayland & fcitx5 wayland fix
+    # https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron
+    "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
+
+    # WebGPU
+    "--enable-features=Vulkan"
+  ];
 
   # google-chrome
   googleChromeStableBase = pkgs.google-chrome.override {
-    commandLineArgs = [
-      fcitx5Args
-      "--enable-features=Vulkan"
-    ];
+    inherit commandLineArgs;
   };
 
   googleChromeStable =
@@ -43,15 +45,7 @@ let
   # google-chrome-dev / google-chrome-unstable
   googleChromeDev =
     (inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}.google-chrome-dev.override {
-      # use text-input-v3
-      # https://github.com/chromium/chromium/commit/5874fc33585ded8316f6a4336a25da64dc2a7027
-      commandLineArgs = builtins.concatStringsSep " " [
-        fcitx5Args
-        # https://github.com/gpuweb/gpuweb/issues/5022
-        "--enable-features=Vulkan,VulkanFromANGLE,DefaultANGLEVulkan"
-        "--use-gl=angle"
-        "--use-angle=vulkan"
-      ];
+      inherit commandLineArgs;
     }).overrideAttrs
       (old: {
         postFixup = (old.postFixup or "") + ''
