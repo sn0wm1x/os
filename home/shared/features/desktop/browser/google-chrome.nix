@@ -14,8 +14,9 @@
             # force ozone wayland & fcitx5 wayland fix
             # https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#Chromium_.2F_Electron
             "--ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3"
-            # https://wiki.nixos.org/wiki/Chromium#Accelerated_video_playback
-            "--enable-features=Vulkan"
+            # https://github.com/gpuweb/gpuweb/issues/5022
+            "--enable-features=Vulkan,VulkanFromANGLE,DefaultANGLEVulkan"
+            "--use-gl=angle --use-angle=vulkan"
           ];
         })
       ]
