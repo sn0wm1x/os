@@ -131,6 +131,7 @@ words:
   - sched
   - setvars
   - sn0wm1x
+  - socat
   - stdenv
   - substituters
   - subvolume

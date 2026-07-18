@@ -22,5 +22,6 @@
     fd # Better find
     procs # Better ps
     httpie # HTTP client
+    socat # SOcket CAT
   ];
 }
