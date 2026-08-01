@@ -25,5 +25,7 @@
 
   home.persistence."/persist".directories = [
     ".cache/huggingface"
+    ".cache/uv"
+    ".local/share/uv"
   ];
 }
