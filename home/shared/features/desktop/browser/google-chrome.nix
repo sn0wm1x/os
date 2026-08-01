@@ -24,23 +24,22 @@ let
   # google-chrome-dev / google-chrome-unstable
   googleChromeDev =
     (inputs.browser-previews.packages.${pkgs.stdenv.hostPlatform.system}.google-chrome-dev.override {
-      inherit commandLineArgs;
+      commandLineArgs = commandLineArgs ++ [
+        # WebGPU
+        "--enable-features=Vulkan"
+      ];
     }).overrideAttrs
       (old: {
-        commandLineArgs = old.commandLineArgs ++ [
-          # WebGPU
-          "--enable-features=Vulkan"
-        ];
         postFixup = (old.postFixup or "") + ''
-         wrapProgram "$out/bin/google-chrome-stable" \
-            --unset __NV_PRIME_RENDER_OFFLOAD \
-            --unset __NV_PRIME_RENDER_OFFLOAD_PROVIDER \
-            --unset __GLX_VENDOR_LIBRARY_NAME \
-            --set DRI_PRIME pci-0000_00_02_0 \
-            --set __EGL_VENDOR_LIBRARY_FILENAMES /run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json \
-            --set MESA_VK_DEVICE_SELECT '8086:a780!' \
-            --set VK_DRIVER_FILES /run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json \
-            --set __VK_LAYER_NV_optimus non_NVIDIA_only
+          wrapProgram "$out/bin/google-chrome-stable" \
+             --unset __NV_PRIME_RENDER_OFFLOAD \
+             --unset __NV_PRIME_RENDER_OFFLOAD_PROVIDER \
+             --unset __GLX_VENDOR_LIBRARY_NAME \
+             --set DRI_PRIME pci-0000_00_02_0 \
+             --set __EGL_VENDOR_LIBRARY_FILENAMES /run/opengl-driver/share/glvnd/egl_vendor.d/50_mesa.json \
+             --set MESA_VK_DEVICE_SELECT '8086:a780!' \
+             --set VK_DRIVER_FILES /run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json \
+             --set __VK_LAYER_NV_optimus non_NVIDIA_only
         '';
       });
 in
