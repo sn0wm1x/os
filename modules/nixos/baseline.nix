@@ -64,12 +64,12 @@ in
 
     # sched-ext
     # https://wiki.cachyos.org/configuration/sched-ext/#lavd-autopilot--autopower
-    services.scx = {
-      enable = true;
-      package = pkgs.scx.rustscheds; # smaller package, includes scx_lavd
-      scheduler = "scx_lavd";
-      extraArgs = [ "--autopower" ];
-    };
+    # services.scx = {
+    #   enable = true;
+    #   package = pkgs.scx.rustscheds; # smaller package, includes scx_lavd
+    #   scheduler = "scx_lavd";
+    #   extraArgs = [ "--autopower" ];
+    # };
 
     # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/30-zram.rules
     services.udev.extraRules = ''
