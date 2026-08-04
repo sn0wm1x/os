@@ -1,4 +1,9 @@
-{ inputs, outputs, ... }:
+{
+  inputs,
+  outputs,
+  lib,
+  ...
+}:
 {
   imports = [
     ../shared
@@ -19,6 +24,41 @@
   boot.loader.systemd-boot.enable = true;
   # boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Preserve evidence from kernel lockups and reboot automatically.
+  # EFI pstore keeps the tail of the kernel log across the reboot, while the
+  # hardware watchdog is a final fallback if the kernel cannot panic cleanly.
+  boot.kernelParams = [ "nmi_watchdog=1" ];
+  boot.kernelModules = [ "iTCO_wdt" ];
+  boot.blacklistedKernelModules = lib.mkForce [ ];
+  boot.kernel.sysctl = {
+    "kernel.nmi_watchdog" = lib.mkForce 1;
+    "kernel.watchdog_thresh" = 10;
+    "kernel.hardlockup_panic" = 1;
+    "kernel.softlockup_panic" = 1;
+    "kernel.panic_on_oops" = 1;
+    "kernel.panic" = 15;
+  };
+
+  systemd.settings.Manager = {
+    RuntimeWatchdogSec = "30s";
+    RebootWatchdogSec = "2min";
+  };
+
+  environment.etc."systemd/pstore.conf".text = ''
+    [PStore]
+    Storage=external
+    Unlink=yes
+  '';
+
+  hardware.rasdaemon.enable = true;
+
+  # This host uses an ephemeral root, so archived panic and RAS records must
+  # live on the persistent filesystem to survive the next boot.
+  environment.persistence."/persist".directories = [
+    "/var/lib/systemd/pstore"
+    "/var/lib/rasdaemon"
+  ];
 
   networking.hostName = "bluestar";
   networking.networkmanager.enable = true;
