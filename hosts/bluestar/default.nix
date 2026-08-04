@@ -30,7 +30,6 @@
   # hardware watchdog is a final fallback if the kernel cannot panic cleanly.
   boot.kernelParams = [ "nmi_watchdog=1" ];
   boot.kernelModules = [ "iTCO_wdt" ];
-  boot.blacklistedKernelModules = lib.mkForce [ ];
   boot.kernel.sysctl = {
     "kernel.nmi_watchdog" = lib.mkForce 1;
     "kernel.watchdog_thresh" = 10;
