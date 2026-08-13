@@ -39,7 +39,7 @@ in
         "net.ipv4.tcp_wmem" = "4096 16384 16777216";
         # https://github.com/klzgrad/naiveproxy/wiki/Performance-Tuning
         "net.ipv4.tcp_slow_start_after_idle" = 0;
-        # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/sysctl.d/99-cachyos-settings.conf
+        # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/sysctl.d/70-cachyos-settings.conf
         "vm.swappiness" = 100;
         "vm.vfs_cache_pressure" = 50;
         "vm.dirty_bytes" = 268435456;
@@ -50,7 +50,6 @@ in
         "kernel.unprivileged_userns_clone" = 1;
         "kernel.printk" = "3 3 3 3";
         "kernel.kptr_restrict" = 2;
-        "kernel.kexec_load_disabled" = 1;
         "fs.file-max" = 2097152;
         # https://wiki.cachyos.org/configuration/general_system_tweaks/#disabling-split-lock-mitigate
         "kernel.split_lock_mitigate" = 0;
@@ -70,14 +69,6 @@ in
     #   scheduler = "scx_lavd";
     #   extraArgs = [ "--autopower" ];
     # };
-
-    # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/udev/rules.d/30-zram.rules
-    services.udev.extraRules = ''
-      ACTION=="change", \
-      KERNEL=="zram0", \
-      ATTR{initstate}=="1", \
-      SYSCTL{vm.swappiness}="150"
-    '';
 
     nix = {
       # replaced by programs.nh.clean.enable
@@ -123,7 +114,6 @@ in
 
     # zram
     zramSwap.enable = true;
-    zramSwap.memoryPercent = 100;
 
     # sudo-rs
     security.sudo.enable = false;
