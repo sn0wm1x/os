@@ -31,13 +31,9 @@
   # hardware watchdog is a final fallback if the kernel cannot panic cleanly.
   boot.kernelParams = [
     "nmi_watchdog=1"
-    # Keep enough recent graphics output in the kernel ring buffer for pstore
-    # and kdump. 0x1e enables driver, KMS, PRIME, and atomic DRM diagnostics
-    # without the very noisy vblank category.
-    "drm.debug=0x1e"
+    # Keep enough recent kernel output in the ring buffer for pstore and kdump.
     "log_buf_len=32M"
     "i915.error_capture=1"
-    "i915.enable_hangcheck=1"
   ];
   # baseline blacklists hardware watchdog modules globally. This Intel host
   # has an iTCO watchdog, so allow it to be loaded for systemd's watchdog.
