@@ -54,11 +54,6 @@ in
         # https://wiki.cachyos.org/configuration/general_system_tweaks/#disabling-split-lock-mitigate
         "kernel.split_lock_mitigate" = 0;
       };
-      # https://github.com/CachyOS/CachyOS-Settings/blob/master/usr/lib/modprobe.d/blacklist.conf
-      blacklistedKernelModules = [
-        "iTCO_wdt"
-        "sp5100_tco"
-      ];
     };
 
     # sched-ext

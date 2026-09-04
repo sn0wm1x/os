@@ -35,9 +35,6 @@
     "log_buf_len=32M"
     "i915.error_capture=1"
   ];
-  # baseline blacklists hardware watchdog modules globally. This Intel host
-  # has an iTCO watchdog, so allow it to be loaded for systemd's watchdog.
-  boot.blacklistedKernelModules = lib.mkForce [ "sp5100_tco" ];
   boot.kernelModules = [ "iTCO_wdt" ];
   boot.crashDump = {
     enable = true;
