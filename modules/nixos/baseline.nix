@@ -132,7 +132,9 @@ in
     };
 
     # https://wiki.cachyos.org/features/cachyos_settings/#memory-usage-tweaks
-    services.journald.extraConfig = "SystemMaxUse=50M";
+    services.journald.settings.Journal = {
+      SystemMaxUse = "50M";
+    };
 
     # https://github.com/nix-community/nix-ld#installation
     programs.nix-ld = {

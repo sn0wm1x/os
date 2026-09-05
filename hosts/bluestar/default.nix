@@ -141,12 +141,12 @@
 
   # DRM debug output is substantially larger than the normal journal. Keep a
   # bounded persistent window and flush it frequently to reduce loss on reset.
-  services.journald.extraConfig = lib.mkForce ''
-    SystemMaxUse=1G
-    RuntimeMaxUse=256M
-    RateLimitIntervalSec=0
-    SyncIntervalSec=5s
-  '';
+  services.journald.settings.Journal = {
+    SystemMaxUse = "1G";
+    RuntimeMaxUse = "256M";
+    RateLimitIntervalSec = 0;
+    SyncIntervalSec = "5s";
+  };
 
   networking.hostName = "bluestar";
   networking.networkmanager.enable = true;
