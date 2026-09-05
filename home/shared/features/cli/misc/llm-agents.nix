@@ -38,14 +38,12 @@
     # };
   };
 
-  home.packages =
-    (with pkgs.llm-agents; [
-      ccusage
-      # rtk
-      pi
-      agent-browser
-    ])
-    ++ (with outputs.packages.${pkgs.stdenv.hostPlatform.system}; [ kimi-code ]);
+  home.packages = with pkgs.llm-agents; [
+    ccusage
+    # rtk
+    pi
+    agent-browser
+  ];
 
   home.sessionVariables = {
     AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
