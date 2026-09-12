@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   lib,
   ...
@@ -25,12 +24,16 @@
     web.enable = true;
   };
 
-  home.packages = with pkgs.llm-agents; [
-    ccusage
-    # rtk
-    pi
-    agent-browser
-  ];
+  home.packages =
+    (with pkgs.llm-agents; [
+      ccusage
+      # rtk
+      pi
+      agent-browser
+    ])
+    ++ (with pkgs; [
+      devin-cli
+    ]);
 
   home.sessionVariables = {
     AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
@@ -39,5 +42,8 @@
   home.persistence."/persist".directories = [
     ".codex"
     ".pi"
+
+    ".config/devin"
+    ".local/share/devin"
   ];
 }
