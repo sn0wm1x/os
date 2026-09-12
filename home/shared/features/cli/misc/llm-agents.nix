@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  outputs,
   ...
 }:
 {
@@ -24,19 +23,6 @@
     tui.theme = "system";
     enableMcpIntegration = true;
     web.enable = true;
-  };
-
-  # https://home-manager-options.extranix.com/?query=claude-code&release=master
-  programs.claude-code = {
-    enable = true;
-    # package = pkgs.llm-agents.claude-code;
-    settings.theme = "dark";
-    # mcpServers = {
-    #   grep = {
-    #     type = "http";
-    #     url = "https://mcp.grep.app";
-    #   };
-    # };
   };
 
   home.packages = with pkgs.llm-agents; [
