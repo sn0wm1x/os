@@ -29,9 +29,10 @@
     (with pkgs.llm-agents; [
       ccusage
       # rtk
+      dsh
+      opencodex
       pi
       agent-browser
-      opencodex
     ])
     ++ (with pkgs; [
       devin-cli
@@ -40,14 +41,16 @@
   home.sessionVariables = {
     AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
 
-    OPENCODEX_HOME = "${config.xdg.configHome}/opencodex";
+    DSH_HOME = "${config.xdg.stateHome}/dsh";
+    OPENCODEX_HOME = "${config.xdg.stateHome}/opencodex";
   };
 
   home.persistence."/persist".directories = [
     ".codex"
     ".pi"
 
-    ".config/opencodex"
+    ".local/state/dsh"
+    ".local/state/opencodex"
 
     ".config/devin"
     ".local/share/devin"
