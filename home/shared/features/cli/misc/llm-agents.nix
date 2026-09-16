@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -30,6 +31,7 @@
       # rtk
       pi
       agent-browser
+      opencodex
     ])
     ++ (with pkgs; [
       devin-cli
@@ -37,11 +39,15 @@
 
   home.sessionVariables = {
     AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
+
+    OPENCODEX_HOME = "${config.xdg.configHome}/opencodex";
   };
 
   home.persistence."/persist".directories = [
     ".codex"
     ".pi"
+
+    ".config/opencodex"
 
     ".config/devin"
     ".local/share/devin"
