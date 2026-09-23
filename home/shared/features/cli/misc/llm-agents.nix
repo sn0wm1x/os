@@ -29,6 +29,7 @@
     (with pkgs.llm-agents; [
       ccusage
       # rtk
+      chatgpt
       dsh
       opencodex
       pi
@@ -47,6 +48,8 @@
 
   home.persistence."/persist".directories = [
     ".codex"
+    ".config/Codex" # chatgpt
+
     ".pi"
 
     ".local/state/dsh"
