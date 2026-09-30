@@ -13,6 +13,12 @@ in
     })
   ];
 
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/http" = "com.google.Chrome.desktop";
+    "x-scheme-handler/https" = "com.google.Chrome.desktop";
+    "text/html" = "com.google.Chrome.desktop";
+  };
+
   # https://wiki.archlinux.org/title/Profile-sync-daemon
   services.psd.enable = true;
   services.psd.browsers = [ "google-chrome" ];
