@@ -26,6 +26,10 @@
         # "webgl.disabled" = false;
         # Enable letterboxing
         "privacy.resistFingerprinting.letterboxing" = true;
+
+        # English only
+        "intl.locale.requested" = "en-US";
+        "intl.accept_languages" = "en-US,en";
       };
     };
   };
