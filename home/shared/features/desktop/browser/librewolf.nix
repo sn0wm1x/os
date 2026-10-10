@@ -30,6 +30,9 @@
         # English only
         "intl.locale.requested" = "en-US";
         "intl.accept_languages" = "en-US,en";
+
+        # Hide bookmarks
+        "browser.toolbars.bookmarks.visibility" = "never";
       };
     };
   };
