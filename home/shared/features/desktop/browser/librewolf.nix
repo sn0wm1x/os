@@ -3,10 +3,8 @@
   programs.firefox = {
     enable = true;
 
-    package = pkgs.wrapFirefox pkgs.librewolf-unwrapped {
-      inherit (pkgs.librewolf-unwrapped) extraPrefsFiles extraPoliciesFiles;
+    package = pkgs.librewolf-bin.override {
       wmClass = "LibreWolf";
-      libName = "librewolf";
     };
 
     configPath = "${config.xdg.configHome}/librewolf";
