@@ -31,6 +31,12 @@
         "intl.locale.requested" = "en-US";
         "intl.accept_languages" = "en-US,en";
 
+        # Noto fonts
+        "font.system.whitelist" = "Noto Sans,Noto Serif,Noto Sans Mono,Noto Color Emoji";
+        "font.name.sans-serif.x-western" = "Noto Sans";
+        "font.name.serif.x-western" = "Noto Serif";
+        "font.name.monospace.x-western" = "Noto Sans Mono";
+
         # Hide bookmarks
         "browser.toolbars.bookmarks.visibility" = "never";
       };
