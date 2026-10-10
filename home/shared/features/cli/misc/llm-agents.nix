@@ -5,10 +5,6 @@
   ...
 }:
 let
-  machineId = pkgs.writeText "claude-code-machine-id" ''
-    ccdda35929d541dda2ec9be78402a922
-  '';
-
   claude-code-wrapped =
     pkgs.runCommand "claude-code-wrapped"
       {
@@ -23,7 +19,7 @@ let
       ''
         mkdir -p "$out/bin"
 
-        makeWrapper ${lib.getExe pkgs.bubblewrap} "$out/bin/claude" \
+        makeWrapper ${lib.getExe pkgs.llm-agents.claude-code} "$out/bin/claude" \
           \
           --set TZ "Etc/UTC" \
           --set LANG "en_US.UTF-8" \
@@ -40,24 +36,7 @@ let
           --set CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY "1" \
           --set CLAUDE_CODE_ENABLE_TELEMETRY "0" \
           --set CLAUDE_CODE_GATEWAY_HINT_HEADERS "0" \
-          --set CLAUDE_CODE_ATTRIBUTION_HEADER "0" \
-          \
-          --add-flag "--die-with-parent" \
-          \
-          --add-flag "--bind" \
-          --add-flag "/" \
-          --add-flag "/" \
-          \
-          --add-flag "--unshare-uts" \
-          --add-flag "--hostname" \
-          --add-flag "linux" \
-          \
-          --add-flag "--ro-bind" \
-          --add-flag "${machineId}" \
-          --add-flag "/etc/machine-id" \
-          \
-          --add-flag "--" \
-          --add-flag "${lib.getExe pkgs.llm-agents.claude-code}"
+          --set CLAUDE_CODE_ATTRIBUTION_HEADER "0"
       '';
 in
 {
