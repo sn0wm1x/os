@@ -9,10 +9,6 @@ let
     ccdda35929d541dda2ec9be78402a922
   '';
 
-  hostname = pkgs.writeText "claude-code-hostname" ''
-    linux
-  '';
-
   claude-code-wrapped =
     pkgs.runCommand "claude-code-wrapped"
       {
@@ -59,10 +55,6 @@ let
           --add-flag "--ro-bind" \
           --add-flag "${machineId}" \
           --add-flag "/etc/machine-id" \
-          \
-          --add-flag "--ro-bind" \
-          --add-flag "${hostname}" \
-          --add-flag "/etc/hostname" \
           \
           --add-flag "--" \
           --add-flag "${lib.getExe pkgs.llm-agents.claude-code}"
