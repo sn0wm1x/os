@@ -51,6 +51,13 @@
     };
   };
 
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/http" = "librewolf.desktop";
+    "x-scheme-handler/https" = "librewolf.desktop";
+    "text/html" = "librewolf.desktop";
+  };
+
   home.file.".mozilla/firefox/profiles.ini".target = ".librewolf/profiles.ini";
-  home.file.".librewolf/kwa".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.mozilla/firefox/kwa";
+  home.file.".librewolf/kwa".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.mozilla/firefox/kwa";
 }
