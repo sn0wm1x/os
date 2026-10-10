@@ -1,0 +1,6 @@
+{
+  "name": "@sn0wm1x/os",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@12.3.4"
+}
