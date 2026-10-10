@@ -4,6 +4,7 @@
     extensions = with pkgs.vscode-extensions; [ jnoortheen.nix-ide ];
     userSettings = {
       "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
+      "[nix]"."editor.formatOnSave" = true;
       "nix.enableLanguageServer" = true;
       "nix.formatterPath" = "nixfmt";
       "nix.serverPath" = lib.getExe pkgs.nixd;
