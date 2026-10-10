@@ -9,16 +9,12 @@
   imports = [
     ../shared
     ../shared/features/desktop/gnome
-    ../shared/features/virtualisation
     # inputs.chaotic.nixosModules.default
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
     ./services.nix
-    outputs.nixosModules.baseline
-    outputs.nixosModules.baseline-desktop
-    outputs.nixosModules.gaming
-    outputs.nixosModules.impermanence
+    outputs.nixosModules.default
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -156,6 +152,8 @@
   sn0wm1x.baseline-desktop.enable = true;
   sn0wm1x.gaming.enable = true;
   sn0wm1x.impermanence.enable = true;
+  sn0wm1x.virtualisation.docker.enable = true;
+  sn0wm1x.virtualisation.libvirt.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";

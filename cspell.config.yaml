@@ -71,6 +71,7 @@ words:
   - libmfx
   - libstdc
   - libva
+  - libvirtd
   - libvpl
   - libze
   - logicalmonitor
@@ -147,6 +148,7 @@ words:
   - userns
   - vainfo
   - vfat
+  - virt
   - virtualisation
   - wmem
   - writeback
