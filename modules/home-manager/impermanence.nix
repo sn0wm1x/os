@@ -23,9 +23,7 @@ with lib;
         "Videos"
         ".os" # github:sn0wm1x/os
       ];
-      files = [
-        ".ssh/known_hosts"
-      ];
+      files = [ ".ssh/known_hosts" ];
     };
 
     # https://github.com/nix-community/impermanence/issues/256

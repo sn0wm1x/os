@@ -87,18 +87,21 @@ in
     OPENCODEX_HOME = "${config.xdg.stateHome}/opencodex";
   };
 
-  home.persistence."/persist".directories = [
-    ".codex"
-    ".config/Codex" # chatgpt
+  home.persistence."/persist" = {
+    directories = [
+      ".codex"
+      ".config/Codex" # chatgpt
 
-    ".claude"
+      ".claude"
 
-    ".pi"
+      ".pi"
 
-    ".local/state/dsh"
-    ".local/state/opencodex"
+      ".local/state/dsh"
+      ".local/state/opencodex"
 
-    ".config/devin"
-    ".local/share/devin"
-  ];
+      ".config/devin"
+      ".local/share/devin"
+    ];
+    files = [ ".claude.json" ];
+  };
 }
