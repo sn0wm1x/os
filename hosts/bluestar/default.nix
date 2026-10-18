@@ -148,6 +148,21 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
+  # Reset Wi-Fi at boot while allowing it to be enabled manually afterwards.
+  systemd.services.wifi-default-off = {
+    description = "Turn Wi-Fi off by default at boot";
+    wantedBy = [ "multi-user.target" ];
+    requires = [ "NetworkManager.service" ];
+    after = [ "NetworkManager.service" ];
+    before = [ "NetworkManager-wait-online.service" ];
+    restartIfChanged = false;
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${lib.getExe' pkgs.networkmanager "nmcli"} radio wifi off";
+    };
+  };
+
   sn0wm1x.baseline.enable = true;
   sn0wm1x.baseline-desktop.enable = true;
   sn0wm1x.gaming.enable = true;
