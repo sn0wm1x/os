@@ -55,7 +55,6 @@ in
     (with pkgs.llm-agents; [
       ccusage
       # rtk
-      chatgpt
       dsh
       opencode2
       pi
@@ -78,7 +77,6 @@ in
   home.persistence."/persist" = {
     directories = [
       ".codex"
-      ".config/Codex" # chatgpt
 
       ".claude"
 
