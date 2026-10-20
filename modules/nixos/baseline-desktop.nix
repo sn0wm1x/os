@@ -55,7 +55,7 @@ in
         type = "fcitx5";
         fcitx5.addons =
           (with pkgs; [
-            fcitx5-mozc # Japanese
+            # fcitx5-mozc # Japanese
             fcitx5-pinyin-zhwiki
             fcitx5-pinyin-moegirl
           ])
