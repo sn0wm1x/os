@@ -1,11 +1,22 @@
 { pkgs, ... }:
 {
   # git
-  programs.git.enable = true;
-  programs.git.lfs.enable = true;
-  programs.git.settings = {
-    init.defaultBranch = "main";
-    # safe.directory = [];
+  programs.git = {
+    enable = true;
+    package = pkgs.symlinkJoin {
+      name = "git-utc";
+      paths = with pkgs; [ git ];
+      nativeBuildInputs = with pkgs; [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/git \
+          --set TZ "Etc/UTC"
+      '';
+    };
+    lfs.enable = true;
+    settings = {
+      init.defaultBranch = "main";
+      # safe.directory = [];
+    };
   };
 
   # difftastic
