@@ -58,20 +58,21 @@ stdenv.mkDerivation {
 
   makeFlags = kernelModuleMakeFlags ++ [
     "-C"
-    "kernel/gpu_unlock"
-    "KDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+    "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+    "M=$(PWD)/kernel/gpu_unlock"
+    "INSTALL_MOD_PATH=$(out)"
+    "INSTALL_MOD_DIR=extra"
   ];
 
-  installPhase = ''
-    runHook preInstall
-    install -Dm644 kernel/gpu_unlock/gpu_unlock.ko \
-      $out/lib/modules/${kernel.modDirVersion}/extra/gpu_unlock.ko
+  # Kbuild also signs the module and installs its certificate.
+  installTargets = [ "modules_install" ];
+
+  postInstall = ''
     install -Dm644 -t $out/share/licenses/gpu-unlock \
       licenses/GPL-2.0.txt licenses/NVIDIA-MIT.txt licenses/CMP40HX-MIT.txt
     make install-firmware ASSETS="$TMPDIR/assets" \
       FWDIR="$firmware/lib/firmware/gpu-unlock/${nv}" \
       LICENSEDIR="$firmware/share/licenses"
-    runHook postInstall
   '';
 
   meta = {
