@@ -25,8 +25,8 @@
       PARALLEL = "4";
       VISION = "cpu";
       KV = "int8";
-      STRATA_SET = "kv-resident=32768 batch-mtp=on spec=4";
-      TUNE = "skip";
+      STRATA_SET = "kv-resident=32768 batch-mtp=on spec=4 adapt-async=1 pool-affinity=measure";
+      TUNE = "quick";
     };
     extraOptions = [
       "--ulimit=memlock=-1:-1"
