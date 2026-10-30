@@ -23,6 +23,8 @@
   ];
 
   # Blur My Shell
+  dconf.settings."org/gnome/shell/extensions/blur-my-shell/popup".static-blur = true;
+
   dconf.settings."org/gnome/shell/extensions/blur-my-shell/dash-to-dock" = {
     blur = true;
     brightness = 0.6;
