@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   services.ollama = {
     enable = true;
@@ -16,31 +11,24 @@
       OLLAMA_CONTEXT_LENGTH = "131072"; # 128K
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KV_CACHE_TYPE = "q8_0";
-      # Both servers share the model store; avoid startup pruning across instances.
-      OLLAMA_NOPRUNE = "1";
     };
   };
 
-  systemd.services.ollama-cpu = {
-    description = "Ollama CPU-only server";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    environment = {
-      HOME = config.services.ollama.home;
-      OLLAMA_MODELS = config.services.ollama.modelsDir;
-      OLLAMA_HOST = "127.0.0.1:11435";
-      CUDA_VISIBLE_DEVICES = "-1";
-      OLLAMA_CONTEXT_LENGTH = "32768"; # 32K
-      OLLAMA_ORIGINS = "*";
-      OLLAMA_NOPRUNE = "1";
-    };
-    serviceConfig = {
-      Type = "exec";
-      User = config.services.ollama.user;
-      Group = config.services.ollama.group;
-      WorkingDirectory = config.services.ollama.home;
-      ExecStart = "${lib.getExe config.services.ollama.package} serve";
-      Restart = "on-failure";
+  services.llama-cpp = {
+    enable = true;
+    package = pkgs.llama-cpp.override { cudaSupport = false; };
+    settings = {
+      model = "/persist/home/kwa/.cache/huggingface/hub/models--Qwen--Qwen3-Embedding-4B-GGUF/snapshots/f4602530db1d980e16da9d7d3a70294cf5c190be/Qwen3-Embedding-4B-Q4_K_M.gguf";
+      embedding = true;
+      pooling = "last";
+      n-gpu-layers = 0;
+      parallel = 8;
+      ctx-size = 16384;
+      batch-size = 2048;
+      ubatch-size = 2048;
+      threads = 16;
+      host = "127.0.0.1";
+      port = 11435;
     };
   };
 
