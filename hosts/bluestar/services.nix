@@ -44,6 +44,33 @@
     };
   };
 
+  virtualisation.oci-containers.containers.hyperqwen = {
+    image = "ghcr.io/syv-ai/hyperqwen:sha-f382342";
+    cmd = [ "batch" ];
+    ports = [ "127.0.0.1:18020:18020" ];
+    volumes = [
+      "/opt/hyperqwen/models:/app/models"
+      "/opt/hyperqwen/cache:/cache"
+    ];
+    devices = [ "nvidia.com/gpu=0" ];
+    environment = {
+      HOME = "/cache";
+      HOST = "0.0.0.0";
+      KV = "fp8";
+      MAX_LEN = "150000";
+      INT8_LAYERS = ".";
+      PREFIX_CACHE = "1";
+      FAST_VARIANT = "0";
+      DFLASH2 = "0";
+    };
+    extraOptions = [ "--ipc=host" ];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /opt/hyperqwen/models 0750 root root -"
+    "d /opt/hyperqwen/cache 0750 root root -"
+  ];
+
   # virtualisation.oci-containers.containers.strata = {
   #   image = "ghcr.io/niko1221/strata:0.2.8-cuda13";
   #   ports = [ "127.0.0.1:11535:8080" ];
