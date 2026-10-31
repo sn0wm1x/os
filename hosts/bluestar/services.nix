@@ -44,29 +44,29 @@
     };
   };
 
-  virtualisation.oci-containers.containers.strata = {
-    image = "ghcr.io/niko1221/strata:0.2.8-cuda13";
-    ports = [ "127.0.0.1:11535:8080" ];
-    volumes = [ "/opt/strata:/data" ];
-    devices = [ "nvidia.com/gpu=0" ];
-    environment = {
-      API_KEY = "correcthorsebatterystaple";
-      FAMILY = "qwen";
-      MODEL = "IQ2_XS";
-      CONTEXT = "256k";
-      PARALLEL = "4";
-      VISION = "cpu";
-      KV = "int8";
-      STRATA_SET = "kv-resident=32768 batch-mtp=on spec=4 adapt-async=1 pool-affinity=measure";
-      TUNE = "quick";
-    };
-    extraOptions = [
-      "--ulimit=memlock=-1:-1"
-      "--shm-size=2g"
-      "--stop-timeout=120"
-    ];
-  };
+  # virtualisation.oci-containers.containers.strata = {
+  #   image = "ghcr.io/niko1221/strata:0.2.8-cuda13";
+  #   ports = [ "127.0.0.1:11535:8080" ];
+  #   volumes = [ "/opt/strata:/data" ];
+  #   devices = [ "nvidia.com/gpu=0" ];
+  #   environment = {
+  #     API_KEY = "correcthorsebatterystaple";
+  #     FAMILY = "qwen";
+  #     MODEL = "IQ2_XS";
+  #     CONTEXT = "256k";
+  #     PARALLEL = "4";
+  #     VISION = "cpu";
+  #     KV = "int8";
+  #     STRATA_SET = "kv-resident=32768 batch-mtp=on spec=4 adapt-async=1 pool-affinity=measure";
+  #     TUNE = "quick";
+  #   };
+  #   extraOptions = [
+  #     "--ulimit=memlock=-1:-1"
+  #     "--shm-size=2g"
+  #     "--stop-timeout=120"
+  #   ];
+  # };
 
-  systemd.tmpfiles.rules = [ "d /opt/strata 0750 root root -" ];
-  systemd.services.docker-strata.serviceConfig.Restart = lib.mkForce "always";
+  # systemd.tmpfiles.rules = [ "d /opt/strata 0750 root root -" ];
+  # systemd.services.docker-strata.serviceConfig.Restart = lib.mkForce "always";
 }
