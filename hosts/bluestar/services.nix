@@ -44,6 +44,7 @@
     environment = {
       HOME = "/cache";
       HOST = "0.0.0.0";
+      VLLM_API_KEY = "correcthorsebatterystaple";
       KV = "fp8";
       MAX_LEN = "150000";
       INT8_LAYERS = ".";
