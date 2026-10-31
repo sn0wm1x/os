@@ -16,14 +16,18 @@
 
   services.llama-cpp = {
     enable = true;
-    package = pkgs.llama-cpp.override { cudaSupport = false; };
+    package = pkgs.llama-cpp;
     settings = {
       model = "/persist/home/kwa/.cache/huggingface/hub/models--Qwen--Qwen3-Embedding-4B-GGUF/snapshots/f4602530db1d980e16da9d7d3a70294cf5c190be/Qwen3-Embedding-4B-Q4_K_M.gguf";
       embedding = true;
       pooling = "last";
-      n-gpu-layers = 0;
-      parallel = 8;
-      ctx-size = 16384;
+      # On the GPU beside hyperqwen; its GPU_UTIL leaves room for this.
+      n-gpu-layers = 99;
+      flash-attn = "on";
+      cache-type-k = "q8_0";
+      cache-type-v = "q8_0";
+      parallel = 4;
+      ctx-size = 8192;
       batch-size = 2048;
       ubatch-size = 2048;
       threads = 16;
@@ -43,10 +47,13 @@
     devices = [ "nvidia.com/gpu=0" ];
     environment = {
       HOME = "/cache";
+      HF_HUB_DISABLE_XET = "1";
       HOST = "0.0.0.0";
       VLLM_API_KEY = "correcthorsebatterystaple";
       KV = "fp8";
-      MAX_LEN = "150000";
+      # Leave ~4 GiB of the 24 GiB card for the llama-cpp embedder.
+      GPU_UTIL = "0.78";
+      MAX_LEN = "65536";
       INT8_LAYERS = ".";
       PREFIX_CACHE = "1";
       FAST_VARIANT = "0";
