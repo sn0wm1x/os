@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   services.ollama = {
     enable = true;
@@ -11,6 +16,31 @@
       OLLAMA_CONTEXT_LENGTH = "131072"; # 128K
       OLLAMA_FLASH_ATTENTION = "1";
       OLLAMA_KV_CACHE_TYPE = "q8_0";
+      # Both servers share the model store; avoid startup pruning across instances.
+      OLLAMA_NOPRUNE = "1";
+    };
+  };
+
+  systemd.services.ollama-cpu = {
+    description = "Ollama CPU-only server";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    environment = {
+      HOME = config.services.ollama.home;
+      OLLAMA_MODELS = config.services.ollama.modelsDir;
+      OLLAMA_HOST = "127.0.0.1:11435";
+      CUDA_VISIBLE_DEVICES = "-1";
+      OLLAMA_CONTEXT_LENGTH = "32768"; # 32K
+      OLLAMA_ORIGINS = "*";
+      OLLAMA_NOPRUNE = "1";
+    };
+    serviceConfig = {
+      Type = "exec";
+      User = config.services.ollama.user;
+      Group = config.services.ollama.group;
+      WorkingDirectory = config.services.ollama.home;
+      ExecStart = "${lib.getExe config.services.ollama.package} serve";
+      Restart = "on-failure";
     };
   };
 
