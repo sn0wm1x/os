@@ -122,7 +122,7 @@ in
     services.ntpd-rs.useNetworkingTimeServers = true;
     # https://wiki.nixos.org/wiki/NTP
     networking.timeServers = [ "ntp.felixc.at" ] ++ options.networking.timeServers.default;
-    time.timeZone = lib.mkDefault "Asia/Taipei";
+    time.timeZone = lib.mkDefault "Asia/Singapore";
 
     # Networking
     services.resolved.enable = true;
