@@ -4,4 +4,7 @@ let
   files = builtins.readDir ./.;
   overlays = builtins.removeAttrs files [ "default.nix" ];
 in
-builtins.mapAttrs (name: _: import "${./.}/${name}") overlays
+(builtins.mapAttrs (name: _: import "${./.}/${name}") overlays)
+// {
+  local = final: _prev: import ../pkgs final;
+}

@@ -52,7 +52,9 @@ in
 
   programs.t3code = {
     enable = true;
-    package = pkgs.llm-agents.t3code.override { providerPackages = [ ]; };
+    package = pkgs.llm-agents.t3code.override {
+      providerPackages = [ pkgs.antigravity-acp ];
+    };
     server = {
       enable = true;
       extraArgs = [
