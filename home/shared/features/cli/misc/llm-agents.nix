@@ -45,6 +45,11 @@ in
     package = pkgs.llm-agents.codex;
   };
 
+  programs.antigravity-cli = {
+    enable = true;
+    package = pkgs.llm-agents.antigravity-cli;
+  };
+
   programs.t3code = {
     enable = true;
     package = pkgs.llm-agents.t3code.override { providerPackages = [ ]; };
@@ -87,6 +92,8 @@ in
   home.persistence."/persist" = {
     directories = [
       ".codex"
+
+      ".gemini"
 
       ".t3"
 
