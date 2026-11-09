@@ -55,7 +55,12 @@ in
     package = pkgs.llm-agents.t3code.override { providerPackages = [ ]; };
     server = {
       enable = true;
-      extraArgs = [ "--host" "0.0.0.0" "--port" "3773" ];
+      extraArgs = [
+        "--host"
+        "0.0.0.0"
+        "--port"
+        "3773"
+      ];
     };
   };
 
@@ -77,16 +82,14 @@ in
     ++ (with pkgs; [
       cloudflared
       devin-cli
+      (writeShellScriptBin "opencode" ''
+        exec ${lib.getExe llm-agents.opencode2} "$@"
+      '')
     ]);
 
-  home = {
-    sessionVariables = {
-      AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
-      DSH_HOME = "${config.xdg.stateHome}/dsh";
-    };
-    shellAliases = {
-      opencode = "opencode2";
-    };
+  home.sessionVariables = {
+    AGENT_BROWSER_EXECUTABLE_PATH = lib.getExe pkgs.google-chrome;
+    DSH_HOME = "${config.xdg.stateHome}/dsh";
   };
 
   home.persistence."/persist" = {
