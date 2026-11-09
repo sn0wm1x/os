@@ -12,8 +12,10 @@
   nixpkgs.overlays = builtins.attrValues outputs.overlays ++ [
     # https://github.com/nix-community/nix-vscode-extensions#overlay
     inputs.nix-vscode-extensions.overlays.default
-    # https://github.com/numtide/llm-agents.nix#using-overlay
-    inputs.llm-agents.overlays.shared-nixpkgs
+    # Use llm-agents' pinned nixpkgs so its binary cache can be reused.
+    (final: _: {
+      llm-agents = inputs.llm-agents.packages.${final.stdenv.hostPlatform.system};
+    })
   ];
 
   programs.nh = {
