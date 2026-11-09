@@ -45,6 +45,15 @@ in
     package = pkgs.llm-agents.codex;
   };
 
+  programs.t3code = {
+    enable = true;
+    package = pkgs.llm-agents.t3code.override { providerPackages = [ ]; };
+    server = {
+      enable = true;
+      extraArgs = [ "--host" "0.0.0.0" "--port" "3773" ];
+    };
+  };
+
   programs.claude-code = {
     enable = true;
     # package = pkgs.llm-agents.claude-code;
@@ -61,6 +70,7 @@ in
       agent-browser
     ])
     ++ (with pkgs; [
+      cloudflared
       devin-cli
     ]);
 
@@ -77,6 +87,8 @@ in
   home.persistence."/persist" = {
     directories = [
       ".codex"
+
+      ".t3"
 
       ".claude"
 

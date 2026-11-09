@@ -145,6 +145,7 @@
   };
 
   networking.hostName = "bluestar";
+  networking.firewall.interfaces.enp4s0.allowedTCPPorts = [ 3773 ];
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
