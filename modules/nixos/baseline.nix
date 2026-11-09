@@ -125,6 +125,7 @@ in
     time.timeZone = lib.mkDefault "Asia/Singapore";
 
     # Networking
+    networking.nftables.enable = true;
     services.resolved.enable = true;
     networking.networkmanager = lib.mkIf config.networking.networkmanager.enable {
       dns = "systemd-resolved";
