@@ -77,6 +77,7 @@ in
       ccusage
       # rtk
       dsh
+      fx
       opencode2
       pi
       agent-browser
@@ -99,6 +100,8 @@ in
       ".codex"
 
       ".gemini"
+
+      ".fx"
 
       ".t3"
 
