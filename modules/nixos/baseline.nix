@@ -58,11 +58,13 @@ in
 
     # sched-ext
     # https://wiki.cachyos.org/configuration/sched-ext/#lavd-autopilot--autopower
-    services.scx = {
+    services.scx-loader = {
       enable = true;
-      package = pkgs.scx.rustscheds; # smaller package, includes scx_lavd
-      scheduler = "scx_lavd";
-      extraArgs = [ "--autopower" ];
+      config = {
+        default_sched = "scx_lavd";
+        default_mode = "Auto";
+        scheds.scx_lavd.auto_mode = [ "--autopower" ];
+      };
     };
 
     nix = {
