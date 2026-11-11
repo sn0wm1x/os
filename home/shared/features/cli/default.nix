@@ -23,5 +23,6 @@
     procs # Better ps
     httpie # HTTP client
     socat # SOcket CAT
+    bubblewrap
   ];
 }
