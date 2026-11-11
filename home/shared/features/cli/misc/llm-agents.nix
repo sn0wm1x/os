@@ -95,6 +95,10 @@ in
     DSH_HOME = "${config.xdg.stateHome}/dsh";
   };
 
+  systemd.user.services.t3code.Service.Environment = [
+    "DSH_HOME=${config.xdg.stateHome}/dsh"
+  ];
+
   home.persistence."/persist" = {
     directories = [
       ".codex"
@@ -108,6 +112,9 @@ in
       ".claude"
 
       ".pi"
+
+      ".config/opencode"
+      ".local/share/opencode"
 
       ".local/state/dsh"
 
