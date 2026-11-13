@@ -12,6 +12,16 @@ let
   };
 in
 {
+  # Allow the active desktop session to configure these devices through WebHID.
+  # Run before 73-seat-late.rules so logind applies the uaccess ACL.
+  services.udev.packages = [
+    (pkgs.writeTextDir "lib/udev/rules.d/60-mchose-webhid.rules" ''
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="1012", TAG+="uaccess"
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="1018", TAG+="uaccess"
+      SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="3033", TAG+="uaccess"
+    '')
+  ];
+
   imports = with inputs.nixos-hardware.nixosModules; [
     # included common-gpu-intel
     common-cpu-intel
