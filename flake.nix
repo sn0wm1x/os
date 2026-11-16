@@ -46,7 +46,6 @@
       self,
       nixpkgs,
       impermanence,
-      home-manager,
       ...
     }:
     let
@@ -73,6 +72,12 @@
           modules = [ ./hosts/akahitoha ];
         };
 
+        blueplanet = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+          modules = [ ./hosts/blueplanet ];
+        };
+
         # ./hosts/bluestar/README.md
         bluestar = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
@@ -81,19 +86,6 @@
         };
       };
 
-      homeConfigurations = {
-        blueplanet =
-          let
-            pkgs = import nixpkgs {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          in
-          home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            extraSpecialArgs = specialArgs;
-            modules = [ ./home/blueplanet ];
-          };
-      };
+
     };
 }

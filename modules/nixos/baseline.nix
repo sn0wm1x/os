@@ -161,6 +161,7 @@ in
             "wheel"
             "video"
             "audio"
+            "render"
           ]
           ++ lib.optional config.virtualisation.docker.enable "docker";
 
