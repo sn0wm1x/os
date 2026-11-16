@@ -25,6 +25,12 @@
 
   sn0wm1x.baseline.enable = true;
   sn0wm1x.impermanence.enable = true;
+  environment.persistence."/persist".files = [
+    "/etc/ssh/ssh_host_ed25519_key"
+    "/etc/ssh/ssh_host_ed25519_key.pub"
+    "/etc/ssh/ssh_host_rsa_key"
+    "/etc/ssh/ssh_host_rsa_key.pub"
+  ];
   sn0wm1x.virtualisation.docker.enable = true;
   sn0wm1x.virtualisation.libvirt.enable = true;
 
