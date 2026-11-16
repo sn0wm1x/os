@@ -3,6 +3,7 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-vulkan;
+    home = "/opt/ollama";
     user = "ollama";
     environmentVariables = {
       OLLAMA_ORIGINS = "*";
@@ -11,6 +12,4 @@
       OLLAMA_KV_CACHE_TYPE = "q8_0";
     };
   };
-
-  environment.persistence."/persist".directories = [ "/var/lib/ollama" ];
 }

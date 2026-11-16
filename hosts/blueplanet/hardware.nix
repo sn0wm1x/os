@@ -21,6 +21,12 @@
   ];
   boot.kernelModules = [ "kvm-intel" ];
 
+  # Enable ASPM
+  boot.kernelParams = [ "pcie_aspm.policy=powersupersave" ];
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:06:00.0", ATTR{link/l1_aspm}="1"
+  '';
+
   nixpkgs.config.cudaSupport = false;
   nixpkgs.config.rocmSupport = false;
 
