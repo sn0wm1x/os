@@ -5,6 +5,7 @@
     inputs.disko.nixosModules.disko
     ./disko.nix
     ./hardware.nix
+    ./services.nix
     outputs.nixosModules.default
   ];
 
