@@ -1,6 +1,7 @@
 # https://github.com/Misterio77/nix-starter-configs/blob/main/minimal/home-manager/home.nix
 {
   outputs,
+  lib,
   osConfig,
   ...
 }:
@@ -9,9 +10,7 @@ let
 in
 {
   imports = [
-    ../shared/features/audio
     ../shared/features/cli
-    ../shared/features/desktop
     ../shared/features/develop
     ../shared/features/virtualisation
     ./programs
@@ -19,6 +18,9 @@ in
     (./. + "/${host}")
     # sn0wm1x nushell
     outputs.homeManagerModules.nushell
+  ] ++ lib.optionals osConfig.sn0wm1x.baseline-desktop.enable [
+    ../shared/features/audio
+    ../shared/features/desktop
   ];
 
   sn0wm1x.nushell.enable = true;

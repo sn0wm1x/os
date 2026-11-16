@@ -21,6 +21,9 @@
   ];
   boot.kernelModules = [ "kvm-intel" ];
 
+  nixpkgs.config.cudaSupport = false;
+  nixpkgs.config.rocmSupport = false;
+
   hardware.graphics = {
     enable = true;
     extraPackages = [ pkgs.intel-compute-runtime ];
