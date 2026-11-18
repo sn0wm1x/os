@@ -56,6 +56,9 @@ in
       };
     };
 
+    # linux-zen
+    boot.kernelPackages = pkgs.linuxPackages_zen;
+
     # sched-ext
     # https://wiki.cachyos.org/configuration/sched-ext/#lavd-autopilot--autopower
     services.scx-loader = {
