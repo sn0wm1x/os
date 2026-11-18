@@ -36,7 +36,10 @@
     ];
     path = with pkgs; [
       docker
+      ffmpeg
       git
+      ripgrep
+      uv
     ];
     environment = {
       HOME = "/opt/ravu";
