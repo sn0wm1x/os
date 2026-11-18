@@ -46,6 +46,7 @@
     serviceConfig = {
       ExecStart = "/opt/ravu/bin/ravu serve";
       Group = "docker";
+      KillMode = "mixed";
       Restart = "on-failure";
       RestartSec = 5;
       UMask = "0007";
