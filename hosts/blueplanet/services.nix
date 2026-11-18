@@ -53,12 +53,13 @@
       WorkingDirectory = "/opt/ravu";
     };
   };
-  # Containers cannot reach the local network or this host.
+  # Containers cannot reach the local network or this host, except the router's DNS.
   networking.nftables.tables.docker-isolation = {
     family = "inet";
     content = ''
       chain forward {
         type filter hook forward priority filter - 1; policy accept;
+        iifname "docker0" ip daddr 10.0.0.10 meta l4proto { tcp, udp } th dport 53 accept
         iifname "docker0" ip daddr 10.0.0.0/8 drop
       }
       chain input {
