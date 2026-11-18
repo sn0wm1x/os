@@ -21,8 +21,14 @@
   ];
   boot.kernelModules = [ "kvm-intel" ];
 
-  # Enable ASPM
-  boot.kernelParams = [ "pcie_aspm.policy=powersupersave" ];
+  boot.kernelParams = [
+    "pcie_aspm.policy=powersupersave"
+    # Use xe on the Arc A770 so it can enter runtime D3cold.
+    "i915.force_probe=!56a0"
+    "xe.force_probe=56a0"
+    # DisplayPort polling wakes the GPU on this headless host.
+    "drm_kms_helper.poll=0"
+  ];
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:06:00.0", ATTR{link/l1_aspm}="1"
   '';
