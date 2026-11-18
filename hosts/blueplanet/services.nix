@@ -21,9 +21,9 @@
     extraGroups = [ "docker" ];
   };
   systemd.tmpfiles.rules = [
-    "d /opt/ravu 0750 ravu ravu -"
-    "d /opt/ravu/bin 0750 ravu ravu -"
-    "d /opt/ravu/data 0750 ravu ravu -"
+    "d /opt/ravu 2770 ravu docker -"
+    "d /opt/ravu/bin 2770 ravu docker -"
+    "d /opt/ravu/data 2770 ravu docker -"
   ];
   # The binary at /opt/ravu/bin/ravu is not built here; without it the service is skipped.
   systemd.services.ravu = {
@@ -45,9 +45,10 @@
     unitConfig.ConditionPathExists = "/opt/ravu/bin/ravu";
     serviceConfig = {
       ExecStart = "/opt/ravu/bin/ravu serve";
-      Group = "ravu";
+      Group = "docker";
       Restart = "on-failure";
       RestartSec = 5;
+      UMask = "0007";
       User = "ravu";
       WorkingDirectory = "/opt/ravu";
     };
