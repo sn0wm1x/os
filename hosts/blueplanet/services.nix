@@ -28,7 +28,7 @@
   # The binary at /opt/ravu/bin/ravu is not built here; without it the service is skipped.
   systemd.services.ravu = {
     description = "RAVU";
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ ];
     wants = [ "network-online.target" ];
     after = [
       "network-online.target"
