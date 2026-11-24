@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }:
+{ inputs, lib, outputs, pkgs, ... }:
 {
   imports = [
     ../shared
@@ -9,6 +9,8 @@
     outputs.nixosModules.default
   ];
 
+  # Under linux-zen 7.2, Vulkan compute on the Arc GPU (ollama) hangs the xe driver and the whole machine.
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.loader.systemd-boot.enable = true;
   # boot.loader.systemd-boot.configurationLimit = 10;
