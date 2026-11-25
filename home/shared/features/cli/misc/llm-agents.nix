@@ -5,6 +5,20 @@
   ...
 }:
 let
+  t3code = pkgs.llm-agents.t3code.override {
+    providerPackages = [ pkgs.antigravity-acp ];
+  };
+  t3code-wrapped = pkgs.symlinkJoin {
+    name = "t3code-without-telemetry";
+    paths = [ t3code ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram "$out/bin/t3" \
+        --set T3CODE_TELEMETRY_ENABLED false \
+        --set T3CODE_OTEL_SDK_DISABLED true
+    '';
+    meta = t3code.meta;
+  };
   claude-code-wrapped =
     pkgs.runCommand "claude-code-wrapped"
       {
@@ -52,9 +66,7 @@ in
 
   programs.t3code = {
     enable = true;
-    package = pkgs.llm-agents.t3code.override {
-      providerPackages = [ pkgs.antigravity-acp ];
-    };
+    package = t3code-wrapped;
     server = {
       enable = true;
       extraArgs = [
