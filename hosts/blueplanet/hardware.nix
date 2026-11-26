@@ -23,7 +23,7 @@
 
   boot.kernelParams = [
     "pcie_aspm.policy=powersupersave"
-    # Use xe on the Arc A770 so it can enter runtime D3cold.
+    # Use xe on the Arc A770 for runtime power management.
     "i915.force_probe=!56a0"
     "xe.force_probe=56a0"
     # DisplayPort polling wakes the GPU on this headless host.
@@ -31,6 +31,8 @@
   ];
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:06:00.0", ATTR{link/l1_aspm}="1"
+    # Waking the Arc A770 from D3cold sometimes drops it off the bus and hangs the machine.
+    ACTION=="add", SUBSYSTEM=="pci", KERNEL=="0000:03:00.0", ATTR{d3cold_allowed}="0"
   '';
 
   nixpkgs.config.cudaSupport = false;
